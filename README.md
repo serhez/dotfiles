@@ -5,4 +5,4 @@
 * Window switcher & launcher: **Rofi**
 * Terminal: **Termite**
 * Terminal multiplexer: **Tmux**
-* Text Editor (and much more): **NeoVim**
+* Text editor (and much more): **NeoVim**
