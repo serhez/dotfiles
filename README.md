@@ -6,4 +6,4 @@
 * Terminal: **Alacritty**
 * Terminal multiplexer: **Tmux**
 * Text editor (and much more): **NeoVim**
-* For debugging large projects (C++) I also use: **VSCode debugger (not the editor)**
+* For debugging (not editing) I also use: **VSCode debugger**
