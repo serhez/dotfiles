@@ -5,5 +5,5 @@
 * Window switcher & launcher: **Rofi**
 * Terminal: **Alacritty**
 * Terminal multiplexer: **Tmux**
-* Text editor (and much more): **NeoVim**
+* Editor: **NeoVim**
 * Debugger (not editor): **VSCode debugger**
