@@ -1,3 +1,8 @@
+--[[--
+Copyright (C) Sergio Hernandez - All Rights Reserved
+Author: Sergio Hernandez <contact.sergiohernandez@gmail.com>
+Date  : 25.08.2020
+--]]--
 local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
@@ -81,8 +86,8 @@ theme.tasklist_bg_normal = focus
 theme.tasklist_plain_task_name = true
 
 -- titlebar_[bg|fg]_[normal|focus]
-theme.titlebar_bg_normal = grey
-theme.titlebar_bg_focus = grey
+theme.titlebar_bg_normal = bg
+theme.titlebar_bg_focus = bg
 
 -- hotkeys_[bg|fg|border_width|border_color|shape|opacity|modifiers_fg|label_bg|label_fg|group_margi    n|font|description_font]
 theme.hotkeys_modifiers_fg = grey

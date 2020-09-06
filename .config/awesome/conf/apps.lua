@@ -1,11 +1,16 @@
+--[[--
+Copyright (C) Sergio Hernandez - All Rights Reserved
+Author: Sergio Hernandez <contact.sergiohernandez@gmail.com>
+Date  : 25.08.2020
+--]]--
 local awful = require("awful")
 
-awful.spawn("termite", { tag = "" })
+awful.spawn("alacritty", { tag = "" })
 
 return {
   -- List of apps to start by default on some actions
   default = {
-    terminal = 'termite',
+    terminal = 'alacritty',
     editor = 'nvim',
     rofiappmenu = 'rofi -show drun -theme /home/ser/.config/rofi/themes/drun.rasi',
     --lock = 'mantablockscreen',

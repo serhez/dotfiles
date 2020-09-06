@@ -1,3 +1,8 @@
+--[[--
+Copyright (C) Sergio Hernandez - All Rights Reserved
+Author: Sergio Hernandez <contact.sergiohernandez@gmail.com>
+Date  : 25.08.2020
+--]]--
 pcall(require, "luarocks.loader")
 
 local gears = require("gears")
@@ -11,7 +16,6 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 
 require("awful.hotkeys_popup.keys")
 require("module.auto-start")
-require("module.titlebar")
 local topbar = require("module.topbar")
 local apps = require("conf.apps")
 
@@ -84,13 +88,13 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 mytextclock = wibox.widget.textclock()
 
 menu_content = {
-   { "Shut down", "shutdown now" },
-   { "Restart", "reboot" }
+   { "", "shutdown now" },
+   { "", "reboot" }
 }
 menu = awful.menu({ items = menu_content, theme = { 
-    font = 'Noto Sans 10',
+    font = 'Awesome 20',
     height = 50,
-    width = 150,
+    width = 100,
     bg_color = '#282c3488',
     border_color = '#56b6c2ff',
     border_width = 2,
@@ -98,8 +102,8 @@ menu = awful.menu({ items = menu_content, theme = {
 local function showmenu()
   s = awful.screen.focused()
   m_coords = {
-    x = s.geometry.x + s.workarea.width/2-75,
-    y = s.geometry.y + s.workarea.height/2-60
+    x = s.geometry.x + s.workarea.width/2 - 50,
+    y = s.geometry.y + s.workarea.height/2 - 25
   }
   menu:show({coords=m_coords})
 end
@@ -382,8 +386,15 @@ awful.rules.rules = {
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
-      }, properties = { titlebars_enabled = true }
+      }, properties = { titlebars_enabled = false }
     },
+
+    -- Spawn floating clients centered
+    -- { rule_any = {floating = true},
+    --     properties = {
+    --         placement = awful.placement.centered
+    --     }
+    -- }
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
     -- { rule = { class = "Firefox" },
