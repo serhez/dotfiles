@@ -83,6 +83,9 @@ Plug 'mengelbrecht/lightline-bufferline'
 " Search and replace
 Plug 'dkprice/vim-easygrep'
 
+" Concentration mode
+Plug 'junegunn/goyo.vim'
+
 " -----------------------------------------------------------------------------
 " Graveyard
 " -----------------------------------------------------------------------------
