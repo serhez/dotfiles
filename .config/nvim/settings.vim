@@ -10,10 +10,6 @@ set autoread
 " http://stackoverflow.com/questions/2490227/how-does-vims-autoread-work#20418591
 au FocusGained,BufEnter * :silent! !
 
-" Set leader key also to space
-nnoremap <SPACE> <Nop>
-map <SPACE> <leader>
-
 " use Unicode
 set encoding=utf-8
 set fenc=utf-8

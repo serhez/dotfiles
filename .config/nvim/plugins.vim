@@ -9,6 +9,9 @@ Plug 'ryanoasis/vim-devicons'
 " Comments
 Plug 'tpope/vim-commentary'
 
+" A more comprehensive use of '.'
+Plug 'tpope/vim-repeat'
+
 " Lightline
 Plug 'itchyny/lightline.vim'
 Plug 'sinetoami/lightline-hunks'
@@ -30,6 +33,14 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 
 " Conquer Of Completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" More motions to move around a file
+Plug 'easymotion/vim-easymotion'
+
+" Better in-file search
+Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch-fuzzy.vim'
+Plug 'haya14busa/incsearch-easymotion.vim'
 
 " VimDiff
 Plug 'chrisbra/vim-diff-enhanced'

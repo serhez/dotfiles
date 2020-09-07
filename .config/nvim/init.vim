@@ -15,4 +15,6 @@ source $HOME/.config/nvim/plug-config/rnvimr.vim
 source $HOME/.config/nvim/plug-config/cpp-highlights.vim
 source $HOME/.config/nvim/plug-config/header.vim
 source $HOME/.config/nvim/plug-config/rooter.vim
+source $HOME/.config/nvim/plug-config/easymotion.vim
+source $HOME/.config/nvim/plug-config/incsearch.vim
 
