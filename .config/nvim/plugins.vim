@@ -1,7 +1,10 @@
 call plug#begin()
 
-" One dark theme
+" Themes
 Plug 'joshdick/onedark.vim'
+Plug 'arcticicestudio/nord-vim'
+Plug 'altercation/vim-colors-solarized'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 " Vim Dev Icons
 Plug 'ryanoasis/vim-devicons'
@@ -11,6 +14,7 @@ Plug 'tpope/vim-commentary'
 
 " A more comprehensive use of '.'
 Plug 'tpope/vim-repeat'
+Plug 'vim-scripts/visualrepeat'
 
 " Lightline
 Plug 'itchyny/lightline.vim'
@@ -33,6 +37,9 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 
 " Conquer Of Completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Change surroundings
+Plug 'tpope/vim-surround'
 
 " More motions to move around a file
 Plug 'easymotion/vim-easymotion'
@@ -81,10 +88,31 @@ Plug 'tpope/vim-unimpaired'
 Plug 'mengelbrecht/lightline-bufferline'
 
 " Search and replace
-Plug 'dkprice/vim-easygrep'
+Plug 'brooth/far.vim'
 
 " Concentration mode
 Plug 'junegunn/goyo.vim'
+
+" Aligning lines based on a given symbol
+Plug 'junegunn/vim-easy-align'
+
+" Exchange two words
+Plug 'tommcdo/vim-exchange'
+
+" Jump to matching symbol/word (e.g.: opening and closing parentheses) with %
+Plug 'andymass/vim-matchup'
+
+" Visually display marks
+Plug 'kshenoy/vim-signature'
+
+" Add more text objects for better use of c.. y.. d..
+Plug 'wellle/targets.vim'
+
+" Highlight search and replace patterns when using :%s/.../.../...
+Plug 'markonm/traces.vim'
+
+" Add a fade to windows that you are not using
+Plug 'tadaa/vimade'
 
 " -----------------------------------------------------------------------------
 " Graveyard
@@ -121,6 +149,12 @@ Plug 'junegunn/goyo.vim'
 
 " Highlight all matches under cursor
 " Plug 'RRethy/vim-illuminate'
+
+" Find visually selected text
+" Plug 'haya14busa/vim-asterisk'
+
+" To view register contents with " or @
+" Plug 'junegunn/vim-peekaboo'
 
 call plug#end()
 

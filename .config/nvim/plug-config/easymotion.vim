@@ -4,11 +4,12 @@ let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_smartsign_us = 1
 
 " Move to {char}
-" map  <leader><leader>c <Plug>(easymotion-bd-f)
-" nmap <leader><leader>c <Plug>(easymotion-overwin-f)
+" map  f <Plug>(easymotion-bd-f)
+" nmap f <Plug>(easymotion-overwin-f)
 
 " Move to {char}{char}
-nmap s <Plug>(easymotion-overwin-f2)
+nmap s <Plug>(easymotion-overwin-f)
+nmap S <Plug>(easymotion-overwin-f2)
 
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
@@ -19,5 +20,5 @@ map <Leader>k <Plug>(easymotion-k)
 " nmap <Leader><Leader>l <Plug>(easymotion-overwin-line)
 
 " Move to word
-" map  <Leader><Leader>w <Plug>(easymotion-bd-w)
-" nmap <Leader><Leader>w <Plug>(easymotion-overwin-w)
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)

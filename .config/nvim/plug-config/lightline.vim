@@ -1,5 +1,4 @@
 let g:lightline = {
-	\ 'colorscheme': 'onedark',
 	\ 'active': {
 	\   'left': [ [ 'mode', 'paste' ],
 	\             [ 'lightline_hunks', 'readonly', 'filename', 'modified' ] ],
@@ -27,6 +26,8 @@ let g:lightline#bufferline#unicode_symbols  = 1
 let g:lightline#bufferline#clickable        = 1
 let g:lightline#bufferline#show_number      = 0
 let g:lightline#hunks#only_branch           = 1
+
+let g:lightline.colorscheme = 'nord'
 
 " Mappings
 nmap <Leader>1 <Plug>lightline#bufferline#go(1)
