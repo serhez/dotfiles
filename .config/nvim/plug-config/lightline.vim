@@ -27,7 +27,7 @@ let g:lightline#bufferline#clickable        = 1
 let g:lightline#bufferline#show_number      = 0
 let g:lightline#hunks#only_branch           = 1
 
-let g:lightline.colorscheme = 'nord'
+let g:lightline.colorscheme = 'solarized'
 
 " Mappings
 nmap <Leader>1 <Plug>lightline#bufferline#go(1)

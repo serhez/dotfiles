@@ -373,7 +373,7 @@ schemes:
 
 
 # Selected colorscheme
-colors: *nord
+colors: *solarized
 
 # Bell
 #
