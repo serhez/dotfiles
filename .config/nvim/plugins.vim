@@ -6,6 +6,9 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'lifepillar/vim-solarized8'
 Plug 'dracula/vim', { 'as': 'dracula' }
 
+" Highlight all matches under cursor
+Plug 'RRethy/vim-illuminate'
+
 " Vim Dev Icons
 Plug 'ryanoasis/vim-devicons'
 
@@ -41,13 +44,30 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Change surroundings
 Plug 'tpope/vim-surround'
 
+" Better f and t
+Plug 'rhysd/clever-f.vim'
+
+" Add more text objects for better use of c.. y.. d..
+Plug 'wellle/targets.vim'
+Plug 'kana/vim-textobj-user'  " Dependency of underscore textobj
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'coderifous/textobj-word-column.vim'
+Plug 'lucapette/vim-textobj-underscore'
+
 " More motions to move around a file
 Plug 'easymotion/vim-easymotion'
+
+" Multiple cursors
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
 " Better in-file search
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
+Plug 'vim-scripts/IndexedSearch'
+
+" Highlight search and replace patterns when using :%s/.../.../...
+Plug 'markonm/traces.vim'
 
 " VimDiff
 Plug 'chrisbra/vim-diff-enhanced'
@@ -55,12 +75,16 @@ Plug 'chrisbra/vim-diff-enhanced'
 " Switch between header and implementation files
 Plug 'vim-scripts/a.vim'
 
+" Format the file
+Plug 'sbdchd/neoformat'
+
 " Git
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/gv.vim'
 Plug 'rhysd/git-messenger.vim'
+Plug 'mattn/vim-gist'
 
 " Colorizer
 Plug 'norcalli/nvim-colorizer.lua'
@@ -102,17 +126,18 @@ Plug 'tommcdo/vim-exchange'
 " Jump to matching symbol/word (e.g.: opening and closing parentheses) with %
 Plug 'andymass/vim-matchup'
 
-" Visually display marks
+" Visually display marks and bookmarks
 Plug 'kshenoy/vim-signature'
-
-" Add more text objects for better use of c.. y.. d..
-Plug 'wellle/targets.vim'
-
-" Highlight search and replace patterns when using :%s/.../.../...
-Plug 'markonm/traces.vim'
+Plug 'MattesGroeger/vim-bookmarks'
 
 " Add a fade to windows that you are not using
 Plug 'tadaa/vimade'
+
+" Markdown
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+
+" Open a file at a line with 'nvim file.ext:34'
+Plug 'bogado/file-line'
 
 " -----------------------------------------------------------------------------
 " Graveyard
@@ -147,14 +172,26 @@ Plug 'tadaa/vimade'
 " Better tabs
 " Plug 'ap/vim-buftabline'
 
-" Highlight all matches under cursor
-" Plug 'RRethy/vim-illuminate'
-
 " Find visually selected text
 " Plug 'haya14busa/vim-asterisk'
 
 " To view register contents with " or @
 " Plug 'junegunn/vim-peekaboo'
+
+" To style tmux bar from vim
+" Plug 'edkolev/tmuxline.vim'
+
+" To highlight preview of f and t
+" Plug 'hrsh7th/vim-eft'
+
+" Recognise each word in a CamelCased identifier
+" Plug 'bkad/CamelCaseMotion'
+
+" Show nice indent lines
+" Plug 'nathanaelkane/vim-indent-guides'
+
+" Switch between oneliners and multiliners
+" Plug 'AndrewRadev/splitjoin.vim'
 
 call plug#end()
 

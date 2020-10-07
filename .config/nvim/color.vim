@@ -18,5 +18,5 @@ if (empty($TMUX))
   endif
 endif
 
-colorscheme solarized8
+colorscheme nord
 

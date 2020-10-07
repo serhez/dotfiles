@@ -21,7 +21,12 @@ source $HOME/.config/nvim/plug-config/cpp-highlights.vim
 source $HOME/.config/nvim/plug-config/header.vim
 source $HOME/.config/nvim/plug-config/rooter.vim
 source $HOME/.config/nvim/plug-config/easymotion.vim
+source $HOME/.config/nvim/plug-config/clever-f.vim
+source $HOME/.config/nvim/plug-config/eft.vim
 source $HOME/.config/nvim/plug-config/incsearch.vim
 source $HOME/.config/nvim/plug-config/goyo.vim
 source $HOME/.config/nvim/plug-config/codi.vim
+source $HOME/.config/nvim/plug-config/illuminate.vim
+source $HOME/.config/nvim/plug-config/neoformat.vim
+source $HOME/.config/nvim/plug-config/vim-bookmarks.vim
 

@@ -1,1 +1,1 @@
-let g:rooter_patterns = ['.git', 'Makefile', '=src']
+let g:rooter_patterns = ['=src', '.git', 'Makefile']
