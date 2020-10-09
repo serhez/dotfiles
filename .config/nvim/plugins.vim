@@ -1,16 +1,80 @@
 call plug#begin()
 
+
+" ----  APPEARANCE  ----
+
 " Themes
 Plug 'joshdick/onedark.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'lifepillar/vim-solarized8'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'haishanh/night-owl.vim'
+
+" Lightline
+Plug 'itchyny/lightline.vim'
+Plug 'sinetoami/lightline-hunks'
 
 " Highlight all matches under cursor
 Plug 'RRethy/vim-illuminate'
 
 " Vim Dev Icons
 Plug 'ryanoasis/vim-devicons'
+
+" Highlight search and replace patterns when using :%s/.../.../...
+Plug 'markonm/traces.vim'
+
+" VimDiff
+Plug 'chrisbra/vim-diff-enhanced'
+
+" Format the file
+Plug 'sbdchd/neoformat'
+
+" Colorizer
+Plug 'norcalli/nvim-colorizer.lua'
+
+" Better tabs
+Plug 'mengelbrecht/lightline-bufferline'
+
+" Concentration mode
+Plug 'junegunn/goyo.vim'
+
+" Add a fade to windows that you are not using
+Plug 'tadaa/vimade'
+
+" Visually display marks and bookmarks
+Plug 'kshenoy/vim-signature'
+Plug 'MattesGroeger/vim-bookmarks'
+
+
+" ----  NAVIGATION  ----
+
+" Ranger
+Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
+
+" Better in-file search
+Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch-fuzzy.vim'
+Plug 'haya14busa/incsearch-easymotion.vim'
+Plug 'vim-scripts/IndexedSearch'
+
+" Switch between header and implementation files
+Plug 'vim-scripts/a.vim'
+
+" FZF
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" Have the file system follow you around
+Plug 'airblade/vim-rooter'
+
+" Search and replace
+Plug 'brooth/far.vim'
+
+" Open a file at a line with 'nvim file.ext:34'
+Plug 'bogado/file-line'
+
+
+" ----    MOTIONS   ----
 
 " Comments
 Plug 'tpope/vim-commentary'
@@ -19,27 +83,8 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'vim-scripts/visualrepeat'
 
-" Lightline
-Plug 'itchyny/lightline.vim'
-Plug 'sinetoami/lightline-hunks'
-
-" Ranger
-Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
-
-" Integration vim-tmux
-Plug 'christoomey/vim-tmux-navigator'
-
 " Auto pairing for braces, parentheses, etc.
 Plug 'jiangmiao/auto-pairs'
-
-" Saving sessions of vim (for saving tmux environments on system shutdown)
-Plug 'tpope/vim-obsession'
-
-" Highlighting for C/C++
-Plug 'octol/vim-cpp-enhanced-highlight'
-
-" Conquer Of Completion
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Change surroundings
 Plug 'tpope/vim-surround'
@@ -57,26 +102,54 @@ Plug 'lucapette/vim-textobj-underscore'
 " More motions to move around a file
 Plug 'easymotion/vim-easymotion'
 
+" Better w motion
+Plug 'chaoren/vim-wordmotion'
+
+" Improve gx when opening links, Github stuff...
+Plug 'stsewd/gx-extended.vim'
+
 " Multiple cursors
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
-" Better in-file search
-Plug 'haya14busa/incsearch.vim'
-Plug 'haya14busa/incsearch-fuzzy.vim'
-Plug 'haya14busa/incsearch-easymotion.vim'
-Plug 'vim-scripts/IndexedSearch'
+" Lots of great mappings
+Plug 'tpope/vim-unimpaired'
 
-" Highlight search and replace patterns when using :%s/.../.../...
-Plug 'markonm/traces.vim'
+" Exchange two words
+Plug 'tommcdo/vim-exchange'
 
-" VimDiff
-Plug 'chrisbra/vim-diff-enhanced'
+" Jump to matching symbol/word (e.g.: opening and closing parentheses) with %
+Plug 'andymass/vim-matchup'
 
-" Switch between header and implementation files
-Plug 'vim-scripts/a.vim'
 
-" Format the file
-Plug 'sbdchd/neoformat'
+" ----      LSP     ----
+
+" Conquer Of Completion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Highlighting for C/C++
+Plug 'octol/vim-cpp-enhanced-highlight'
+
+
+
+" ----    SCRIPTS   ----
+
+" File header with copyright and other info
+Plug 'alpertuna/vim-header'
+
+" Convert binary, hex, etc..
+Plug 'glts/vim-radical'
+
+" Aligning lines based on a given symbol
+Plug 'junegunn/vim-easy-align'
+
+
+" ---- INTEGRATIONS ----
+
+" Integration vim-tmux
+Plug 'christoomey/vim-tmux-navigator'
+
+" Saving sessions of vim (for saving tmux environments on system shutdown)
+Plug 'tpope/vim-obsession'
 
 " Git
 Plug 'airblade/vim-gitgutter'
@@ -86,58 +159,19 @@ Plug 'junegunn/gv.vim'
 Plug 'rhysd/git-messenger.vim'
 Plug 'mattn/vim-gist'
 
-" Colorizer
-Plug 'norcalli/nvim-colorizer.lua'
-
 " Interactive code
 Plug 'metakirby5/codi.vim'
-
-" FZF
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-
-" File header with copyright and other info
-Plug 'alpertuna/vim-header'
-
-" Convert binary, hex, etc..
-Plug 'glts/vim-radical'
-
-" Have the file system follow you around
-Plug 'airblade/vim-rooter'
-
-" Lots of great mappings
-Plug 'tpope/vim-unimpaired'
-
-" Better tabs
-Plug 'mengelbrecht/lightline-bufferline'
-
-" Search and replace
-Plug 'brooth/far.vim'
-
-" Concentration mode
-Plug 'junegunn/goyo.vim'
-
-" Aligning lines based on a given symbol
-Plug 'junegunn/vim-easy-align'
-
-" Exchange two words
-Plug 'tommcdo/vim-exchange'
-
-" Jump to matching symbol/word (e.g.: opening and closing parentheses) with %
-Plug 'andymass/vim-matchup'
-
-" Visually display marks and bookmarks
-Plug 'kshenoy/vim-signature'
-Plug 'MattesGroeger/vim-bookmarks'
-
-" Add a fade to windows that you are not using
-Plug 'tadaa/vimade'
 
 " Markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
-" Open a file at a line with 'nvim file.ext:34'
-Plug 'bogado/file-line'
+" Jupyter notebooks
+Plug 'goerz/jupytext.vim'
+Plug 'GCBallesteros/vim-textobj-hydrogen'
+
+
+call plug#end()
+
 
 " -----------------------------------------------------------------------------
 " Graveyard
@@ -192,6 +226,4 @@ Plug 'bogado/file-line'
 
 " Switch between oneliners and multiliners
 " Plug 'AndrewRadev/splitjoin.vim'
-
-call plug#end()
 

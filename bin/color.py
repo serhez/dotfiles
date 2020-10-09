@@ -7,6 +7,7 @@ HOME = "/home/ser/"
 
 SUPPORTED = {
         "dracula",
+        "nightowl",
         "nord",
         "onedark",
         "solarized"
@@ -14,6 +15,7 @@ SUPPORTED = {
 
 TMUX_PLUGIN = {
         "nord": "arcticicestudio/nord-tmux",
+        "nightowl": "jsec/tmux-night-owl",
         "onedark": "odedlaz/tmux-onedark-theme",
         "solarized": "seebi/tmux-colors-solarized",
         "dracula": "dracula/tmux"
@@ -21,6 +23,7 @@ TMUX_PLUGIN = {
 
 VIM_COLOR = {
         "nord": "nord",
+        "nightowl": "night-owl",
         "onedark": "onedark",
         "solarized": "solarized8",
         "dracula": "dracula"
@@ -28,6 +31,7 @@ VIM_COLOR = {
 
 LIGHTLINE_COLOR = {
         "nord": "nord",
+        "nightowl": "nightowl",
         "onedark": "onedark",
         "solarized": "solarized",
         "dracula": "dracula"
@@ -73,7 +77,6 @@ replaceAll(HOME + ".Xresources", "colorscheme", '#include ".Xresources.d/colorsc
 replaceAll(HOME + ".config/ranger/scope.sh", "HIGHLIGHT_STYLE",
         "HIGHLIGHT_STYLE=${HIGHLIGHT_STYLE:-base16/" + color + "}")
 
-# TODO: bashrc
 # TODO: BAT_THEME in .profile
 # TODO: AwesomeWM
 # TODO: Rofi
