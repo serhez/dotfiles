@@ -1,0 +1,3 @@
+#!/bin/bash
+ruby $HOME/bin/vim-plugins-profile.rb nvim
+
