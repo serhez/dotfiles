@@ -3,7 +3,8 @@
 * Distro: **Arch**
 * Window manager: **AwesomeWM**
 * Window switcher & launcher: **Rofi**
+* Shell: **ZSH**
 * Terminal: **Alacritty**
 * Terminal multiplexer: **Tmux**
-* Editor / IDE: **NeoVim**
-* Debugger (not editor): **VSCode debugger**
+* Editor / IDE: **Neovim**
+* Debugger (not editor): **VSCode Debugger**
