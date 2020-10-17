@@ -14,9 +14,6 @@ Plug 'haishanh/night-owl.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'sinetoami/lightline-hunks'
 
-" Highlight all matches under cursor
-Plug 'RRethy/vim-illuminate'
-
 " Vim Dev Icons
 Plug 'ryanoasis/vim-devicons'
 
@@ -45,6 +42,9 @@ Plug 'tadaa/vimade'
 Plug 'kshenoy/vim-signature'
 Plug 'MattesGroeger/vim-bookmarks'
 
+" Highlight yanked text
+Plug 'machakann/vim-highlightedyank'
+
 
 " ----  NAVIGATION  ----
 
@@ -63,6 +63,7 @@ Plug 'vim-scripts/a.vim'
 " FZF
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'tweekmonster/fzf-filemru'
 
 " Have the file system follow you around
 Plug 'airblade/vim-rooter'
@@ -72,6 +73,9 @@ Plug 'brooth/far.vim'
 
 " Open a file at a line with 'nvim file.ext:34'
 Plug 'bogado/file-line'
+
+" Side-view of symbols and tags
+Plug 'liuchengxu/vista.vim'
 
 
 " ----    MOTIONS   ----
@@ -96,7 +100,6 @@ Plug 'rhysd/clever-f.vim'
 Plug 'wellle/targets.vim'
 Plug 'kana/vim-textobj-user'  " Dependency of underscore textobj
 Plug 'michaeljsmith/vim-indent-object'
-Plug 'coderifous/textobj-word-column.vim'
 Plug 'lucapette/vim-textobj-underscore'
 
 " More motions to move around a file
@@ -120,15 +123,18 @@ Plug 'tommcdo/vim-exchange'
 " Jump to matching symbol/word (e.g.: opening and closing parentheses) with %
 Plug 'andymass/vim-matchup'
 
+" Paste with indentation
+Plug 'sickill/vim-pasta'
+
 
 " ----      LSP     ----
-
-" Conquer Of Completion
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" Highlighting for C/C++
-Plug 'octol/vim-cpp-enhanced-highlight'
-
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
+Plug 'nvim-lua/diagnostic-nvim'
+Plug 'nvim-lua/lsp-status.nvim'
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter-refactor'
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
 
 " ----    SCRIPTS   ----
@@ -142,11 +148,19 @@ Plug 'glts/vim-radical'
 " Aligning lines based on a given symbol
 Plug 'junegunn/vim-easy-align'
 
+" Auto-reloading buffers when changed on disk
+Plug 'mutewinter/vim-autoreadwatch'
+
+" Open files at last edit position
+Plug 'farmergreg/vim-lastplace'
+
 
 " ---- INTEGRATIONS ----
 
 " Integration vim-tmux
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'roxma/vim-tmux-clipboard'
 
 " Saving sessions of vim (for saving tmux environments on system shutdown)
 Plug 'tpope/vim-obsession'
@@ -226,4 +240,20 @@ call plug#end()
 
 " Switch between oneliners and multiliners
 " Plug 'AndrewRadev/splitjoin.vim'
+
+" Conquer Of Completion
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Highlighting for C/C++
+" Plug 'octol/vim-cpp-enhanced-highlight'
+
+" Column text object
+" Plug 'coderifous/textobj-word-column.vim'
+
+" Highlight all matches under cursor
+" Plug 'RRethy/vim-illuminate'
+
+" Automatically resize windows based on focus
+" WARNING: It messes popup windows size and position, like rnvimr
+" Plug 'roman/golden-ratio'
 

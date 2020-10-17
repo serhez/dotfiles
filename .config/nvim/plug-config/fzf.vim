@@ -17,7 +17,7 @@ let g:fzf_colors =
   \ 'header':  ['fg', 'Comment'] }
 
 " Basic mappings
-nnoremap <silent> <leader>s :Files<CR>
+nnoremap <silent> <leader>s :FilesMru<CR>
 nnoremap <silent> <leader>S :Rg<CR>
 
 " Mapping selecting mappings
