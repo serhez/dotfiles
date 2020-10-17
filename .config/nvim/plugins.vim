@@ -181,7 +181,6 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
 " Jupyter notebooks
 Plug 'goerz/jupytext.vim'
-Plug 'GCBallesteros/vim-textobj-hydrogen'
 
 
 call plug#end()
@@ -256,4 +255,8 @@ call plug#end()
 " Automatically resize windows based on focus
 " WARNING: It messes popup windows size and position, like rnvimr
 " Plug 'roman/golden-ratio'
+
+" Text objects for jupyter notebooks
+" WARNING: It slows down nvim startup a lot
+" Plug 'GCBallesteros/vim-textobj-hydrogen'
 
