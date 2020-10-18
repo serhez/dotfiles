@@ -52,6 +52,10 @@ set autoindent
 " statusline indicates insert or normal mode
 set showmode showcmd
 
+" Avoid 'Press ENTER to continue...'
+set shortmess=a
+set cmdheight=2
+
 " make scrolling and painting fast
 " ttyfast kept for vim compatibility but not needed for nvim
 set ttyfast lazyredraw

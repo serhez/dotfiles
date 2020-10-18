@@ -59,3 +59,4 @@ for _, lsp in ipairs(default_config_servers) do
 end
 
 EOF
+

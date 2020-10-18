@@ -1,18 +1,28 @@
+function! LspStatus() abort
+  if luaeval('#vim.lsp.buf_get_clients() > 0')
+    return luaeval("require('lsp-status').status()")
+  endif
+
+  return ''
+endfunction
+
 let g:lightline = {
 	\ 'active': {
 	\   'left': [ [ 'mode', 'paste' ],
 	\             [ 'lightline_hunks', 'readonly', 'filename', 'modified' ] ],
-    \   'right': [ ['lineinfo'], ['percent'], ['filetype'] ]
+    \   'right': [ ['lineinfo'], ['percent'], ['filetype'], ['lsp_status'] ]
 	\ },
     \ 'tabline': {
     \   'left': [ ['buffers'] ],
     \   'right': [ [] ]
     \ },
     \ 'component_expand': {
-    \   'buffers': 'lightline#bufferline#buffers'
+    \   'buffers':    'lightline#bufferline#buffers',
+    \   'lsp_status': 'LspStatus'
     \ },
     \ 'component_type': {
-    \   'buffers': 'tabsel'
+    \   'buffers': 'tabsel',
+    \   'lsp_status': 'middle'
     \ },
 	\ 'component_function': {
     \   'lightline_hunks': 'lightline#hunks#composer'
@@ -40,3 +50,4 @@ nmap <Leader>7 <Plug>lightline#bufferline#go(7)
 nmap <Leader>8 <Plug>lightline#bufferline#go(8)
 nmap <Leader>9 <Plug>lightline#bufferline#go(9)
 nmap <Leader>0 <Plug>lightline#bufferline#go(10)
+

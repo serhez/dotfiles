@@ -10,7 +10,11 @@ SUPPORTED = {
         "nightowl",
         "nord",
         "onedark",
-        "solarized"
+        "solarized",
+        "gotham",
+        "ayu",
+        "gruvbox",
+        "palenight"
         }
 
 TMUX_PLUGIN = {
@@ -18,7 +22,11 @@ TMUX_PLUGIN = {
         "nightowl": "jsec/tmux-night-owl",
         "onedark": "odedlaz/tmux-onedark-theme",
         "solarized": "seebi/tmux-colors-solarized",
-        "dracula": "dracula/tmux"
+        "dracula": "dracula/tmux",
+        "gotham": "shaneog/tmux-colors-gotham",
+        "ayu": "jibingeo/tmux-colors-ayu",
+        "gruvbox": "egel/tmux-gruvbox",
+        "palenight": "tonylambiris/palenight-tmux"
         }
 
 VIM_COLOR = {
@@ -26,7 +34,11 @@ VIM_COLOR = {
         "nightowl": "night-owl",
         "onedark": "onedark",
         "solarized": "solarized8",
-        "dracula": "dracula"
+        "dracula": "dracula",
+        "gotham": "gotham",
+        "ayu": "ayu",
+        "gruvbox": "gruvbox",
+        "palenight": "palenight"
         }
 
 LIGHTLINE_COLOR = {
@@ -34,7 +46,11 @@ LIGHTLINE_COLOR = {
         "nightowl": "nightowl",
         "onedark": "onedark",
         "solarized": "solarized",
-        "dracula": "dracula"
+        "dracula": "dracula",
+        "gotham": "gotham",
+        "ayu": "ayu",
+        "gruvbox": "gruvbox",
+        "palenight": "palenight"
         }
 
 color = sys.argv[1]

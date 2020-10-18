@@ -326,7 +326,180 @@ schemes:
         magenta: '#6c71c4' # violet
         cyan:    '#93a1a1' # base1
         white:   '#fdf6e3' # base3
-    
+ 
+    ayu: &ayu
+      # Default colors
+      primary:
+        background: '0x0f1419'
+        foreground: '0xe6e1cf'
+
+      # Normal colors
+      normal:
+        black:   '0x000000'
+        red:     '0xf34a4a'
+        green:   '0xbae67e'
+        yellow:  '0xffee99'
+        blue:    '0x73d0ff'
+        magenta: '0xd4bfff'
+        cyan:    '0x83CEC6'
+        white:   '0xf2f2f2'
+
+      # Bright colors
+      bright:
+        black:   '0x737d87'
+        red:     '0xff3333'
+        green:   '0xc2d94c'
+        yellow:  '0xe7c547'
+        blue:    '0x59c2ff'
+        magenta: '0xb77ee0'
+        cyan:    '0x5ccfe6'
+        white:   '0xffffff'
+
+    ayu-light: &ayu-light
+      primary:
+        background: '0xfafafa'
+        foreground: '0x5c6773'
+      cursor:
+        text:   '0x5c6773'
+        cursor: '0xff6a00'
+      normal:
+        black:   '0x000000'
+        red:     '0xff3333'
+        green:   '0x86b300'
+        yellow:  '0xf29718'
+        blue:    '0x41a6d9'
+        magenta: '0xf07178'
+        cyan:    '0x4dbf99'
+        white:   '0xffffff'
+      bright:
+        black:   '0x323232'
+        red:     '0xff6565'
+        green:   '0xb8e532'
+        yellow:  '0xffc94a'
+        blue:    '0x73d8ff'
+        magenta: '0xffa3aa'
+        cyan:    '0x7ff1cb'
+        white:   '0xffffff'
+
+    ayu-mirage: &ayu-mirage
+      # Default colors
+      primary:
+        background: '#1f2430'
+        foreground: '#cbccc6'
+        bright_foreground: '#f28779'
+
+      # Normal colors
+      normal:
+        black:   '#212733' #
+        red:     '#f08778' #
+        green:   '#53bf97' #
+        yellow:  '#fdcc60' #
+        blue:    '#60b8d6' # 
+        magenta: '#ec7171' #
+        cyan:    '#98e6ca' #
+        white:   '#fafafa' #
+
+      # Brightened
+      bright:
+        black: '#686868'
+        red: '#f58c7d'
+        green: '#58c49c'
+        yellow: '#ffd165'
+        blue: '#65bddb'
+        magenta: '#f17676'
+        cyan: '#9debcf'
+        white: '#ffffff'
+
+    gotham: &gotham
+      # Default colors
+      primary:
+        background: '0x0a0f14'
+        foreground: '0x98d1ce'
+
+      # Normal colors
+      normal:
+        black: '0x0a0f14'
+        red: '0xc33027'
+        green: '0x26a98b'
+        yellow: '0xedb54b'
+        blue: '0x195465'
+        magenta: '0x4e5165'
+        cyan: '0x33859d'
+        white: '0x98d1ce'
+
+      # Bright colors
+      bright:
+        black: '0x10151b'
+        red: '0xd26939'
+        green: '0x081f2d'
+        yellow: '0x245361'
+        blue: '0x093748'
+        magenta: '0x888ba5'
+        cyan: '0x599caa'
+        white: '0xd3ebe9'
+
+    gruvbox: &gruvbox
+      # Default colors
+      primary:
+        # hard contrast: background = '#1d2021'
+        background: '#282828'
+        # soft contrast: background = '#32302f'
+        foreground: '#ebdbb2'
+
+      # Normal colors
+      normal:
+        black:   '#282828'
+        red:     '#cc241d'
+        green:   '#98971a'
+        yellow:  '#d79921'
+        blue:    '#458588'
+        magenta: '#b16286'
+        cyan:    '#689d6a'
+        white:   '#a89984'
+
+      # Bright colors
+      bright:
+        black:   '#928374'
+        red:     '#fb4934'
+        green:   '#b8bb26'
+        yellow:  '#fabd2f'
+        blue:    '#83a598'
+        magenta: '#d3869b'
+        cyan:    '#8ec07c'
+        white:   '#ebdbb2'
+  
+    palenight: &palenight
+      # Default colors
+      primary:
+        background: '0x292d3e'
+        foreground: '0x959dcb'
+
+      # Colors the cursor will use if `custom_cursor_colors` is true
+      cursor:
+        text: '0x292d3e'
+        cursor: '0x959dcb'
+
+      # Normal colors
+      normal:
+        black:   '0x292d3e'
+        red:     '0xf07178'
+        green:   '0xc3e88d'
+        yellow:  '0xffcb6b'
+        blue:    '0x82aaff'
+        magenta: '0xc792ea'
+        cyan:    '0x89ddff'
+        white:   '0x959dcb'
+
+      # Bright colors
+      bright:
+        black:   '0x676e95'
+        red:     '0xf78c6c'
+        green:   '0x444267'
+        yellow:  '0x32374d'
+        blue:    '0x8796b0'
+        magenta: '0x959dcb'
+        cyan:    '0xff5370'
+        white:   '0xffffff'
 
     dracula: &dracula
       # Default colors

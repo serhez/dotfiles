@@ -9,6 +9,10 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'lifepillar/vim-solarized8'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'haishanh/night-owl.vim'
+Plug 'whatyouhide/vim-gotham'
+Plug 'ayu-theme/ayu-vim'
+Plug 'morhetz/gruvbox'
+Plug 'drewtempelmeyer/palenight.vim'
 
 " Lightline
 Plug 'itchyny/lightline.vim'
@@ -49,7 +53,7 @@ Plug 'machakann/vim-highlightedyank'
 " ----  NAVIGATION  ----
 
 " Ranger
-Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
+Plug 'kevinhwang91/rnvimr'
 
 " Better in-file search
 Plug 'haya14busa/incsearch.vim'
@@ -196,9 +200,6 @@ call plug#end()
 
 " Start Screen
 " Plug 'mhinz/vim-startify'
-
-" View and search symbols across directory
-" Plug 'liuchengxu/vista.vim'
 
 " Jump to definitions and references (alternative to Coc and language servers)
 " Plug 'pechorin/any-jump.vim'
