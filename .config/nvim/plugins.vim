@@ -139,6 +139,7 @@ Plug 'nvim-lua/lsp-status.nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/nvim-treesitter-refactor'
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'octol/vim-cpp-enhanced-highlight'
 
 
 " ----    SCRIPTS   ----
@@ -243,9 +244,6 @@ call plug#end()
 
 " Conquer Of Completion
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" Highlighting for C/C++
-" Plug 'octol/vim-cpp-enhanced-highlight'
 
 " Column text object
 " Plug 'coderifous/textobj-word-column.vim'

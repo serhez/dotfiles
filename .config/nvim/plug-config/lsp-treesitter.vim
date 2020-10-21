@@ -5,6 +5,11 @@ require'nvim-treesitter.configs'.setup {
 
     highlight = {
         enable = true,            -- false will disable the whole extension
+        use_languagetree = false, -- Use this to enable language injection (this is very unstable)
+    },
+
+    indent = {
+        enable = true
     },
 
     textobjects = {

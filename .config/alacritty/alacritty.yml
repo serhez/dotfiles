@@ -580,7 +580,7 @@ schemes:
 
 
 # Selected colorscheme
-colors: *nord
+colors: *onedark
 
 # Bell
 #

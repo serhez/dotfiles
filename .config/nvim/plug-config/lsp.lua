@@ -30,33 +30,145 @@ local attach_hook = function(client)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lt', "<cmd>lua require'lsp_extensions'.inlay_hints()<CR>", opts)
 end
 
-local default_config_servers = {
-    'bashls',
-    'clangd',
-    'cmake',
-    'cssls',
-    'diagnosticls',
-    'dockerls',
-    'hls',
-    'html',
-    'jdtls',
-    'jsonls',
-    'omnisharp',
-    'pyls',
-    'sourcekit',
-    'sqlls',
-    'sumneko_lua',
-    'texlab',
-    'tsserver',
-    'vimls',
-}
+-- local default_config_servers = {
+--     'bashls',
+--     'clangd',
+--     'cmake',
+--     'cssls',
+--     'diagnosticls',
+--     'dockerls',
+--     'hls',
+--     'html',
+--     'jdtls',
+--     'jsonls',
+--     'omnisharp',
+--     'pyls_ms',
+--     'sourcekit',
+--     'sqlls',
+--     'sumneko_lua',
+--     'texlab',
+--     'tsserver',
+--     'vimls',
+-- }
 
-for _, lsp in ipairs(default_config_servers) do
-    nvim_lsp[lsp].setup {
-        on_attach = attach_hook,
-        capabilities = lsp_status.capabilities,
-    }
-end
+-- for _, lsp in ipairs(default_config_servers) do
+--     nvim_lsp[lsp].setup {
+--         on_attach = attach_hook,
+--         capabilities = lsp_status.capabilities,
+--     }
+-- end
+
+nvim_lsp.bashls.setup({
+    -- callbacks = lsp_status.extensions.bashls.setup(),
+    on_attach = attach_hook,
+    capabilities = lsp_status.capabilities
+})
+
+nvim_lsp.clangd.setup({
+    filetypes = { "c", "cpp", "h", "hpp", "tpp", "objc", "objcpp" },
+    callbacks = lsp_status.extensions.clangd.setup(),
+    init_options = {
+        clangdFileStatus = true
+    },
+    on_attach = attach_hook,
+    capabilities = lsp_status.capabilities
+})
+
+nvim_lsp.cmake.setup({
+    -- callbacks = lsp_status.extensions.cmake.setup(),
+    on_attach = attach_hook,
+    capabilities = lsp_status.capabilities
+})
+
+nvim_lsp.cssls.setup({
+    -- callbacks = lsp_status.extensions.cssls.setup(),
+    on_attach = attach_hook,
+    capabilities = lsp_status.capabilities
+})
+
+nvim_lsp.diagnosticls.setup({
+    -- callbacks = lsp_status.extensions.diagnosticls.setup(),
+    on_attach = attach_hook,
+    capabilities = lsp_status.capabilities
+})
+
+nvim_lsp.dockerls.setup({
+    -- callbacks = lsp_status.extensions.dockerls.setup(),
+    on_attach = attach_hook,
+    capabilities = lsp_status.capabilities
+})
+
+nvim_lsp.hls.setup({
+    -- callbacks = lsp_status.extensions.hls.setup(),
+    on_attach = attach_hook,
+    capabilities = lsp_status.capabilities
+})
+
+nvim_lsp.html.setup({
+    -- callbacks = lsp_status.extensions.html.setup(),
+    on_attach = attach_hook,
+    capabilities = lsp_status.capabilities
+})
+
+nvim_lsp.jdtls.setup({
+    -- callbacks = lsp_status.extensions.jdtls.setup(),
+    on_attach = attach_hook,
+    capabilities = lsp_status.capabilities
+})
+
+nvim_lsp.jsonls.setup({
+    -- callbacks = lsp_status.extensions.jsonls.setup(),
+    on_attach = attach_hook,
+    capabilities = lsp_status.capabilities
+})
+
+nvim_lsp.omnisharp.setup({
+    -- callbacks = lsp_status.extensions.omnisharp.setup(),
+    on_attach = attach_hook,
+    capabilities = lsp_status.capabilities
+})
+
+nvim_lsp.pyls_ms.setup({
+    callbacks = lsp_status.extensions.pyls_ms.setup(),
+    on_attach = attach_hook,
+    capabilities = lsp_status.capabilities
+})
+
+nvim_lsp.sourcekit.setup({
+    -- callbacks = lsp_status.extensions.sourcekit.setup(),
+    on_attach = attach_hook,
+    capabilities = lsp_status.capabilities
+})
+
+nvim_lsp.sqlls.setup({
+    -- callbacks = lsp_status.extensions.sqlls.setup(),
+    on_attach = attach_hook,
+    capabilities = lsp_status.capabilities
+})
+
+nvim_lsp.sumneko_lua.setup({
+    -- callbacks = lsp_status.extensions.sumneko_lua.setup(),
+    on_attach = attach_hook,
+    capabilities = lsp_status.capabilities
+})
+
+nvim_lsp.texlab.setup({
+    -- callbacks = lsp_status.extensions.texlab.setup(),
+    on_attach = attach_hook,
+    capabilities = lsp_status.capabilities
+})
+
+nvim_lsp.tsserver.setup({
+    -- callbacks = lsp_status.extensions.tsserver.setup(),
+    on_attach = attach_hook,
+    capabilities = lsp_status.capabilities
+})
+
+nvim_lsp.vimls.setup({
+    -- callbacks = lsp_status.extensions.vimls.setup(),
+    on_attach = attach_hook,
+    capabilities = lsp_status.capabilities
+})
 
 EOF
 
