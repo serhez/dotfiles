@@ -18,7 +18,8 @@ source $HOME/.config/nvim/plug-config/lightline.vim
 source $HOME/.config/nvim/plug-config/fzf.vim
 source $HOME/.config/nvim/plug-config/far.vim
 source $HOME/.config/nvim/plug-config/vimdiff.vim
-source $HOME/.config/nvim/plug-config/colorizer.vim
+source $HOME/.config/nvim/plug-config/hi-pairs.vim
+source $HOME/.config/nvim/plug-config/hexokinase.vim
 source $HOME/.config/nvim/plug-config/git-gutter.vim
 source $HOME/.config/nvim/plug-config/rnvimr.vim
 source $HOME/.config/nvim/plug-config/header.vim

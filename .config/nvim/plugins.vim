@@ -20,9 +20,13 @@ Plug 'sinetoami/lightline-hunks'
 
 " Vim Dev Icons
 Plug 'ryanoasis/vim-devicons'
+Plug 'kyazdani42/nvim-web-devicons'
 
 " Highlight search and replace patterns when using :%s/.../.../...
 Plug 'markonm/traces.vim'
+
+" Highlight pairs surrounding current cursor position
+Plug 'Yggdroot/hiPairs'
 
 " VimDiff
 Plug 'chrisbra/vim-diff-enhanced'
@@ -31,7 +35,7 @@ Plug 'chrisbra/vim-diff-enhanced'
 Plug 'sbdchd/neoformat'
 
 " Colorizer
-Plug 'norcalli/nvim-colorizer.lua'
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 " Better tabs
 Plug 'mengelbrecht/lightline-bufferline'
@@ -81,6 +85,8 @@ Plug 'bogado/file-line'
 " Side-view of symbols and tags
 Plug 'liuchengxu/vista.vim'
 
+" ToDo list
+Plug 'wsdjeg/vim-todo'
 
 " ----    MOTIONS   ----
 
@@ -105,6 +111,7 @@ Plug 'wellle/targets.vim'
 Plug 'kana/vim-textobj-user'  " Dependency of underscore textobj
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'lucapette/vim-textobj-underscore'
+Plug 'romgrk/equal.operator'
 
 " More motions to move around a file
 Plug 'easymotion/vim-easymotion'
@@ -195,6 +202,9 @@ call plug#end()
 " Graveyard
 " -----------------------------------------------------------------------------
 
+" MRU files for fzf and quickfix
+" Plug 'markwu/vim-mrufiles'
+
 " NERDTree
 " Plug 'scrooloose/nerdtree'
 " Plug 'jistr/vim-nerdtree-tabs'
@@ -258,4 +268,7 @@ call plug#end()
 " Text objects for jupyter notebooks
 " WARNING: It slows down nvim startup a lot
 " Plug 'GCBallesteros/vim-textobj-hydrogen'
+
+" Colorizer
+" Plug 'norcalli/nvim-colorizer.lua'
 
