@@ -18,5 +18,6 @@ if (empty($TMUX))
   endif
 endif
 
+set background=dark  " variant (DO NOT DELETE THIS COMMENT)
 colorscheme onedark
 

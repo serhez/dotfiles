@@ -1,2 +1,2 @@
 #!/bin/bash
-python /home/ser/bin/color.py $1
+python /home/ser/bin/color.py $1 $2

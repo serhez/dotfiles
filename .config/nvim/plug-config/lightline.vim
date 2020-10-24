@@ -2,19 +2,26 @@ function! LspStatus() abort
   if luaeval('#vim.lsp.buf_get_clients() > 0')
     return luaeval("require('lsp-status').status()")
   endif
-
   return ''
+endfunction
+
+function! TreeSitterCurrentElement()
+    let x = luaeval("require'nvim-treesitter'.statusline(50)")
+    return "\uf450 [" . x . ']'
 endfunction
 
 let g:lightline = {
 	\ 'active': {
 	\   'left': [ [ 'mode', 'paste' ],
 	\             [ 'lightline_hunks', 'readonly', 'filename', 'modified' ] ],
-    \   'right': [ ['lineinfo'], ['percent'], ['filetype'], ['lsp_status'] ]
+    \   'right': [ ['lineinfo'], ['percent'], ['devicons_filetype'], ['lsp_status'] ]
 	\ },
     \ 'tabline': {
     \   'left': [ ['buffers'] ],
     \   'right': [ [] ]
+    \ },
+    \ 'component': {
+    \   'currentFunc': '%{TreeSitterCurrentElement()}', 
     \ },
     \ 'component_expand': {
     \   'buffers':    'lightline#bufferline#buffers',
@@ -22,10 +29,11 @@ let g:lightline = {
     \ },
     \ 'component_type': {
     \   'buffers': 'tabsel',
-    \   'lsp_status': 'middle'
+    \   'lsp_status': 'warning'
     \ },
 	\ 'component_function': {
-    \   'lightline_hunks': 'lightline#hunks#composer'
+    \   'lightline_hunks': 'lightline#hunks#composer',
+    \   'devicons_filetype': 'WebDevIconsGetFileTypeSymbol'
 	\ }
 	\ }
 
@@ -50,4 +58,6 @@ nmap <Leader>7 <Plug>lightline#bufferline#go(7)
 nmap <Leader>8 <Plug>lightline#bufferline#go(8)
 nmap <Leader>9 <Plug>lightline#bufferline#go(9)
 nmap <Leader>0 <Plug>lightline#bufferline#go(10)
+
+autocmd CursorMoved call lightline#update()
 

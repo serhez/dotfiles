@@ -12,6 +12,7 @@ source $HOME/.config/nvim/plug-config/nord.vim
 source $HOME/.config/nvim/plug-config/lsp.lua
 source $HOME/.config/nvim/plug-config/lsp-completion.vim
 source $HOME/.config/nvim/plug-config/lsp-treesitter.vim
+source $HOME/.config/nvim/plug-config/lsp-diagnostic.vim
 source $HOME/.config/nvim/plug-config/cpp-highlights.vim
 source $HOME/.config/nvim/plug-config/lightline.vim
 source $HOME/.config/nvim/plug-config/fzf.vim

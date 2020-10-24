@@ -5,7 +5,7 @@ map <SPACE> <leader>
 " Buffers
 nnoremap <silent> <TAB>     :bn<CR>
 nnoremap <silent> <S-TAB>   :bp<CR>
-nnoremap <leader>x          :bd<CR>
+nnoremap <leader>q          :bd<CR>
 
 " Better indenting
 vnoremap < <gv
