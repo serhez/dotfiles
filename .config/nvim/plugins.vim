@@ -20,7 +20,6 @@ Plug 'sinetoami/lightline-hunks'
 
 " Vim Dev Icons
 Plug 'ryanoasis/vim-devicons'
-Plug 'kyazdani42/nvim-web-devicons'
 
 " Highlight search and replace patterns when using :%s/.../.../...
 Plug 'markonm/traces.vim'
@@ -37,7 +36,7 @@ Plug 'sbdchd/neoformat'
 " Colorizer
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
-" Better tabs
+" Buffer tabline
 Plug 'mengelbrecht/lightline-bufferline'
 
 " Concentration mode
@@ -271,4 +270,9 @@ call plug#end()
 
 " Colorizer
 " Plug 'norcalli/nvim-colorizer.lua'
+
+" Buffer line
+" Plug 'kyazdani42/nvim-web-devicons'
+" Plug 'romgrk/lib.kom'
+" Plug 'romgrk/barbar.nvim'
 

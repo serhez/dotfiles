@@ -9,12 +9,12 @@ source $HOME/.config/nvim/plug-config/onedark.vim
 source $HOME/.config/nvim/plug-config/nord.vim
 
 " Plugins
+source $HOME/.config/nvim/plug-config/lightline.vim
 source $HOME/.config/nvim/plug-config/lsp.lua
 source $HOME/.config/nvim/plug-config/lsp-completion.vim
 source $HOME/.config/nvim/plug-config/lsp-treesitter.vim
 source $HOME/.config/nvim/plug-config/lsp-diagnostic.vim
 source $HOME/.config/nvim/plug-config/cpp-highlights.vim
-source $HOME/.config/nvim/plug-config/lightline.vim
 source $HOME/.config/nvim/plug-config/fzf.vim
 source $HOME/.config/nvim/plug-config/far.vim
 source $HOME/.config/nvim/plug-config/vimdiff.vim

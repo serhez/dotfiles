@@ -14,7 +14,7 @@ let g:lightline = {
 	\ 'active': {
 	\   'left': [ [ 'mode', 'paste' ],
 	\             [ 'lightline_hunks', 'readonly', 'filename', 'modified' ] ],
-    \   'right': [ ['lineinfo'], ['percent'], ['devicons_filetype'], ['lsp_status'] ]
+    \   'right': [ ['lineinfo'], ['percent'], ['devicons_filetype'], ]
 	\ },
     \ 'tabline': {
     \   'left': [ ['buffers'] ],
@@ -45,7 +45,7 @@ let g:lightline#bufferline#clickable        = 1
 let g:lightline#bufferline#show_number      = 0
 let g:lightline#hunks#only_branch           = 1
 
-let g:lightline.colorscheme = 'onedark'
+let g:lightline.colorscheme = 'ayu'
 
 " Mappings
 nmap <Leader>1 <Plug>lightline#bufferline#go(1)
