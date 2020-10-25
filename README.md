@@ -7,4 +7,4 @@
 * Terminal: **Alacritty**
 * Terminal multiplexer: **Tmux**
 * Editor / IDE: **Neovim**
-* Debugger (not editor): **VSCode Debugger**
+* Debugger: **VSCode**
