@@ -136,6 +136,8 @@ Plug 'andymass/vim-matchup'
 " Paste with indentation
 Plug 'sickill/vim-pasta'
 
+" Move text in visual mode
+Plug 'Jorengarenar/vim-MvVis'
 
 " ----      LSP     ----
 Plug 'neovim/nvim-lspconfig'

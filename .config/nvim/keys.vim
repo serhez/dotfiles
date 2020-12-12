@@ -3,9 +3,9 @@ nnoremap <SPACE> <Nop>
 map <SPACE> <leader>
 
 " Buffers
-nnoremap <silent> <TAB>     :bn<CR>
-nnoremap <silent> <S-TAB>   :bp<CR>
-nnoremap <leader>q          :bd<CR>
+nnoremap <silent>.  :bn<CR>
+nnoremap <silent>,  :bp<CR>
+nnoremap <leader>q  :bd<CR>
 
 " Better indenting
 vnoremap < <gv
@@ -17,3 +17,5 @@ vnoremap > >gv
 xnoremap K :move '<-2<CR>gv-gv
 xnoremap J :move '>+1<CR>gv-gv
 
+" Go to mark
+nnoremap ; `
