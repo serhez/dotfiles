@@ -1,7 +1,7 @@
 lua << EOF
 
 local lsp_status = require('lsp-status')
-local nvim_lsp = require('nvim_lsp')
+local nvim_lsp = require('lspconfig')
 
 lsp_status.register_progress()
 

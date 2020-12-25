@@ -612,7 +612,7 @@ schemes:
 
 
 # Selected colorscheme
-colors: *ayu-mirage
+colors: *nord
 
 # Bell
 #

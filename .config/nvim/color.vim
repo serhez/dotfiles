@@ -18,6 +18,6 @@ if (empty($TMUX))
   endif
 endif
 
-let ayucolor="mirage"  " variant (DO NOT DELETE THIS COMMENT)
-colorscheme ayu
+set background=dark  " variant (DO NOT DELETE THIS COMMENT)
+colorscheme nord
 
