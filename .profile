@@ -14,7 +14,7 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/bin/site_perl:/usr
 
 # Key bindings
 setxkbmap -option caps:none
-xmodmap .xmodmap
+xmodmap $HOME/.xmodmap
 
 # Aliases
 alias ls='ls --color=auto'
