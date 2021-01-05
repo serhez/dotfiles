@@ -11,7 +11,13 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # ZSH_THEME="jonathan"
-ZSH_THEME="agnoster"
+# ZSH_THEME="agnoster"
+
+# Configure typewritten
+export TYPEWRITTEN_RELATIVE_PATH="off"
+export TYPEWRITTEN_COLORS="current_directory:blue;git_branch:cyan;git_rebasing:cyan"
+ZSH_THEME="typewritten"
+
 DEFAULT_USER=`whoami`
 
 # Set list of themes to pick from when loading at random
