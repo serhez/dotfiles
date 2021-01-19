@@ -1,5 +1,5 @@
 # Dotfiles
-* OS (kernel): **Linux** / **MacOS**
+* OS kernel: **Linux** / **MacOS**
 * Distro (Linux): **Arch**
 * Window manager (Linux): **AwesomeWM**
 * Window switcher & launcher (Linux): **Rofi**
