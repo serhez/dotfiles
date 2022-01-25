@@ -3,7 +3,7 @@
 source $HOME/.profile
 
 # Path to your oh-my-zsh installation.
-export ZSH="/users/ser/.config/.oh-my-zsh"
+export ZSH="$HOME/.config/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -104,7 +104,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-fpath=($fpath "/Users/ser/.zfunctions")
+fpath=($fpath "$HOME/.zfunctions")
 
 # Set typewritten ZSH as a prompt
 autoload -U promptinit; promptinit
