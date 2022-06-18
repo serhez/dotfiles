@@ -6,8 +6,9 @@
 	excludesfile = ~/.config/git/.gitignore_global
 [alias]
 	co = checkout
+    cob = checkout -b
 	b = branch
-	c = commit
+	c = commit -m
 	s = status
 	a = add .
 	ps = push
