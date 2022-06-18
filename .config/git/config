@@ -1,0 +1,15 @@
+[user]
+	name = Sergio Hernandez
+	email = contact.sergiohernandez@gmail.com
+[core]
+	editor = nvim
+	excludesfile = /Users/ser/.config/git/.gitignore_global
+[alias]
+	co = checkout
+	b = branch
+	c = commit
+	s = status
+	a = add .
+	ps = push
+	pl = pull
+	r = rebase
