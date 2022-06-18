@@ -1,17 +1,13 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-source $HOME/.profile
-
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.config/.oh-my-zsh"
+export ZSH="/users/ser/.config/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-export TYPEWRITTEN_RELATIVE_PATH="off"
-export TYPEWRITTEN_COLORS="current_directory:blue;git_branch:cyan;git_rebasing:cyan"
-ZSH_THEME="typewritten/typewritten"
+# export TYPEWRITTEN_RELATIVE_PATH="off"
+# export TYPEWRITTEN_COLORS="current_directory:blue;git_branch:cyan;git_rebasing:cyan"
+# ZSH_THEME="typewritten/typewritten"
 
 DEFAULT_USER="whoami"
 
@@ -79,6 +75,9 @@ plugins=(git vi-mode zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
+# Source my profile after oh-my-zsh, else it will override my custom aliases etc.
+source $HOME/.profile
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -104,8 +103,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-fpath=($fpath "$HOME/.zfunctions")
+fpath=($fpath "/Users/ser/.zfunctions")
 
 # Set typewritten ZSH as a prompt
-autoload -U promptinit; promptinit
-prompt typewritten
+# autoload -U promptinit; promptinit
+# prompt typewritten
+
+eval "$(starship init zsh)"

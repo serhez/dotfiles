@@ -14,3 +14,4 @@
 # export PS1="\[\033[38;2;229;192;123m\]\w\[$(tput sgr0)\] \[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;2;86;182;194m\]>\[$(tput sgr0)\] \[$(tput sgr0)\]"
 export PS1="\[\033[38;2;229;192;123m\]\w\[$(tput sgr0)\] \[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;2;198;120;221m\]>\[$(tput sgr0)\] \[$(tput sgr0)\]"
 
+. "$HOME/.cargo/env"

@@ -3,7 +3,7 @@
 import sys
 import fileinput
 
-HOME = "/home/ser/"
+HOME = "$HOME"
 
 SUPPORTED = {
         "dracula",

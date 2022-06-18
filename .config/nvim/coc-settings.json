@@ -1,6 +1,0 @@
-{
-    "yank.limit": 5,
-    "coc.preferences.formatOnSaveFiletypes": [
-        "json"
-    ]
-}
