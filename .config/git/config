@@ -3,7 +3,7 @@
 	email = contact.sergiohernandez@gmail.com
 [core]
 	editor = nvim
-	excludesfile = /Users/ser/.config/git/.gitignore_global
+	excludesfile = ~/.config/git/.gitignore_global
 [alias]
 	co = checkout
 	b = branch
