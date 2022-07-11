@@ -15,13 +15,13 @@
 # environment variables. Some entries may override variables
 # set by alacritty itself.
 # env:
-  # TERM variable
-  #
-  # This value is used to set the `$TERM` environment variable for
-  # each instance of Alacritty. If it is not present, alacritty will
-  # check the local terminfo database and use `alacritty` if it is
-  # available, otherwise `xterm-256color` is used.
-  # TERM: alacritty
+# TERM variable
+#
+# This value is used to set the `$TERM` environment variable for
+# each instance of Alacritty. If it is not present, alacritty will
+# check the local terminfo database and use `alacritty` if it is
+# available, otherwise `xterm-256color` is used.
+# TERM: alacritty
 
 window:
   # Window opacity
@@ -181,441 +181,428 @@ font:
 
 # Colorschemes
 schemes:
+  nord: &nord
+    primary:
+      background: "#2e3440"
+      foreground: "#d8dee9"
+      dim_foreground: "#a5abb6"
+    cursor:
+      text: "#2e3440"
+      cursor: "#d8dee9"
+    vi_mode_cursor:
+      text: "#2e3440"
+      cursor: "#d8dee9"
+    selection:
+      text: CellForeground
+      background: "#4c566a"
+    search:
+      matches:
+        foreground: CellBackground
+        background: "#88c0d0"
+      bar:
+        background: "#434c5e"
+        foreground: "#d8dee9"
+    normal:
+      black: "#3b4252"
+      red: "#bf616a"
+      green: "#a3be8c"
+      yellow: "#ebcb8b"
+      blue: "#81a1c1"
+      magenta: "#b48ead"
+      cyan: "#88c0d0"
+      white: "#e5e9f0"
+    bright:
+      black: "#4c566a"
+      red: "#bf616a"
+      green: "#a3be8c"
+      yellow: "#ebcb8b"
+      blue: "#81a1c1"
+      magenta: "#b48ead"
+      cyan: "#8fbcbb"
+      white: "#eceff4"
+    dim:
+      black: "#373e4d"
+      red: "#94545d"
+      green: "#809575"
+      yellow: "#b29e75"
+      blue: "#68809a"
+      magenta: "#8c738c"
+      cyan: "#6d96a5"
+      white: "#aeb3bb"
 
-    nord: &nord
-      primary:
-        background: '#2e3440'
-        foreground: '#d8dee9'
-        dim_foreground: '#a5abb6'
-      cursor:
-        text: '#2e3440'
-        cursor: '#d8dee9'
-      vi_mode_cursor:
-        text: '#2e3440'
-        cursor: '#d8dee9'
-      selection:
-        text: CellForeground
-        background: '#4c566a'
-      search:
-        matches:
-          foreground: CellBackground
-          background: '#88c0d0'
-        bar:
-          background: '#434c5e'
-          foreground: '#d8dee9'
-      normal:
-        black: '#3b4252'
-        red: '#bf616a'
-        green: '#a3be8c'
-        yellow: '#ebcb8b'
-        blue: '#81a1c1'
-        magenta: '#b48ead'
-        cyan: '#88c0d0'
-        white: '#e5e9f0'
-      bright:
-        black: '#4c566a'
-        red: '#bf616a'
-        green: '#a3be8c'
-        yellow: '#ebcb8b'
-        blue: '#81a1c1'
-        magenta: '#b48ead'
-        cyan: '#8fbcbb'
-        white: '#eceff4'
-      dim:
-        black: '#373e4d'
-        red: '#94545d'
-        green: '#809575'
-        yellow: '#b29e75'
-        blue: '#68809a'
-        magenta: '#8c738c'
-        cyan: '#6d96a5'
-        white: '#aeb3bb'
+  nightowl: &nightowl # Default colors
+    primary:
+      background: "0x011627"
+      foreground: "0xd6deeb"
 
-    nightowl: &nightowl
-      # Default colors
-      primary:
-        background: '0x011627'
-        foreground: '0xd6deeb'
+    # Colors the cursor will use if `custom_cursor_colors` is true
+    cursor:
+      text: "0xffffff"
+      cursor: "0x7e57c2"
 
-      # Colors the cursor will use if `custom_cursor_colors` is true
-      cursor:
-        text: '0xffffff'
-        cursor: '0x7e57c2'
+    # Normal colors
+    normal:
+      black: "0x000000"
+      red: "0xef5350"
+      green: "0x22da6e"
+      yellow: "0xaddb67"
+      blue: "0x82aaff"
+      magenta: "0xc792ea"
+      cyan: "0x21c7a8"
+      white: "0xffffff"
 
-      # Normal colors
-      normal:
-        black:   '0x000000'
-        red:     '0xef5350'
-        green:   '0x22da6e'
-        yellow:  '0xaddb67'
-        blue:    '0x82aaff'
-        magenta: '0xc792ea'
-        cyan:    '0x21c7a8'
-        white:   '0xffffff'
+    # Bright colors
+    bright:
+      black: "0x575656"
+      red: "0xef5350"
+      green: "0x22da6e"
+      yellow: "0xffeb95"
+      blue: "0x82aaff"
+      magenta: "0xc792ea"
+      cyan: "0x7fdbca"
+      white: "0xffffff"
 
-      # Bright colors
-      bright:
-        black:   '0x575656'
-        red:     '0xef5350'
-        green:   '0x22da6e'
-        yellow:  '0xffeb95'
-        blue:    '0x82aaff'
-        magenta: '0xc792ea'
-        cyan:    '0x7fdbca'
-        white:   '0xffffff'
+  onedark: &onedark # Default colors
+    primary:
+      foreground: "0xabb2bf"
+      background: "0x282c34"
 
-    onedark: &onedark
-      # Default colors
-      primary:
-        foreground: '0xabb2bf'
-        background: '0x282c34'
+    # Cursor colors
+    cursor:
+      text: "0x5c6370"
+      cursor: "0xabb2bf"
 
-      # Cursor colors
-      cursor:
-        text: '0x5c6370'
-        cursor: '0xabb2bf'
+    # Normal colors
+    normal:
+      black: "0x5c6370"
+      red: "0xe06c75"
+      green: "0x98c379"
+      yellow: "0xe5c07b"
+      blue: "0x61afef"
+      magenta: "0xc678dd"
+      cyan: "0x56b6c2"
+      white: "0xabb2bf"
 
-      # Normal colors
-      normal:
-        black:   '0x5c6370'
-        red:     '0xe06c75'
-        green:   '0x98c379'
-        yellow:  '0xe5c07b'
-        blue:    '0x61afef'
-        magenta: '0xc678dd'
-        cyan:    '0x56b6c2'
-        white:   '0xabb2bf'
+    # Bright colors
+    bright:
+      black: "0x4b5263"
+      red: "0xbe5046"
+      green: "0x98c379"
+      yellow: "0xd19a66"
+      blue: "0x61afef"
+      magenta: "0xc678dd"
+      cyan: "0x56b6c2"
+      white: "0x3e4452"
 
-      # Bright colors
-      bright:
-        black:   '0x4b5263'
-        red:     '0xbe5046'
-        green:   '0x98c379'
-        yellow:  '0xd19a66'
-        blue:    '0x61afef'
-        magenta: '0xc678dd'
-        cyan:    '0x56b6c2'
-        white:   '0x3e4452'
+  solarized-dark: &solarized-dark # Default colors
+    primary:
+      background: "#002b36" # base03
+      foreground: "#839496" # base0
 
-    solarized-dark: &solarized-dark
-      # Default colors
-      primary:
-        background: '#002b36' # base03
-        foreground: '#839496' # base0
+    # Cursor colors
+    cursor:
+      text: "#002b36" # base03
+      cursor: "#839496" # base0
 
-      # Cursor colors
-      cursor:
-        text:   '#002b36' # base03
-        cursor: '#839496' # base0
+    # Normal colors
+    normal:
+      black: "#073642" # base02
+      red: "#dc322f" # red
+      green: "#859900" # green
+      yellow: "#b58900" # yellow
+      blue: "#268bd2" # blue
+      magenta: "#d33682" # magenta
+      cyan: "#2aa198" # cyan
+      white: "#eee8d5" # base2
 
-      # Normal colors
-      normal:
-        black:   '#073642' # base02
-        red:     '#dc322f' # red
-        green:   '#859900' # green
-        yellow:  '#b58900' # yellow
-        blue:    '#268bd2' # blue
-        magenta: '#d33682' # magenta
-        cyan:    '#2aa198' # cyan
-        white:   '#eee8d5' # base2
+    # Bright colors
+    bright:
+      black: "#002b36" # base03
+      red: "#cb4b16" # orange
+      green: "#586e75" # base01
+      yellow: "#657b83" # base00
+      blue: "#839496" # base0
+      magenta: "#6c71c4" # violet
+      cyan: "#93a1a1" # base1
+      white: "#fdf6e3" # base3
 
-      # Bright colors
-      bright:
-        black:   '#002b36' # base03
-        red:     '#cb4b16' # orange
-        green:   '#586e75' # base01
-        yellow:  '#657b83' # base00
-        blue:    '#839496' # base0
-        magenta: '#6c71c4' # violet
-        cyan:    '#93a1a1' # base1
-        white:   '#fdf6e3' # base3
+  solarized-light: &solarized-light # Default colors
+    primary:
+      background: "#fdf6e3" # base3
+      foreground: "#657b83" # base00
 
-    solarized-light: &solarized-light
-      # Default colors
-      primary:
-        background: '#fdf6e3' # base3
-        foreground: '#657b83' # base00
+    # Cursor colors
+    cursor:
+      text: "#fdf6e3" # base3
+      cursor: "#657b83" # base00
 
-      # Cursor colors
-      cursor:
-        text:   '#fdf6e3' # base3
-        cursor: '#657b83' # base00
+    # Normal colors
+    normal:
+      black: "#073642" # base02
+      red: "#dc322f" # red
+      green: "#859900" # green
+      yellow: "#b58900" # yellow
+      blue: "#268bd2" # blue
+      magenta: "#d33682" # magenta
+      cyan: "#2aa198" # cyan
+      white: "#eee8d5" # base2
 
-      # Normal colors
-      normal:
-        black:   '#073642' # base02
-        red:     '#dc322f' # red
-        green:   '#859900' # green
-        yellow:  '#b58900' # yellow
-        blue:    '#268bd2' # blue
-        magenta: '#d33682' # magenta
-        cyan:    '#2aa198' # cyan
-        white:   '#eee8d5' # base2
+    # Bright colors
+    bright:
+      black: "#002b36" # base03
+      red: "#cb4b16" # orange
+      green: "#586e75" # base01
+      yellow: "#657b83" # base00
+      blue: "#839496" # base0
+      magenta: "#6c71c4" # violet
+      cyan: "#93a1a1" # base1
+      white: "#fdf6e3" # base3
 
-      # Bright colors
-      bright:
-        black:   '#002b36' # base03
-        red:     '#cb4b16' # orange
-        green:   '#586e75' # base01
-        yellow:  '#657b83' # base00
-        blue:    '#839496' # base0
-        magenta: '#6c71c4' # violet
-        cyan:    '#93a1a1' # base1
-        white:   '#fdf6e3' # base3
- 
-    ayu-dark: &ayu-dark
-      # Default colors
-      primary:
-        background: '0x0f1419'
-        foreground: '0xe6e1cf'
+  ayu-dark: &ayu-dark # Default colors
+    primary:
+      background: "0x0f1419"
+      foreground: "0xe6e1cf"
 
-      # Normal colors
-      normal:
-        black:   '0x000000'
-        red:     '0xf34a4a'
-        green:   '0xbae67e'
-        yellow:  '0xffee99'
-        blue:    '0x73d0ff'
-        magenta: '0xd4bfff'
-        cyan:    '0x83CEC6'
-        white:   '0xf2f2f2'
+    # Normal colors
+    normal:
+      black: "0x000000"
+      red: "0xf34a4a"
+      green: "0xbae67e"
+      yellow: "0xffee99"
+      blue: "0x73d0ff"
+      magenta: "0xd4bfff"
+      cyan: "0x83CEC6"
+      white: "0xf2f2f2"
 
-      # Bright colors
-      bright:
-        black:   '0x737d87'
-        red:     '0xff3333'
-        green:   '0xc2d94c'
-        yellow:  '0xe7c547'
-        blue:    '0x59c2ff'
-        magenta: '0xb77ee0'
-        cyan:    '0x5ccfe6'
-        white:   '0xffffff'
+    # Bright colors
+    bright:
+      black: "0x737d87"
+      red: "0xff3333"
+      green: "0xc2d94c"
+      yellow: "0xe7c547"
+      blue: "0x59c2ff"
+      magenta: "0xb77ee0"
+      cyan: "0x5ccfe6"
+      white: "0xffffff"
 
-    ayu-light: &ayu-light
-      primary:
-        background: '0xfafafa'
-        foreground: '0x5c6773'
-      cursor:
-        text:   '0x5c6773'
-        cursor: '0xff6a00'
-      normal:
-        black:   '0x000000'
-        red:     '0xff3333'
-        green:   '0x86b300'
-        yellow:  '0xf29718'
-        blue:    '0x41a6d9'
-        magenta: '0xf07178'
-        cyan:    '0x4dbf99'
-        white:   '0xffffff'
-      bright:
-        black:   '0x323232'
-        red:     '0xff6565'
-        green:   '0xb8e532'
-        yellow:  '0xffc94a'
-        blue:    '0x73d8ff'
-        magenta: '0xffa3aa'
-        cyan:    '0x7ff1cb'
-        white:   '0xffffff'
+  ayu-light: &ayu-light
+    primary:
+      background: "0xfafafa"
+      foreground: "0x5c6773"
+    cursor:
+      text: "0x5c6773"
+      cursor: "0xff6a00"
+    normal:
+      black: "0x000000"
+      red: "0xff3333"
+      green: "0x86b300"
+      yellow: "0xf29718"
+      blue: "0x41a6d9"
+      magenta: "0xf07178"
+      cyan: "0x4dbf99"
+      white: "0xffffff"
+    bright:
+      black: "0x323232"
+      red: "0xff6565"
+      green: "0xb8e532"
+      yellow: "0xffc94a"
+      blue: "0x73d8ff"
+      magenta: "0xffa3aa"
+      cyan: "0x7ff1cb"
+      white: "0xffffff"
 
-    ayu-mirage: &ayu-mirage
-      # Default colors
-      primary:
-        background: '#212733'
-        foreground: '#d9d7ce'
-        bright_foreground: '#f28779'
+  ayu-mirage: &ayu-mirage # Default colors
+    primary:
+      background: "#212733"
+      foreground: "#d9d7ce"
+      bright_foreground: "#f28779"
 
-      # Normal colors
-      normal:
-        black:   '#212733' #
-        red:     '#f08778' #
-        green:   '#53bf97' #
-        yellow:  '#fdcc60' #
-        blue:    '#60b8d6' # 
-        magenta: '#ec7171' #
-        cyan:    '#98e6ca' #
-        white:   '#fafafa' #
+    # Normal colors
+    normal:
+      black: "#212733" #
+      red: "#f08778" #
+      green: "#53bf97" #
+      yellow: "#fdcc60" #
+      blue: "#60b8d6" #
+      magenta: "#ec7171" #
+      cyan: "#98e6ca" #
+      white: "#fafafa" #
 
-      # Brightened
-      bright:
-        black: '#686868'
-        red: '#f58c7d'
-        green: '#58c49c'
-        yellow: '#ffd165'
-        blue: '#65bddb'
-        magenta: '#f17676'
-        cyan: '#9debcf'
-        white: '#ffffff'
+    # Brightened
+    bright:
+      black: "#686868"
+      red: "#f58c7d"
+      green: "#58c49c"
+      yellow: "#ffd165"
+      blue: "#65bddb"
+      magenta: "#f17676"
+      cyan: "#9debcf"
+      white: "#ffffff"
 
-    gotham: &gotham
-      # Default colors
-      primary:
-        background: '0x0a0f14'
-        foreground: '0x98d1ce'
+  gotham: &gotham # Default colors
+    primary:
+      background: "0x0a0f14"
+      foreground: "0x98d1ce"
 
-      # Normal colors
-      normal:
-        black: '0x0a0f14'
-        red: '0xc33027'
-        green: '0x26a98b'
-        yellow: '0xedb54b'
-        blue: '0x195465'
-        magenta: '0x4e5165'
-        cyan: '0x33859d'
-        white: '0x98d1ce'
+    # Normal colors
+    normal:
+      black: "0x0a0f14"
+      red: "0xc33027"
+      green: "0x26a98b"
+      yellow: "0xedb54b"
+      blue: "0x195465"
+      magenta: "0x4e5165"
+      cyan: "0x33859d"
+      white: "0x98d1ce"
 
-      # Bright colors
-      bright:
-        black: '0x10151b'
-        red: '0xd26939'
-        green: '0x081f2d'
-        yellow: '0x245361'
-        blue: '0x093748'
-        magenta: '0x888ba5'
-        cyan: '0x599caa'
-        white: '0xd3ebe9'
+    # Bright colors
+    bright:
+      black: "0x10151b"
+      red: "0xd26939"
+      green: "0x081f2d"
+      yellow: "0x245361"
+      blue: "0x093748"
+      magenta: "0x888ba5"
+      cyan: "0x599caa"
+      white: "0xd3ebe9"
 
-    gruvbox-dark: &gruvbox-dark
-      # Default colors
-      primary:
-        # hard contrast: background = '#1d2021'
-        background: '#282828'
-        # soft contrast: background = '#32302f'
-        foreground: '#ebdbb2'
+  gruvbox-dark: &gruvbox-dark # Default colors
+    primary:
+      # hard contrast: background = '#1d2021'
+      background: "#282828"
+      # soft contrast: background = '#32302f'
+      foreground: "#ebdbb2"
 
-      # Normal colors
-      normal:
-        black:   '#282828'
-        red:     '#cc241d'
-        green:   '#98971a'
-        yellow:  '#d79921'
-        blue:    '#458588'
-        magenta: '#b16286'
-        cyan:    '#689d6a'
-        white:   '#a89984'
+    # Normal colors
+    normal:
+      black: "#282828"
+      red: "#cc241d"
+      green: "#98971a"
+      yellow: "#d79921"
+      blue: "#458588"
+      magenta: "#b16286"
+      cyan: "#689d6a"
+      white: "#a89984"
 
-      # Bright colors
-      bright:
-        black:   '#928374'
-        red:     '#fb4934'
-        green:   '#b8bb26'
-        yellow:  '#fabd2f'
-        blue:    '#83a598'
-        magenta: '#d3869b'
-        cyan:    '#8ec07c'
-        white:   '#ebdbb2'
+    # Bright colors
+    bright:
+      black: "#928374"
+      red: "#fb4934"
+      green: "#b8bb26"
+      yellow: "#fabd2f"
+      blue: "#83a598"
+      magenta: "#d3869b"
+      cyan: "#8ec07c"
+      white: "#ebdbb2"
 
-    gruvbox-light: &gruvbox-light
-      # Default colors
-      primary:
-        # hard contrast: background = '#f9f5d7'
-        background: '#fbf1c7'
-        # soft contrast: background = '#f2e5bc'
-        foreground: '#3c3836'
+  gruvbox-light: &gruvbox-light # Default colors
+    primary:
+      # hard contrast: background = '#f9f5d7'
+      background: "#fbf1c7"
+      # soft contrast: background = '#f2e5bc'
+      foreground: "#3c3836"
 
-      # Normal colors
-      normal:
-        black:   '#fbf1c7'
-        red:     '#cc241d'
-        green:   '#98971a'
-        yellow:  '#d79921'
-        blue:    '#458588'
-        magenta: '#b16286'
-        cyan:    '#689d6a'
-        white:   '#7c6f64'
+    # Normal colors
+    normal:
+      black: "#fbf1c7"
+      red: "#cc241d"
+      green: "#98971a"
+      yellow: "#d79921"
+      blue: "#458588"
+      magenta: "#b16286"
+      cyan: "#689d6a"
+      white: "#7c6f64"
 
-      # Bright colors
-      bright:
-        black:   '#928374'
-        red:     '#9d0006'
-        green:   '#79740e'
-        yellow:  '#b57614'
-        blue:    '#076678'
-        magenta: '#8f3f71'
-        cyan:    '#427b58'
-        white:   '#3c3836'
-  
-    palenight: &palenight
-      # Default colors
-      primary:
-        background: '0x292d3e'
-        foreground: '0x959dcb'
+    # Bright colors
+    bright:
+      black: "#928374"
+      red: "#9d0006"
+      green: "#79740e"
+      yellow: "#b57614"
+      blue: "#076678"
+      magenta: "#8f3f71"
+      cyan: "#427b58"
+      white: "#3c3836"
 
-      # Colors the cursor will use if `custom_cursor_colors` is true
-      cursor:
-        text: '0x292d3e'
-        cursor: '0x959dcb'
+  palenight: &palenight # Default colors
+    primary:
+      background: "0x292d3e"
+      foreground: "0x959dcb"
 
-      # Normal colors
-      normal:
-        black:   '0x292d3e'
-        red:     '0xf07178'
-        green:   '0xc3e88d'
-        yellow:  '0xffcb6b'
-        blue:    '0x82aaff'
-        magenta: '0xc792ea'
-        cyan:    '0x89ddff'
-        white:   '0x959dcb'
+    # Colors the cursor will use if `custom_cursor_colors` is true
+    cursor:
+      text: "0x292d3e"
+      cursor: "0x959dcb"
 
-      # Bright colors
-      bright:
-        black:   '0x676e95'
-        red:     '0xf78c6c'
-        green:   '0x444267'
-        yellow:  '0x32374d'
-        blue:    '0x8796b0'
-        magenta: '0x959dcb'
-        cyan:    '0xff5370'
-        white:   '0xffffff'
+    # Normal colors
+    normal:
+      black: "0x292d3e"
+      red: "0xf07178"
+      green: "0xc3e88d"
+      yellow: "0xffcb6b"
+      blue: "0x82aaff"
+      magenta: "0xc792ea"
+      cyan: "0x89ddff"
+      white: "0x959dcb"
 
-    dracula: &dracula
-      # Default colors
-      primary:
-        background: '0x282a36'
-        foreground: '0xf8f8f2'
+    # Bright colors
+    bright:
+      black: "0x676e95"
+      red: "0xf78c6c"
+      green: "0x444267"
+      yellow: "0x32374d"
+      blue: "0x8796b0"
+      magenta: "0x959dcb"
+      cyan: "0xff5370"
+      white: "0xffffff"
 
-      cursor:
-        text: '0x44475a'
+  dracula: &dracula # Default colors
+    primary:
+      background: "0x282a36"
+      foreground: "0xf8f8f2"
 
-      selection:
-        text: '0xf8f8f2'
-        background: '0x44475a'
+    cursor:
+      text: "0x44475a"
 
-      # Normal colors
-      normal:
-        black:   '0x000000'
-        red:     '0xff5555'
-        green:   '0x50fa7b'
-        yellow:  '0xf1fa8c'
-        blue:    '0xbd93f9'
-        magenta: '0xff79c6'
-        cyan:    '0x8be9fd'
-        white:   '0xbfbfbf'
+    selection:
+      text: "0xf8f8f2"
+      background: "0x44475a"
 
-      # Bright colors
-      bright:
-        black:   '0x4d4d4d'
-        red:     '0xff6e67'
-        green:   '0x5af78e'
-        yellow:  '0xf4f99d'
-        blue:    '0xcaa9fa'
-        magenta: '0xff92d0'
-        cyan:    '0x9aedfe'
-        white:   '0xe6e6e6'
+    # Normal colors
+    normal:
+      black: "0x000000"
+      red: "0xff5555"
+      green: "0x50fa7b"
+      yellow: "0xf1fa8c"
+      blue: "0xbd93f9"
+      magenta: "0xff79c6"
+      cyan: "0x8be9fd"
+      white: "0xbfbfbf"
 
-      # Dim colors
-      dim:
-        black:   '0x14151b'
-        red:     '0xff2222'
-        green:   '0x1ef956'
-        yellow:  '0xebf85b'
-        blue:    '0x4d5b86'
-        magenta: '0xff46b0'
-        cyan:    '0x59dffc'
-        white:   '0xe6e6d1'
+    # Bright colors
+    bright:
+      black: "0x4d4d4d"
+      red: "0xff6e67"
+      green: "0x5af78e"
+      yellow: "0xf4f99d"
+      blue: "0xcaa9fa"
+      magenta: "0xff92d0"
+      cyan: "0x9aedfe"
+      white: "0xe6e6e6"
 
-      # Indexed Colors
-      indexed_colors: []
+    # Dim colors
+    dim:
+      black: "0x14151b"
+      red: "0xff2222"
+      green: "0x1ef956"
+      yellow: "0xebf85b"
+      blue: "0x4d5b86"
+      magenta: "0xff46b0"
+      cyan: "0x59dffc"
+      white: "0xe6e6d1"
 
+    # Indexed Colors
+    indexed_colors: []
 
 # Selected colorscheme
 colors: *onedark
@@ -624,49 +611,49 @@ colors: *onedark
 #
 # The bell is rung every time the BEL control character is received.
 #bell:
-  # Visual Bell Animation
-  #
-  # Animation effect for flashing the screen when the visual bell is rung.
-  #
-  # Values for `animation`:
-  #   - Ease
-  #   - EaseOut
-  #   - EaseOutSine
-  #   - EaseOutQuad
-  #   - EaseOutCubic
-  #   - EaseOutQuart
-  #   - EaseOutQuint
-  #   - EaseOutExpo
-  #   - EaseOutCirc
-  #   - Linear
-  #animation: EaseOutExpo
+# Visual Bell Animation
+#
+# Animation effect for flashing the screen when the visual bell is rung.
+#
+# Values for `animation`:
+#   - Ease
+#   - EaseOut
+#   - EaseOutSine
+#   - EaseOutQuad
+#   - EaseOutCubic
+#   - EaseOutQuart
+#   - EaseOutQuint
+#   - EaseOutExpo
+#   - EaseOutCirc
+#   - Linear
+#animation: EaseOutExpo
 
-  # Duration of the visual bell flash. A `duration` of `0` will disable the
-  # visual bell animation.
-  #duration: 0
+# Duration of the visual bell flash. A `duration` of `0` will disable the
+# visual bell animation.
+#duration: 0
 
-  # Visual bell animation color.
-  #color: '#ffffff'
+# Visual bell animation color.
+#color: '#ffffff'
 
-  # Bell Command
-  #
-  # This program is executed whenever the bell is rung.
-  #
-  # When set to `command: None`, no command will be executed.
-  #
-  # Example:
-  #   command:
-  #     program: notify-send
-  #     args: ["Hello, World!"]
-  #
-  #command: None
+# Bell Command
+#
+# This program is executed whenever the bell is rung.
+#
+# When set to `command: None`, no command will be executed.
+#
+# Example:
+#   command:
+#     program: notify-send
+#     args: ["Hello, World!"]
+#
+#command: None
 
 #selection:
-  # This string contains all characters that are used as separators for "semantic words" in Alacritty.
-  #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+# This string contains all characters that are used as separators for "semantic words" in Alacritty.
+#semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
 
-  # When set to `true`, selected text will be copied to the primary clipboard.
-  #save_to_clipboard: false
+# When set to `true`, selected text will be copied to the primary clipboard.
+#save_to_clipboard: false
 
 cursor:
   # Cursor style
@@ -742,26 +729,26 @@ mouse:
   hide_when_typing: true
 
   #url:
-    # URL launcher
-    #
-    # This program is executed when clicking on a text which is recognized as a URL.
-    # The URL is always added to the command as the last parameter.
-    #
-    # When set to `launcher: None`, URL launching will be disabled completely.
-    #
-    # Default:
-    #   - (macOS) open
-    #   - (Linux/BSD) xdg-open
-    #   - (Windows) explorer
-    #launcher:
-      #program: xdg-open
-      #args: []
+  # URL launcher
+  #
+  # This program is executed when clicking on a text which is recognized as a URL.
+  # The URL is always added to the command as the last parameter.
+  #
+  # When set to `launcher: None`, URL launching will be disabled completely.
+  #
+  # Default:
+  #   - (macOS) open
+  #   - (Linux/BSD) xdg-open
+  #   - (Windows) explorer
+  #launcher:
+  #program: xdg-open
+  #args: []
 
-    # URL modifiers
-    #
-    # These are the modifiers that need to be held down for opening URLs when clicking
-    # on them. The available modifiers are documented in the key binding section.
-    #modifiers: None
+  # URL modifiers
+  #
+  # These are the modifiers that need to be held down for opening URLs when clicking
+  # on them. The available modifiers are documented in the key binding section.
+  #modifiers: None
 
 # Mouse bindings
 #
@@ -1029,8 +1016,8 @@ key_bindings:
   #- { key: N,      mods: Shift,         mode: Vi, action: SearchPrevious          }
 
   # (Windows, Linux, and BSD only)
-  - { key: V,        mods: Control|Shift,           action: Paste            }
-  - { key: C,        mods: Control|Shift,           action: Copy             }
+  - { key: V, mods: Control|Shift, action: Paste }
+  - { key: C, mods: Control|Shift, action: Copy }
   #- { key: F,        mods: Control|Shift,           action: SearchForward    }
   #- { key: B,        mods: Control|Shift,           action: SearchBackward   }
   #- { key: C,        mods: Control|Shift, mode: Vi, action: ClearSelection   }
@@ -1062,25 +1049,23 @@ key_bindings:
   #- { key: F,      mods: Command|Control,    action: ToggleFullscreen }
   #- { key: F,      mods: Command,            action: SearchForward    }
   #- { key: B,      mods: Command,            action: SearchBackward   }
-
 #debug:
-  # Display the time it takes to redraw each frame.
-  #render_timer: false
+# Display the time it takes to redraw each frame.
+#render_timer: false
 
-  # Keep the log file after quitting Alacritty.
-  #persistent_logging: false
+# Keep the log file after quitting Alacritty.
+#persistent_logging: false
 
-  # Log level
-  #
-  # Values for `log_level`:
-  #   - None
-  #   - Error
-  #   - Warn
-  #   - Info
-  #   - Debug
-  #   - Trace
-  #log_level: Warn
+# Log level
+#
+# Values for `log_level`:
+#   - None
+#   - Error
+#   - Warn
+#   - Info
+#   - Debug
+#   - Trace
+#log_level: Warn
 
-  # Print all received window events.
-  #print_events: false
-  
+# Print all received window events.
+#print_events: false

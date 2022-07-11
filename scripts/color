@@ -1,2 +1,98 @@
 #!/bin/bash
-python /home/ser/bin/color.py $1 $2
+# vim: ai:ts=4:sw=4:noet
+# Dynamically change your colorscheme
+
+supported=("dracula" "nightowl" "nord" "onedark" "solarized" "gotham" "ayu" "gruvbox" "palenight")
+supported_printable=("dracula" "nightowl" "nord" "onedark" "-v [dark(default),light] solarized" "gotham" "-v [dark(default),light,mirage] ayu" "-v [dark(default),light] gruvbox" "palenight")
+
+declare tmux_plugins
+tmux_plugins=(["nord"]="arcticicestudio/nord-tmux" ["nightowl"]="jsec/tmux-night-owl" ["onedark"]="odedlaz/tmux-onedark-theme" ["solarized"]="seebi/tmux-colors-solarized" ["dracula"]="dracula/tmux" ["gotham"]="shaneog/tmux-colors-gotham" ["ayu"]="jibingeo/tmux-colors-ayu" ["gruvbox"]="egel/tmux-gruvbox" ["palenight"]="tonylambiris/palenight-tmux")
+
+declare nvim_colors
+nvim_colors=(["nord"]="nord" ["nightowl"]="night-owl" ["onedark"]="onedark" ["solarized"]="solarized8" ["dracula"]="dracula" ["gotham"]="gotham" ["ayu"]="ayu" ["gruvbox"]="gruvbox" ["palenight"]="palenight")
+
+print_help() {
+    echo "You must provide a colorscheme as an argument to the script."
+    echo "You can additionally provide variants of that colorscheme using the -v flag."
+    echo "Note that flags must precede the colorscheme name."
+    echo ""
+    echo "The supported colorschemes are:"
+    for ((i = 0; i < ${#supported_printable[@]}; i++))
+    do
+        echo "  $i. ${supported_printable[$i]}"
+    done
+    echo ""
+    echo "Example: color -v mirage ayu."
+}
+
+variant=""
+while getopts 'hv:' flag; do
+    case "${flag}" in
+        v) variant="${OPTARG}" ;;
+        h) print_help
+           exit 0 ;;
+        *) print_help
+           exit 1 ;;
+    esac
+done
+shift $(( OPTIND - 1 ))
+
+if [ "$1" == "" ];
+then
+    echo "You need to specify a color; use -h for help."
+    exit 1
+fi
+color=$1
+
+if [[ ! " ${supported[*]} " =~ " ${color} " ]];
+then
+    echo "ERROR: The proposed -i color is not currently supported."
+    exit 1
+fi
+
+if [[ ("$variant" != "" && "$variant" != "dark" && "$variant" != "light" && "$variant" != "mirage") || 
+    ("$variant" == "mirage" && "$color" != "ayu") ||
+    ("$variant" != "" && "$color" != "ayu" && "$color" != "solarized" && "$color" != "gruvbox") ||
+    (("$color" == "ayu" || "$color" == "solarized" || "$color" == "gruvbox") && "$variant" == "")
+]];
+then
+    echo "You need to specify a valid variant for the chosen color; use -h for help."
+    exit 1
+fi
+
+# Neovim
+sed -i '' 's/colors_name\ =\ ".*"/colors_name\ =\ "'"$color"'"/g' ~/.config/nvim/lua/colors.lua
+if [ "$variant" != "" ]
+then
+    if [ "$color" == "ayu" ]
+    then
+        if [ "$variant" == "mirage" ]
+        then
+            sed -i '' "s/mirage\ =\ .*,/mirage\ =\ true,/g" ~/.config/nvim/lua/plugins/configs/colorschemes/ayu/init.lua
+        else
+            sed -i '' "s/mirage\ =\ .*,/mirage\ =\ false,/g" ~/.config/nvim/lua/plugins/configs/colorschemes/ayu/init.lua
+        fi
+    fi
+
+    if [ "$variant" == "mirage" ]
+    then
+        sed -i '' 's/set\ background=.*")/set\ background=dark")/g' ~/.config/nvim/lua/colors.lua
+    else
+        sed -i '' 's/set\ background=.*")/set\ background='"$variant"'")/g' ~/.config/nvim/lua/colors.lua
+    fi
+else
+    sed -i '' 's/set\ background=.*")/set\ background=dark")/g' ~/.config/nvim/lua/colors.lua
+fi
+
+# Alacritty
+if [ "$variant" != "" ]
+then
+    sed -i '' 's/colors:\ \*.*/colors:\ \*'"$color"'-'"$variant"'/g' ~/.config/alacritty/alacritty.yml
+else
+    sed -i '' 's/colors:\ \*.*/colors:\ \*'"$color"'/g' ~/.config/alacritty/alacritty.yml
+fi
+
+# Tmux
+# TODO: We need to create a file for each colorscheme and source it
+
+exit 0
