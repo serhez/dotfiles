@@ -14,6 +14,8 @@ cp ~/.zshrc ./
 # Remove all content before copying
 rm -r ./.config/alacritty
 cp -r ~/.config/alacritty ./.config
+rm -r ./.config/tmux
+cp -r ~/.config/tmux ./.config
 rm -r ./.config/htop
 cp -r ~/.config/htop ./.config
 rm -r ./.config/mprocs
