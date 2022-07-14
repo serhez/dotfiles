@@ -35,6 +35,8 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
             pacman -S bat
             pacman -S starship
             pacman -S htop
+			pacman -S zsh-syntax-highlighting
+			pacman -S zsh-autosuggestions
             ;;
         *)
             echo -n "Your Linux distribution is not supported by the installer at this moment."
@@ -81,6 +83,8 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
             brew install bat
             brew install starship
             brew install htop
+			brew install zsh-syntax-highlighting
+			brew install zsh-autosuggestions
             ;;
 
         # Mac Apple silicon
@@ -106,6 +110,8 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
             arch -arm64 brew install bat
             arch -arm64 brew install starship
             arch -arm64 brew install htop
+			arch -arm64 brew install zsh-syntax-highlighting
+			arch -arm64 brew install zsh-autosuggestions
             ;;
     esac
 
@@ -134,9 +140,7 @@ python3 -m pip install cmakelang
 echo -n "Configuring the environment..."
 
 cp -r ../scripts ~
-cp ../.profile ~
 cp ../.zprofile ~
-cp ../.bashrc ~
 cp ../.zshrc ~
 cp ../.zshenv ~
 cp ../.tmux.conf ~

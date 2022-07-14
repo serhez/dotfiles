@@ -3,9 +3,7 @@
 # Install SH development environment
 # Supports MacOS and Arch Linux
 
-cp ~/.bashrc ./
 cp ~/.nuxtrc ./
-cp ~/.profile ./
 cp ~/.tmux.conf ./
 cp ~/.zprofile ./
 cp ~/.zshenv ./
