@@ -17,6 +17,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     distribution=$(grep '^NAME' /etc/os-release)
     case $distribution in
         NAME="Arch Linux")
+			pacman -S alacritty
             pacman -S git
 			pacman -S github-cli
 			pacman -S glab
@@ -59,6 +60,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     case $architecture in
         # Mac Intel silicon
         x86_64)
+			brew install alacritty
             brew install git
 			brew install gh
 			brew install glab
@@ -83,6 +85,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 
         # Mac Apple silicon
         arm64)
+			arch -arm64 brew install alacritty
             arch -arm64 brew install git
 			arch -arm64 brew install gh
 			arch -arm64 brew install glab
@@ -117,7 +120,6 @@ fi
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 curl https://sh.rustup.rs -sSf | sh
-cargo install alacritty
 cargo install --git https://github.com/chmln/nvim-ctrl
 
 npm install -g speed-test
