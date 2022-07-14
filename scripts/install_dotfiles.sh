@@ -117,6 +117,7 @@ fi
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 curl https://sh.rustup.rs -sSf | sh
+cargo install alacritty
 cargo install --git https://github.com/chmln/nvim-ctrl
 
 npm install -g speed-test
