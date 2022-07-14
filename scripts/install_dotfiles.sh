@@ -12,6 +12,8 @@ done
 
 echo -n "Installing dependencies..."
 
+mkdir ~/.config
+
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     # Linux
     distribution=$(grep '^NAME' /etc/os-release)
@@ -124,6 +126,7 @@ fi
 
 # Generic installs for all OS's
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+mv -r ~/.oh-my-zsh ~/.config
 
 curl https://sh.rustup.rs -sSf | sh
 cargo install --git https://github.com/chmln/nvim-ctrl
@@ -136,7 +139,6 @@ npm install -g tldr
 python3 -m pip install --upgrade pip
 python3 -m pip install cmakelang
 
-# TODO: Instead of copying, create hard links (e.g, ln file.txt ~/file.txt), and soft links for directories
 echo -n "Configuring the environment..."
 
 cp -r ../scripts ~
