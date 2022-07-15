@@ -1,34 +1,71 @@
-#!/bin/bash
+#!/opt/homebrew/bin/bash
 # vim: ai:ts=4:sw=4:noet
 # Dynamically change your colorscheme
 
-supported=("dracula" "nightowl" "nord" "onedark" "solarized" "gotham" "ayu" "gruvbox" "palenight")
-supported_printable=("dracula" "nightowl" "nord" "onedark" "-v [dark(default),light] solarized" "gotham" "-v [dark(default),light,mirage] ayu" "-v [dark(default),light] gruvbox" "palenight")
+declare -A SUPPORTED=(
+	["nord"]=""
+	["nightowl"]=""
+	["onedark"]=""
+	["solarized"]="dark light"
+	["dracula"]=""
+	["gotham"]=""
+	["ayu"]="dark light mirage"
+	["gruvbox"]="dark light"
+	["palenight"]=""
+)
 
-declare tmux_plugins
-tmux_plugins=(["nord"]="arcticicestudio/nord-tmux" ["nightowl"]="jsec/tmux-night-owl" ["onedark"]="odedlaz/tmux-onedark-theme" ["solarized"]="seebi/tmux-colors-solarized" ["dracula"]="dracula/tmux" ["gotham"]="shaneog/tmux-colors-gotham" ["ayu"]="jibingeo/tmux-colors-ayu" ["gruvbox"]="egel/tmux-gruvbox" ["palenight"]="tonylambiris/palenight-tmux")
+function in_array {
+	IFS=' ' read -ra array <<< $2
 
-declare nvim_colors
-nvim_colors=(["nord"]="nord" ["nightowl"]="night-owl" ["onedark"]="onedark" ["solarized"]="solarized8" ["dracula"]="dracula" ["gotham"]="gotham" ["ayu"]="ayu" ["gruvbox"]="gruvbox" ["palenight"]="palenight")
+	if [[ ${#array[@]} = 0 && "$1" = "" ]]
+	then
+		return 1
+	fi
+
+	if [[ ( ${#array[@]} == 0 && "$1" != "" ) ||
+		( ${#array[@]} != 0 && "$1" == "" ) ]]
+	then
+		return 0
+	fi
+
+	for e in ${array[*]}
+	do
+		if [[ "$e" == "$1" ]]
+		then
+			return 1
+		fi
+	done
+
+	return 0
+}
 
 print_help() {
     echo "You must provide a colorscheme as an argument to the script."
-    echo "You can additionally provide variants of that colorscheme using the -v flag."
+    echo "You can additionally provide variants of that colorscheme as a second argument."
     echo "Note that flags must precede the colorscheme name."
     echo ""
     echo "The supported colorschemes are:"
-    for ((i = 0; i < ${#supported_printable[@]}; i++))
+	for elem in "${!SUPPORTED[@]}"
     do
-        echo "  $i. ${supported_printable[$i]}"
+        echo -n "  $elem"
+		IFS=' ' read -ra variants <<< "${SUPPORTED[${elem}]}"
+		if [ ${#variants[@]} != 0 ]
+		then
+			echo -n " [ "
+			for v in "${variants[@]}"
+			do
+				echo -n "${v} "
+			done
+			echo -n "]"
+		fi
+		echo ""
     done
     echo ""
-    echo "Example: color -v mirage ayu."
+    echo "Example: \"color onedark\" or \"color ayu mirage\"."
 }
 
-variant=""
-while getopts 'hv:' flag; do
+while getopts 'h' flag; do
     case "${flag}" in
-        v) variant="${OPTARG}" ;;
         h) print_help
            exit 0 ;;
         *) print_help
@@ -37,26 +74,29 @@ while getopts 'hv:' flag; do
 done
 shift $(( OPTIND - 1 ))
 
+color=$1
+variant=$2
+
+# Checks
 if [ "$1" == "" ];
 then
-    echo "You need to specify a color; use -h for help."
-    exit 1
-fi
-color=$1
-
-if [[ ! " ${supported[*]} " =~ " ${color} " ]];
-then
-    echo "ERROR: The proposed -i color is not currently supported."
+    echo "ERROR: You need to specify a color."
+	echo "Use \"color -h\" for help."
     exit 1
 fi
 
-if [[ ("$variant" != "" && "$variant" != "dark" && "$variant" != "light" && "$variant" != "mirage") || 
-    ("$variant" == "mirage" && "$color" != "ayu") ||
-    ("$variant" != "" && "$color" != "ayu" && "$color" != "solarized" && "$color" != "gruvbox") ||
-    (("$color" == "ayu" || "$color" == "solarized" || "$color" == "gruvbox") && "$variant" == "")
-]];
+if [[ -v "$SUPPORTED[${color}]" ]];
 then
-    echo "You need to specify a valid variant for the chosen color; use -h for help."
+    echo "ERROR: The proposed color is not currently supported."
+	echo "Use \"color -h\" for help."
+    exit 1
+fi
+
+IFS=' ' read -ra variants <<< "${SUPPORTED[$color]}"
+if in_array "$variant" "${variants[*]}"
+then
+    echo "ERROR: You need to specify a valid variant for the chosen color."
+	echo "Use \"color -h\" for help."
     exit 1
 fi
 

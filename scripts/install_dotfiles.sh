@@ -19,6 +19,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     distribution=$(grep '^NAME' /etc/os-release)
     case $distribution in
         NAME="Arch Linux")
+			pacman -S bash
 			pacman -S alacritty
             pacman -S git
 			pacman -S github-cli
@@ -59,11 +60,14 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     npm install -g mprocs
 
 elif [[ "$OSTYPE" == "darwin"* ]]; then
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
     # MacOS
     architecture=$(uname -m)
     case $architecture in
         # Mac Intel silicon
         x86_64)
+			brew install bash
 			brew install alacritty
             brew install git
 			brew install gh
@@ -91,6 +95,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 
         # Mac Apple silicon
         arm64)
+			arch -arm64 brew install bash
 			arch -arm64 brew install alacritty
             arch -arm64 brew install git
 			arch -arm64 brew install gh
