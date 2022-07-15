@@ -155,10 +155,10 @@ then
 	then
 		if [ "$variant" == "dimmed" ]
 		then
-			sed -i '' "s/dark_variant\ =\ \".*\"/dark_variant\ =\ \"main\"/g" ~/.config/nvim/lua/plugins/configs/colorschemes/rose-pine/init.lua
+			sed -i '' "s/dark_variant\ =\ \".*\"/dark_variant\ =\ \"moon\"/g" ~/.config/nvim/lua/plugins/configs/colorschemes/rose-pine/init.lua
 			sed -i '' 's/set\ background=.*")/set\ background=dark")/g' ~/.config/nvim/lua/colors.lua
 		else
-			sed -i '' "s/dark_variant\ =\ \".*\"/dark_variant\ =\ \"moon\"/g" ~/.config/nvim/lua/plugins/configs/colorschemes/rose-pine/init.lua
+			sed -i '' "s/dark_variant\ =\ \".*\"/dark_variant\ =\ \"main\"/g" ~/.config/nvim/lua/plugins/configs/colorschemes/rose-pine/init.lua
 			sed -i '' 's/set\ background=.*")/set\ background='"$variant"'")/g' ~/.config/nvim/lua/colors.lua
 		fi
 	elif [ "$color" == "tokyonight" ]
