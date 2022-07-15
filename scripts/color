@@ -43,7 +43,7 @@ function in_array {
 	return 0
 }
 
-print_help() {
+function print_help {
     echo "You must provide a colorscheme as an argument to the script."
     echo "You can additionally provide variants of that colorscheme as a second argument."
     echo "Note that flags must precede the colorscheme name."
@@ -66,6 +66,13 @@ print_help() {
     done
     echo ""
     echo "Example: \"color onedark\" or \"color ayu mirage\"."
+}
+
+function reload_nvim_plugins {
+	for folder in ~/.config/nvim/lua/plugins/configs/colorschemes/*
+	do
+		nvim-ctrl 'source '"$folder"'/init.lua'
+	done
 }
 
 while getopts 'h' flag; do
@@ -184,11 +191,10 @@ then
 else
     sed -i '' 's/set\ background=.*")/set\ background=dark")/g' ~/.config/nvim/lua/colors.lua
 fi
+reload_nvim_plugins
 nvim-ctrl 'source ~/.config/nvim/lua/colors.lua'
-for folder in ~/.config/nvim/lua/plugins/configs/colorschemes/*
-do
-	nvim-ctrl 'source '"$folder"'/init.lua'
-done
+reload_nvim_plugins
+nvim-ctrl 'syntax on'
 
 # Alacritty
 if [ "$variant" != "" ]
