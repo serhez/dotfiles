@@ -69,6 +69,7 @@ function print_help {
 }
 
 function reload_nvim_plugins {
+	nvim-ctrl 'source ~/.config/nvim/lua/plugins/configs/feline/init.lua'
 	for folder in ~/.config/nvim/lua/plugins/configs/colorschemes/*
 	do
 		nvim-ctrl 'source '"$folder"'/init.lua'
