@@ -123,6 +123,9 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     esac
 
     # Generic installs for MacOS
+	xcode-select --install
+	sudo /usr/sbin/DevToolsSecurity -enable
+	sudo dscl . append /Groups/_developer GroupMembership $(whoami)
 
 else
     echo -n "Your OS is not supported by the installer at this moment."
@@ -130,6 +133,7 @@ else
 fi
 
 # Generic installs for all OS's
+
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 mv -r ~/.oh-my-zsh ~/.config
 
@@ -140,9 +144,11 @@ npm install -g speed-test
 npm install -g tldr
 
 # FIX: Not working for Apple silicon: go install github.com/asciimoo/wuzz@latest
+go install github.com/go-delve/delve/cmd/dlv@latest
 
 python3 -m pip install --upgrade pip
 python3 -m pip install cmakelang
+python3 -m pip install debugpy
 
 echo -n "Configuring the environment..."
 
