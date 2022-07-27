@@ -40,6 +40,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
             pacman -S htop
 			pacman -S zsh-syntax-highlighting
 			pacman -S zsh-autosuggestions
+			pacman -S mockery
             ;;
         *)
             echo -n "Your Linux distribution is not supported by the installer at this moment."
@@ -91,6 +92,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
             brew install htop
 			brew install zsh-syntax-highlighting
 			brew install zsh-autosuggestions
+			brew install mockery
             ;;
 
         # Mac Apple silicon
@@ -119,13 +121,22 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
             arch -arm64 brew install htop
 			arch -arm64 brew install zsh-syntax-highlighting
 			arch -arm64 brew install zsh-autosuggestions
+			arch -arm64 brew install mockery
             ;;
     esac
 
     # Generic installs for MacOS
 	xcode-select --install
+
+	# Generic settings for MacOS
 	sudo /usr/sbin/DevToolsSecurity -enable
 	sudo dscl . append /Groups/_developer GroupMembership $(whoami)
+	defaults write com.apple.screencapture type png
+	defaults write com.apple.dock autohide-delay -float 0
+	defaults write com.apple.dock autohide-time-modifier -float 0.5
+	defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="small-spacer-tile";}'
+	defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="small-spacer-tile";}'
+	killall Dock
 
 else
     echo -n "Your OS is not supported by the installer at this moment."
