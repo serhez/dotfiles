@@ -32,6 +32,10 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
             pacman -S ripgrep
             pacman -S luajit
             pacman -S node
+			pacman -S docker
+			pacman -S docker-compose
+			pacman -S kubectl
+			pacman -S kubernetes-control-plane
             pacman -S lazygit
             pacman -S k9s
             pacman -S exa
@@ -82,6 +86,11 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
             brew install luajit
             brew install luarocks
             brew install node
+			brew install docker
+			brew install --cask docker
+			brew install docker-compose
+			brew install docker-completion
+			brew install kubernetes-cli
             brew install jesseduffield/lazygit/lazygit
             brew install pvolok/mprocs/mprocs
             brew install jesseduffield/lazydocker/lazydocker
@@ -112,6 +121,11 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
             arch -arm64 brew install --HEAD luajit
             arch -arm64 brew install luarocks
             arch -arm64 brew install node
+			arch -arm64 brew install docker
+			arch -arm64 brew install --cask docker
+			arch -arm64 brew install docker-compose
+			arch -arm64 brew install docker-completion
+			arch -arm64 brew install kubernetes-cli
             arch -arm64 brew install jesseduffield/lazygit/lazygit
             arch -arm64 brew install pvolok/mprocs/mprocs
             arch -arm64 brew install jesseduffield/lazydocker/lazydocker
