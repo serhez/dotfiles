@@ -18,7 +18,8 @@ rm -r ./.config/htop
 cp -r ~/.config/htop ./.config
 rm -r ./.config/mprocs
 cp -r ~/.config/mprocs ./.config
-cp -r ~/.config/mprocs ./.config
+rm -r ./.config/rectangle
+cp -r ~/.config/rectangle ./.config
 
 # Do not remove all content before copying
 cp ~/scripts/* ./scripts

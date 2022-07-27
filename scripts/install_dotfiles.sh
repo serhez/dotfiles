@@ -186,6 +186,8 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 
     cp -r ./.Xresources.d ~
     cp ./.Xresources ~
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+	cp -r ./.config/rectangle ~/.config
 fi
 
 if [[ "$nvim" == "y" ]]; then
