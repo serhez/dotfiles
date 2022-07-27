@@ -238,5 +238,5 @@ echo -n "Done! Your environment has been configured."
 
 echo -n "Some recommended downloads are:"
 echo -n "  - Beekeeper Studio [A GUI-based SQL editor and manager]: https://www.beekeeperstudio.io/get"
-echo -n "  - Beekeeper Studio [A GUI-based SQL editor and manager]: https://www.beekeeperstudio.io/get"
+
 exit 0
