@@ -19,32 +19,43 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     distribution=$(grep '^NAME' /etc/os-release)
     case $distribution in
         NAME="Arch Linux")
-			pacman -S bash
-			pacman -S alacritty
-            pacman -S git
-			pacman -S github-cli
-			pacman -S glab
-            pacman -S python3
-            pacman -S go
-            pacman -S gcc
-            pacman -S gnu-sed
-            pacman -S fd
-            pacman -S ripgrep
-            pacman -S luajit
-            pacman -S node
-			pacman -S docker
-			pacman -S docker-compose
-			pacman -S kubectl
-			pacman -S kubernetes-control-plane
-            pacman -S lazygit
-            pacman -S k9s
-            pacman -S exa
-            pacman -S bat
-            pacman -S starship
-            pacman -S htop
-			pacman -S zsh-syntax-highlighting
-			pacman -S zsh-autosuggestions
-			pacman -S mockery
+			sudo pacman -S --needed base-devel
+			sudo pacman -S bash
+			sudo pacman -S alacritty
+            sudo pacman -S git
+			sudo pacman -S github-cli
+			sudo pacman -S glab
+            sudo pacman -S python3
+            sudo pacman -S go
+            sudo pacman -S gcc
+            sudo pacman -S gnu-sed
+            sudo pacman -S fd
+            sudo pacman -S ripgrep
+            sudo pacman -S luajit
+            sudo pacman -S node
+			sudo pacman -S docker
+			sudo pacman -S docker-compose
+			sudo pacman -S kubectl
+			sudo pacman -S kubernetes-control-plane
+            sudo pacman -S lazygit
+            sudo pacman -S k9s
+            sudo pacman -S exa
+            sudo pacman -S bat
+            sudo pacman -S starship
+            sudo pacman -S htop
+			sudo pacman -S zsh-syntax-highlighting
+			sudo pacman -S zsh-autosuggestions
+			sudo pacman -S mockery
+			sudo pacman -S firefox
+
+			# Install yay, an AUR package manager
+			git clone https://aur.archlinux.org/yay-git.git
+			cd yay
+			makepkg -si
+			cd ..
+			sudo rm -r yay
+
+			yay -S google-chrome
             ;;
         *)
             echo -n "Your Linux distribution is not supported by the installer at this moment."
@@ -103,6 +114,11 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 			brew install zsh-autosuggestions
 			brew install mockery
 			brew install --cask rectangle
+			brew install --cask notion
+			brew install --cask cheatsheet
+			brew install --cask raycast
+			brew install --cask google-chrome
+			brew install --cask firefox
             ;;
 
         # Mac Apple silicon
@@ -138,6 +154,11 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 			arch -arm64 brew install zsh-autosuggestions
 			arch -arm64 brew install mockery
 			arch -arm64 brew install --cask rectangle
+			arch -arm64 brew install --cask notion
+			arch -arm64 brew install --cask cheatsheet
+			arch -arm64 brew install --cask raycast
+			arch -arm64 brew install --cask google-chrome
+			arch -arm64 brew install --cask firefox
             ;;
     esac
 
@@ -214,4 +235,8 @@ if [[ "$nvim" == "y" ]]; then
 fi
 
 echo -n "Done! Your environment has been configured."
+
+echo -n "Some recommended downloads are:"
+echo -n "  - Beekeeper Studio [A GUI-based SQL editor and manager]: https://www.beekeeperstudio.io/get"
+echo -n "  - Beekeeper Studio [A GUI-based SQL editor and manager]: https://www.beekeeperstudio.io/get"
 exit 0
