@@ -1,3 +1,7 @@
+hide_keymap_window: true
+mouse_scroll_speed: 1
+proc_list_width: 25
+
 keymap_procs: # When process list is focused
   # Move between panes
   <C-a>: null
@@ -7,8 +11,8 @@ keymap_procs: # When process list is focused
   # Scroll terminal pane
   <C-e>: null
   <C-y>: null
-  <S-j>: { c: scroll-down-lines, n: 3 }
-  <S-k>: { c: scroll-up-lines, n: 3 }
+  <S-j>: { c: scroll-down-lines, n: 1 }
+  <S-k>: { c: scroll-up-lines, n: 1 }
 
 keymap_term: # When terminal is focused
   # Missing keymaps :(
@@ -31,5 +35,7 @@ keymap_term: # When terminal is focused
   # Scroll terminal pane
   <C-e>: null
   <C-y>: null
-  <j>: { c: scroll-down-lines, n: 3 }
-  <k>: { c: scroll-up-lines, n: 3 }
+  <j>: { c: scroll-down-lines, n: 1 }
+  <k>: { c: scroll-up-lines, n: 1 }
+  <S-j>: { c: scroll-down-lines, n: 5 }
+  <S-k>: { c: scroll-up-lines, n: 5 }
