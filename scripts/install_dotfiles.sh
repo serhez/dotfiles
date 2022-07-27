@@ -93,6 +93,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 			brew install zsh-syntax-highlighting
 			brew install zsh-autosuggestions
 			brew install mockery
+			brew install --cask rectangle
             ;;
 
         # Mac Apple silicon
@@ -122,6 +123,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 			arch -arm64 brew install zsh-syntax-highlighting
 			arch -arm64 brew install zsh-autosuggestions
 			arch -arm64 brew install mockery
+			arch -arm64 brew install --cask rectangle
             ;;
     esac
 
@@ -164,26 +166,26 @@ python3 -m pip install debugpy
 echo -n "Configuring the environment..."
 
 cp -r ../scripts ~
-cp ../.zprofile ~
-cp ../.zshrc ~
-cp ../.zshenv ~
-cp ../.tmux.conf ~
-cp ../.nuxtrc ~
+cp ./.zprofile ~
+cp ./.zshrc ~
+cp ./.zshenv ~
+cp ./.tmux.conf ~
+cp ./.nuxtrc ~
 
 mkdir ~/.config
-cp -r ../.config/alacritty ~/.config
-cp -r ../.config/gh ~/.config
-cp -r ../.config/htop ~/.config
-cp -r ../.config/mprocs ~/.config
+cp -r ./.config/alacritty ~/.config
+cp -r ./.config/gh ~/.config
+cp -r ./.config/htop ~/.config
+cp -r ./.config/mprocs ~/.config
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    cp -r ../.config/awesome ~/.config
-    cp -r ../.config/picom ~/.config
-    cp -r ../.config/ranger ~/.config
-    cp -r ../.config/rofi ~/.config
+    cp -r ./.config/awesome ~/.config
+    cp -r ./.config/picom ~/.config
+    cp -r ./.config/ranger ~/.config
+    cp -r ./.config/rofi ~/.config
 
-    cp -r ../.Xresources.d ~
-    cp ../.Xresources ~
+    cp -r ./.Xresources.d ~
+    cp ./.Xresources ~
 fi
 
 if [[ "$nvim" == "y" ]]; then
