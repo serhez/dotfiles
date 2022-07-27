@@ -102,7 +102,7 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 17.0
+  size: 16.0
 
 # Colorschemes
 schemes:
@@ -1163,7 +1163,7 @@ schemes:
       - { index: 17, color: "#F5E0DC" }
 
 # Selected colorscheme
-colors: *onedark
+colors: *rosepine-dimmed
 
 cursor:
   # Cursor style
