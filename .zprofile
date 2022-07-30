@@ -6,13 +6,28 @@ export VISUAL=nvim
 export PAGER=nvim
 export BAT_THEME="TwoDark"
 export TERM="xterm-256color"
+
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    export HOME=/home/ser
+    export PM_SHARE=/usr/share
+    export PM_BIN=/usr/bin
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-    export HOME=/Users/ser
+    architecture=$(uname -m)
+    case $architecture in
+        # Mac Intel silicon
+        x86_64)
+            export PM_SHARE=/usr/local/share
+            export PM_BIN=/usr/local/bin
+            ;;
+
+        # Mac Apple silicon
+        arm64)
+            export PM_SHARE=/opt/homebrew/share
+            export PM_BIN=/opt/homebrew/bin
+            ;;
+    esac
 fi
 
-export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:$HOME/bin:$HOME/.local/bin:$HOME/scripts:$HOME/.dotnet/tools:/usr/local/go/bin:$HOME/go/bin:/opt/homebrew/bin
+export PATH=$HOME/bin:$HOME/.local/bin:$HOME/scripts:$PM_BIN:$HOME/.dotnet/tools:/usr/local/go/bin:$HOME/go/bin:$PATH
 
 ## Key bindings
 

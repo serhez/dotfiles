@@ -1,4 +1,4 @@
-#!/opt/homebrew/bin/bash
+#!/usr/bin/env bash
 # vim: ai:ts=4:sw=4:noet
 # Dynamically change your colorscheme
 
