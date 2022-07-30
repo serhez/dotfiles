@@ -46,6 +46,7 @@ alias kui='k9s' # ui
 # nvim
 alias v='nvim'
 alias vd='nvim -d'
+alias vg='neovide --multigrid --notabs'
 
 # tmux
 alias t='tmux'

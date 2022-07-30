@@ -119,6 +119,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 			brew install --cask raycast
 			brew install --cask google-chrome
 			brew install --cask firefox
+			brew install --cask neovide
             ;;
 
         # Mac Apple silicon
@@ -159,6 +160,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 			arch -arm64 brew install --cask raycast
 			arch -arm64 brew install --cask google-chrome
 			arch -arm64 brew install --cask firefox
+			arch -arm64 brew install --cask neovide
             ;;
     esac
 
