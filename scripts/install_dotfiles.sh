@@ -56,6 +56,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 			sudo rm -r yay
 
 			yay -S google-chrome
+			yay -S zsh-vi-mode
             ;;
         *)
             echo -n "Your Linux distribution is not supported by the installer at this moment."
@@ -112,6 +113,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
             brew install htop
 			brew install zsh-syntax-highlighting
 			brew install zsh-autosuggestions
+			brew install zsh-vi-mode
 			brew install mockery
 			brew install --cask rectangle
 			brew install --cask notion
@@ -153,6 +155,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
             arch -arm64 brew install htop
 			arch -arm64 brew install zsh-syntax-highlighting
 			arch -arm64 brew install zsh-autosuggestions
+			arch -arm64 brew install zsh-vi-mode
 			arch -arm64 brew install mockery
 			arch -arm64 brew install --cask rectangle
 			arch -arm64 brew install --cask notion

@@ -19,14 +19,15 @@ HIST_STAMPS="mm/dd/yyyy"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
 # Source my profile after oh-my-zsh, else it will override my custom aliases etc.
 source $HOME/.zprofile
 
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $PM_SHARE/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $PM_SHARE/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $PM_SHARE/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 eval "$(starship init zsh)"
