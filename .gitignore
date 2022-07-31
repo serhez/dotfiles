@@ -1,1 +1,2 @@
 # Git ignores the following files and directories
+.config/tmux/plugins

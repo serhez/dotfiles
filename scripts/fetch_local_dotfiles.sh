@@ -13,7 +13,9 @@ cp ~/.zshrc ./
 rm -r ./.config/alacritty
 cp -r ~/.config/alacritty ./.config
 rm -r ./.config/tmux
-cp -r ~/.config/tmux ./.config
+mkdir ./.config/tmux
+cp ~/.config/tmux/tmux.conf ./.config/tmux
+cp -r ~/.config/tmux/colorschemes ./.config/tmux
 rm -r ./.config/htop
 cp -r ~/.config/htop ./.config
 rm -r ./.config/mprocs
