@@ -3,16 +3,16 @@
 # Install SH development environment
 # Supports MacOS and Arch Linux
 
-echo -n "Do you want to install Neovim and it's config? (y/n)"
+echo "Do you want to install Neovim and it's config? (y/n)"
 read -r nvim
 while [[ "$nvim" != "y" ]] && [[ "$nvim" != "n" ]]; do
-    echo -n "Please, answer with \"y\" for yes or \"n\" for no: do you want to install Neovim and it's config?"
+    echo "Please, answer with \"y\" for yes or \"n\" for no: do you want to install Neovim and it's config?"
     read -r nvim
 done
 
-echo -n "Installing dependencies..."
+echo "Installing dependencies..."
 
-mkdir ~/.config
+[[ -d ~/.config ]] || mkdir ~/.config
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     # Linux
@@ -59,7 +59,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 			yay -S zsh-vi-mode
             ;;
         *)
-            echo -n "Your Linux distribution is not supported by the installer at this moment."
+            echo "Your Linux distribution is not supported by the installer at this moment."
             exit 1
             ;;
     esac
@@ -181,7 +181,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 	killall Dock
 
 else
-    echo -n "Your OS is not supported by the installer at this moment."
+    echo "Your OS is not supported by the installer at this moment."
     exit 1
 fi
 
@@ -203,16 +203,15 @@ python3 -m pip install --upgrade pip
 python3 -m pip install cmakelang
 python3 -m pip install debugpy
 
-echo -n "Configuring the environment..."
+echo "Configuring the environment..."
 
-cp -r ../scripts ~
+cp -r ./scripts ~
 cp ./.zprofile ~
 cp ./.zshrc ~
 cp ./.zshenv ~
 cp ./.tmux.conf ~
 cp ./.nuxtrc ~
 
-mkdir ~/.config
 cp -r ./.config/alacritty ~/.config
 cp -r ./.config/gh ~/.config
 cp -r ./.config/htop ~/.config
@@ -231,7 +230,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 if [[ "$nvim" == "y" ]]; then
-	echo -n "Installing and configuring Neovim..."
+	echo "Installing and configuring Neovim..."
 	git clone https://github.com/serhez/nvim-conf
 	cd nvim-conf
 	sudo make install
@@ -239,9 +238,9 @@ if [[ "$nvim" == "y" ]]; then
 	sudo rm -r nvim-conf
 fi
 
-echo -n "Done! Your environment has been configured."
+echo "Done! Your environment has been configured."
 
-echo -n "Some recommended downloads are:"
-echo -n "  - Beekeeper Studio [A GUI-based SQL editor and manager]: https://www.beekeeperstudio.io/get"
+echo "Some recommended downloads are:"
+echo "  - Beekeeper Studio [A GUI-based SQL editor and manager]: https://www.beekeeperstudio.io/get"
 
 exit 0
