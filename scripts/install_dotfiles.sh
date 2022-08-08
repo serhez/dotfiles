@@ -197,11 +197,8 @@ npm install -g speed-test
 npm install -g tldr
 
 # FIX: Not working for Apple silicon: go install github.com/asciimoo/wuzz@latest
-go install github.com/go-delve/delve/cmd/dlv@latest
 
 python3 -m pip install --upgrade pip
-python3 -m pip install cmakelang
-python3 -m pip install debugpy
 
 echo "Configuring the environment..."
 
