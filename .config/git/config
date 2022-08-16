@@ -8,6 +8,14 @@
 	excludesfile = ~/.config/git/.gitignore_global
     whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
     pager = most
+[push]
+    autoSetupRemote = true
+[diff]
+    tool = nvim -d
+[difftool]
+    prompt = false
+[gitflow "prefix"]
+    versiontag = v
 [color]
 	ui = auto
 [color "branch"]
@@ -24,12 +32,6 @@
 	added = green bold
 	changed = yellow bold
 	untracked = red bold
-[diff]
-    tool = nvim -d
-[difftool]
-	prompt = false
-[gitflow "prefix"]
-    versiontag = v
 [alias]
     a = add -all
 	b = branch
