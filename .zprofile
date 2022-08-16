@@ -1,16 +1,14 @@
 ## Exports
 
-export TERMINAL=alacritty
-export EDITOR=nvim
-export VISUAL=nvim
-export PAGER=nvim
-export BAT_THEME="TwoDark"
-export TERM="xterm-256color"
-
+# Linux
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     export PM_SHARE=/usr/share
     export PM_BIN=/usr/bin
+
+# MacOS
 elif [[ "$OSTYPE" == "darwin"* ]]; then
+    export TERMINFO=/usr/share/terminfo:$HOME/.terminfo
+
     architecture=$(uname -m)
     case $architecture in
         # Mac Intel silicon
@@ -26,6 +24,14 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
             ;;
     esac
 fi
+
+export TERMINAL=alacritty
+export EDITOR=nvim
+export VISUAL=nvim
+export PAGER=most
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export BAT_THEME="TwoDark"
+export TERM="alacritty"
 
 export PATH=$HOME/bin:$HOME/.local/bin:$HOME/scripts:$PM_BIN:$HOME/.dotnet/tools:/usr/local/go/bin:$HOME/go/bin:$PATH
 
@@ -51,6 +57,20 @@ alias pm='mprocs' # manager
 # git
 alias g='git'
 alias gui='lazygit' # ui
+alias ga='git add -all'
+alias gb='git branch'
+alias gC='git clone'
+alias gc='git commit -m'
+alias gd='git diff'
+alias gm='git merge'
+alias go='git checkout'
+alias gO='git checkout -b'
+alias gp='git pull'
+alias gP='git push'
+alias gr='git rebase'
+alias gR='git reset'
+alias gS='git stash'
+alias gs='git status'
 
 # docker
 alias dui='lazydocker' # ui
@@ -61,7 +81,7 @@ alias kui='k9s' # ui
 # nvim
 alias v='nvim'
 alias vd='nvim -d'
-alias vg='neovide --multigrid --notabs'
+alias vui='neovide --multigrid --notabs' # ui
 
 # tmux
 alias t='tmux'

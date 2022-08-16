@@ -1,16 +1,47 @@
 [user]
 	name = Sergio Hernandez
 	email = contact.sergiohernandez@gmail.com
+[init]
+	defaultBranch = master
 [core]
 	editor = nvim
 	excludesfile = ~/.config/git/.gitignore_global
+    whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+    pager = most
+[color]
+	ui = auto
+[color "branch"]
+	current = yellow bold
+	local = green bold
+	remote = cyan bold
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[color "status"]
+	added = green bold
+	changed = yellow bold
+	untracked = red bold
+[diff]
+    tool = nvim -d
+[difftool]
+	prompt = false
+[gitflow "prefix"]
+    versiontag = v
 [alias]
-	co = checkout
-    cob = checkout -b
+    a = add -all
 	b = branch
+    C = clone
 	c = commit -m
-	s = status
-	a = add .
-	ps = push
-	pl = pull
+    d = diff
+    m = merge
+    o = checkout
+    O = checkout -b
+	p = pull
+    P = push
 	r = rebase
+    R = reset
+    S = stash
+    s = status

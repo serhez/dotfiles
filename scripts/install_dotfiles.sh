@@ -13,6 +13,7 @@ done
 echo "Installing dependencies..."
 
 [[ -d ~/.config ]] || mkdir ~/.config
+[[ -d ~/.terminfo ]] || mkdir ~/.terminfo ; mkdir ~/.terminfo/61
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     # Linux
@@ -40,6 +41,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
             sudo pacman -S lazygit
             sudo pacman -S k9s
             sudo pacman -S exa
+			sudo pacman -S most
             sudo pacman -S bat
             sudo pacman -S starship
             sudo pacman -S htop
@@ -50,7 +52,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 
 			# Install yay, an AUR package manager
 			git clone https://aur.archlinux.org/yay-git.git
-			cd yay
+			cd yay || exit 1
 			makepkg -si
 			cd ..
 			sudo rm -r yay
@@ -67,7 +69,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     # Generic installs for Linux
     curl -R -O http://www.lua.org/ftp/lua-5.3.5.tar.gz
     tar -zxf lua-5.3.5.tar.gz
-    cd lua-5.3.5
+    cd lua-5.3.5 || exit 1
     sudo make install
     cd ..
     sudo rm -r lua-5.3.5
@@ -108,6 +110,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
             brew install jesseduffield/lazydocker/lazydocker
             brew install k9s
             brew install exa
+			brew install most
             brew install bat
             brew install starship
             brew install htop
@@ -150,6 +153,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
             arch -arm64 brew install jesseduffield/lazydocker/lazydocker
             arch -arm64 brew install k9s
             arch -arm64 brew install exa
+			arch -arm64 brew install most
             arch -arm64 brew install bat
             arch -arm64 brew install starship
             arch -arm64 brew install htop
@@ -171,6 +175,8 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 	xcode-select --install
 
 	# Generic settings for MacOS
+	ln -h -f -s -- /Applications/Alacritty.app/Contents/Resources/61/alacritty ~/.terminfo/61/alacritty
+	ln -h -f -s -- /Applications/Alacritty.app/Contents/Resources/61/alacritty-direct ~/.terminfo/61/alacritty-direct
 	sudo /usr/sbin/DevToolsSecurity -enable
 	sudo dscl . append /Groups/_developer GroupMembership $(whoami)
 	defaults write com.apple.screencapture type png
@@ -229,7 +235,7 @@ fi
 if [[ "$nvim" == "y" ]]; then
 	echo "Installing and configuring Neovim..."
 	git clone https://github.com/serhez/nvim-conf
-	cd nvim-conf
+	cd nvim-conf || exit 1
 	sudo make install
 	cd ..
 	sudo rm -r nvim-conf
