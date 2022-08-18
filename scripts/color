@@ -206,6 +206,15 @@ else
     sed -i '' 's/colors:\ \*.*/colors:\ \*'"$color"'/g' ~/.config/alacritty/alacritty.yml
 fi
 
+# Kitty
+if [ "$variant" != "" ]
+then
+	sed -i '' 's/include\ colorschemes.*/include\ colorschemes\/'"$color"'-'"$variant"'.conf/g' ~/.config/kitty/kitty.conf
+else
+	sed -i '' 's/include\ colorschemes.*/include\ colorschemes\/'"$color"'.conf/g' ~/.config/kitty/kitty.conf
+fi
+killall -SIGUSR1 kitty
+
 # Tmux
 if [ "$variant" != "" ]
 then

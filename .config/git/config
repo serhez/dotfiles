@@ -33,7 +33,7 @@
 	changed = yellow bold
 	untracked = red bold
 [alias]
-    a = add -all
+    a = add --all
 	b = branch
     C = clone
 	c = commit -m

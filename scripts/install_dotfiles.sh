@@ -22,6 +22,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
         NAME="Arch Linux")
 			sudo pacman -S --needed base-devel
 			sudo pacman -S bash
+			sudo pacman -S kitty
 			sudo pacman -S alacritty
             sudo pacman -S git
 			sudo pacman -S github-cli
@@ -118,6 +119,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 			brew install zsh-autosuggestions
 			brew install zsh-vi-mode
 			brew install mockery
+			brew install --cask kitty
 			brew install --cask rectangle
 			brew install --cask notion
 			brew install --cask cheatsheet
@@ -161,6 +163,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 			arch -arm64 brew install zsh-autosuggestions
 			arch -arm64 brew install zsh-vi-mode
 			arch -arm64 brew install mockery
+			arch -arm64 brew install --cask kitty
 			arch -arm64 brew install --cask rectangle
 			arch -arm64 brew install --cask notion
 			arch -arm64 brew install --cask cheatsheet
@@ -218,6 +221,7 @@ cp ./.nuxtrc ~
 cp -r ./.config/alacritty ~/.config
 cp -r ./.config/gh ~/.config
 cp -r ./.config/htop ~/.config
+cp -r ./.config/kitty ~/.config
 cp -r ./.config/mprocs ~/.config
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
