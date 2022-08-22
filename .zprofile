@@ -25,13 +25,13 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     esac
 fi
 
-export TERMINAL=kitty
+export TERMINAL=wezterm
 export EDITOR=nvim
 export VISUAL=nvim
 export PAGER=most
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export BAT_THEME="TwoDark"
-export TERM="xterm-kitty"
+export TERM="wezterm"
 
 export PATH=$HOME/bin:$HOME/.local/bin:$HOME/scripts:$PM_BIN:$HOME/.dotnet/tools:/usr/local/go/bin:$HOME/go/bin:$PATH
 

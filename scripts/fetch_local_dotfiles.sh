@@ -20,6 +20,8 @@ rm -r ./.config/htop
 cp -r ~/.config/htop ./.config
 rm -r ./.config/kitty
 cp -r ~/.config/kitty ./.config
+rm -r ./.config/wezterm
+cp -r ~/.config/wezterm ./.config
 rm -r ./.config/mprocs
 cp -r ~/.config/mprocs ./.config
 rm -r ./.config/rectangle

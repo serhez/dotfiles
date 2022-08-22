@@ -13,7 +13,7 @@ done
 echo "Installing dependencies..."
 
 [[ -d ~/.config ]] || mkdir ~/.config
-[[ -d ~/.terminfo ]] || mkdir ~/.terminfo ; mkdir ~/.terminfo/61
+[[ -d ~/.terminfo ]] || mkdir ~/.terminfo
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     # Linux
@@ -22,6 +22,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
         NAME="Arch Linux")
 			sudo pacman -S --needed base-devel
 			sudo pacman -S bash
+			sudo pacman -S wezterm
 			sudo pacman -S kitty
 			sudo pacman -S alacritty
             sudo pacman -S git
@@ -119,6 +120,8 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 			brew install zsh-autosuggestions
 			brew install zsh-vi-mode
 			brew install mockery
+			brew tap wez/wezterm
+			brew install --cask wez/wezterm/wezterm
 			brew install --cask kitty
 			brew install --cask rectangle
 			brew install --cask notion
@@ -163,6 +166,8 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 			arch -arm64 brew install zsh-autosuggestions
 			arch -arm64 brew install zsh-vi-mode
 			arch -arm64 brew install mockery
+			brew tap wez/wezterm
+			arch -arm64 brew install --cask wez/wezterm/wezterm
 			arch -arm64 brew install --cask kitty
 			arch -arm64 brew install --cask rectangle
 			arch -arm64 brew install --cask notion
@@ -222,6 +227,7 @@ cp -r ./.config/alacritty ~/.config
 cp -r ./.config/gh ~/.config
 cp -r ./.config/htop ~/.config
 cp -r ./.config/kitty ~/.config
+cp -r ./.config/wezterm ~/.config
 cp -r ./.config/mprocs ~/.config
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
@@ -234,6 +240,22 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     cp ./.Xresources ~
 elif [[ "$OSTYPE" == "darwin"* ]]; then
 	cp -r ./.config/rectangle ~/.config
+
+	# NOTE: MacOS makes /usr/share/terminfo/ read-only, so we need to copy our terminfo files to a custom dir
+	# tmux
+	curl -LO https://invisible-island.net/datafiles/current/terminfo.src.gz \
+		&& gunzip terminfo.src.gz \
+		&& tic -xe tmux-256color terminfo.src
+	# wezterm
+	tempfile=$(mktemp) \
+		&& curl -o "$tempfile" https://raw.githubusercontent.com/wez/wezterm/master/termwiz/data/wezterm.terminfo \
+		&& tic -x -o ~/.terminfo "$tempfile" \
+		&& rm "$tempfile"
+	# kitty
+	ln -h -f -s -- /Applications/kitty.app/Contents/Resources/terminfo/78/xterm-kitty ~/.terminfo/78/xterm-kitty
+	# alacritty
+	ln -h -f -s -- /Applications/Alacritty.app/Contents/Resources/61/alacritty ~/.terminfo/61/alacritty
+	ln -h -f -s -- /Applications/Alacritty.app/Contents/Resources/61/alacritty-direct ~/.terminfo/61/alacritty-direct
 fi
 
 if [[ "$nvim" == "y" ]]; then

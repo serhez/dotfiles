@@ -198,7 +198,7 @@ nvim-ctrl 'source ~/.config/nvim/lua/colors.lua'
 reload_nvim_plugins
 nvim-ctrl 'syntax on'
 
-# Alacritty
+# alacritty
 if [ "$variant" != "" ]
 then
     sed -i '' 's/colors:\ \*.*/colors:\ \*'"$color"'-'"$variant"'/g' ~/.config/alacritty/alacritty.yml
@@ -206,7 +206,7 @@ else
     sed -i '' 's/colors:\ \*.*/colors:\ \*'"$color"'/g' ~/.config/alacritty/alacritty.yml
 fi
 
-# Kitty
+# kitty
 if [ "$variant" != "" ]
 then
 	sed -i '' 's/include\ colorschemes.*/include\ colorschemes\/'"$color"'-'"$variant"'.conf/g' ~/.config/kitty/kitty.conf
@@ -215,7 +215,15 @@ else
 fi
 killall -SIGUSR1 kitty
 
-# Tmux
+# wezterm
+if [ "$variant" != "" ]
+then
+	sed -i '' 's/color_scheme\ =.*/color_scheme\ =\ "'"$color"'-'"$variant"'",/g' ~/.config/wezterm/wezterm.lua
+else
+	sed -i '' 's/color_scheme\ =.*/color_scheme\ =\ "'"$color"'",/g' ~/.config/wezterm/wezterm.lua
+fi
+
+# tmux
 if [ "$variant" != "" ]
 then
 	sed -i '' 's/source-file.*colorschemes.*/source-file\ \~\/\.config\/tmux\/colorschemes\/'"$color"''"-$variant"'\.tmux\.conf/g' ~/.config/tmux/tmux.conf
