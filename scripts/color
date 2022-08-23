@@ -129,6 +129,9 @@ then
 elif [ "$color" == "rosepine" ]
 then
 	sed -i '' 's/colors_name\ =\ ".*"/colors_name\ =\ \"rose-pine\"/g' ~/.config/nvim/lua/colors.lua
+elif [ "$color" == "nightowl" ]
+then
+	sed -i '' 's/colors_name\ =\ ".*"/colors_name\ =\ \"night-owl\"/g' ~/.config/nvim/lua/colors.lua
 else
 	sed -i '' 's/colors_name\ =\ ".*"/colors_name\ =\ "'"$color"'"/g' ~/.config/nvim/lua/colors.lua
 fi
