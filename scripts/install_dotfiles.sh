@@ -29,6 +29,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 			sudo pacman -S github-cli
 			sudo pacman -S glab
             sudo pacman -S python3
+			sudo pacman -S r
             sudo pacman -S go
             sudo pacman -S gcc
             sudo pacman -S gnu-sed
@@ -94,6 +95,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 			brew install gh
 			brew install glab
             brew install python3
+			brew install r
             brew install golang
             brew install gcc
             brew install gnu-sed
@@ -140,6 +142,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 			arch -arm64 brew install gh
 			arch -arm64 brew install glab
             arch -arm64 brew install python3
+			arch -arm64 brew install r
             arch -arm64 brew install golang
             arch -arm64 brew install gcc
             arch -arm64 brew install gnu-sed
