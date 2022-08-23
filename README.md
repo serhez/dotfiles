@@ -1,13 +1,13 @@
 # Dotfiles
 
 - OS kernel: **Linux** / **MacOS**
-- Distro (Linux): **Arch**
-- Window manager (Linux): **AwesomeWM**
-- Window switcher & launcher (Linux): **Rofi**
-- Shell: **ZSH** with **Oh-My-ZSH**
-- Terminal: **Alacritty**
-- Terminal multiplexer: **Tmux**
-- Editor / IDE: **Neovim**
+- Distro (Linux): **arch**
+- Window manager (Linux): **awesome-wm**
+- Window switcher & launcher (Linux): **rofi**
+- Shell: **zsh** with **oh-my-zsh**
+- Terminal: **wezterm**
+- Terminal multiplexer: **tmux**
+- Editor / IDE: **neovim**
 
 ## Installer
 
