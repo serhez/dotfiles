@@ -10,11 +10,12 @@ return {
         top = "20pt",
         bottom = "20pt",
     },
+    default_cursor_style = "BlinkingBar",
     -- FIX: This should make the title bar transparent while still showing the icons
     window_decorations = "RESIZE", -- TODO: Remove this when transparent title bar works
     -- window_frame = {
-    --     inactive_titlebar_bg = "#ffffff",
-    --     active_titlebar_bg = "#ffffff",
+    --     inactive_titlebar_bg = "none",
+    --     active_titlebar_bg = "none",
     -- },
 
     -- Font
