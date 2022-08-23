@@ -155,7 +155,7 @@ then
 			sed -i '' "s/catppuccin_flavour\ =\ \".*\"/catppuccin_flavour\ =\ \"macchiato\"/g" ~/.config/nvim/lua/colors.lua
 		elif [ "$variant" == "dimmed" ]
 		then
-			sed -i '' "s/catppuccin_flavour\ =\ \".*\"/catppuccin_flavour\ =\ \"latte\"/g" ~/.config/nvim/lua/colors.lua
+			sed -i '' "s/catppuccin_flavour\ =\ \".*\"/catppuccin_flavour\ =\ \"frappe\"/g" ~/.config/nvim/lua/colors.lua
 		elif [ "$variant" == "light" ]
 		then
 			sed -i '' "s/catppuccin_flavour\ =\ \".*\"/catppuccin_flavour\ =\ \"latte\"/g" ~/.config/nvim/lua/colors.lua
