@@ -57,7 +57,7 @@ alias pm='mprocs' # manager
 # git
 alias g='git'
 alias gui='lazygit' # ui
-alias ga='git add -all'
+alias ga='git add --all'
 alias gb='git branch'
 alias gC='git clone'
 alias gc='git commit -m'
@@ -93,8 +93,21 @@ alias tdet='tmux detach'
 alias tls='tmux ls'
 alias tkill='tmux kill-session -t'
 
+# python
+alias pyenv='python3 -m venv venv'
+alias pyact='source ./venv/bin/activate'
+alias pipupg='python3 -m pip install --upgrade pip'
+alias pipins='python3 -m pip install'
+alias pipreq='python3 -m pip install -r requirements.txt'
+
 # jupyter
 alias jn='jupyter notebook'
+
+# document format conversions
+md2pdf()
+{
+    pandoc "$1" --pdf-engine=xelatex --variable "geometry=margin=1.2in" --data-dir=~/.config/pandoc -o "$2"
+}
 
 # Codi
 # Usage: codi [filetype] [filename]
@@ -110,10 +123,12 @@ alias jn='jupyter notebook'
 #     Codi $syntax" "$@"
 # }
 
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-# export PATH="$PATH:$HOME/.rvm/bin"
-
-# Load RVM into a shell session *as a function*
-# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 . "$HOME/.cargo/env"
+
+##
+# Your previous /Users/ser/.zprofile file was backed up as /Users/ser/.zprofile.macports-saved_2022-09-20_at_15:20:28
+##
+
+# MacPorts Installer addition on 2022-09-20_at_15:20:28: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.

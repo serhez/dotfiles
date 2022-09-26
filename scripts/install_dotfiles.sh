@@ -46,6 +46,8 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
             sudo pacman -S exa
 			sudo pacman -S most
             sudo pacman -S bat
+			sudo pacman -S gnu-tar
+			sudo pacman -S wget
             sudo pacman -S starship
             sudo pacman -S htop
 			sudo pacman -S zsh-syntax-highlighting
@@ -99,6 +101,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
             brew install golang
             brew install gcc
             brew install gnu-sed
+			brew install xquartz
             brew install fd
             brew install ripgrep
             brew install luajit
@@ -116,12 +119,16 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
             brew install exa
 			brew install most
             brew install bat
+			brew install gnu-tar
+			brew install wget
             brew install starship
             brew install htop
+            brew install pandoc
 			brew install zsh-syntax-highlighting
 			brew install zsh-autosuggestions
 			brew install zsh-vi-mode
 			brew install mockery
+
 			brew tap wez/wezterm
 			brew install --cask wez/wezterm/wezterm
 			brew install --cask kitty
@@ -132,6 +139,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 			brew install --cask google-chrome
 			brew install --cask firefox
 			brew install --cask neovide
+			brew install --cask miniconda
             ;;
 
         # Mac Apple silicon
@@ -146,6 +154,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
             arch -arm64 brew install golang
             arch -arm64 brew install gcc
             arch -arm64 brew install gnu-sed
+			arch -arm64 brew install xquartz
             arch -arm64 brew install fd
             arch -arm64 brew install ripgrep
             arch -arm64 brew install --HEAD luajit
@@ -163,12 +172,16 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
             arch -arm64 brew install exa
 			arch -arm64 brew install most
             arch -arm64 brew install bat
+			arch -arm64 brew install gnu-tar
+			arch -arm64 brew install wget
             arch -arm64 brew install starship
             arch -arm64 brew install htop
+            arch -arm64 brew install pandoc
 			arch -arm64 brew install zsh-syntax-highlighting
 			arch -arm64 brew install zsh-autosuggestions
 			arch -arm64 brew install zsh-vi-mode
 			arch -arm64 brew install mockery
+
 			brew tap wez/wezterm
 			arch -arm64 brew install --cask wez/wezterm/wezterm
 			arch -arm64 brew install --cask kitty
@@ -179,6 +192,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 			arch -arm64 brew install --cask google-chrome
 			arch -arm64 brew install --cask firefox
 			arch -arm64 brew install --cask neovide
+			arch -arm64 brew install --cask miniconda
             ;;
     esac
 
@@ -190,12 +204,14 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 	ln -h -f -s -- /Applications/Alacritty.app/Contents/Resources/61/alacritty-direct ~/.terminfo/61/alacritty-direct
 	sudo /usr/sbin/DevToolsSecurity -enable
 	sudo dscl . append /Groups/_developer GroupMembership $(whoami)
-	defaults write com.apple.screencapture type png
+	defaults write com.apple.screencapture type jpg
 	defaults write com.apple.dock autohide-delay -float 0
 	defaults write com.apple.dock autohide-time-modifier -float 0.5
 	defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="small-spacer-tile";}'
 	defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="small-spacer-tile";}'
+    defaults write com.apple.Finder AppleShowAllFiles true
 	killall Dock
+    killall Finder
 
 else
     echo "Your OS is not supported by the installer at this moment."

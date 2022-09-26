@@ -1163,7 +1163,7 @@ schemes:
       - { index: 17, color: "#F5E0DC" }
 
 # Selected colorscheme
-colors: *rosepine-light
+colors: *tokyonight-dimmed
 
 cursor:
   # Cursor style
