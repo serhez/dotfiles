@@ -4,11 +4,6 @@ add_pip_as_python_dependency: True
 use_pip: False
 update_dependencies: True
 
-create_default_packages:
-  - pip
-  - ipython
-  - scipy=0.15.0
-
 disallow:
   - anaconda
 

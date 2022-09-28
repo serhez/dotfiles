@@ -282,6 +282,8 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 	ln -h -f -s -- /Applications/Alacritty.app/Contents/Resources/61/alacritty-direct ~/.terminfo/61/alacritty-direct
 fi
 
+conda init zsh
+
 if [[ "$nvim" == "y" ]]; then
 	echo "Installing and configuring Neovim..."
 	git clone https://github.com/serhez/nvim-conf
