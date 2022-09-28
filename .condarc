@@ -1,0 +1,17 @@
+auto_update_conda: True
+always_yes: False
+add_pip_as_python_dependency: True
+use_pip: False
+update_dependencies: True
+
+create_default_packages:
+  - pip
+  - ipython
+  - scipy=0.15.0
+
+disallow:
+  - anaconda
+
+envs_dirs:
+  - ~/.envs
+  - /opt/anaconda/envs

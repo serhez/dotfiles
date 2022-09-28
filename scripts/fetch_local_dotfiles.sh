@@ -8,6 +8,7 @@ cp ~/.tmux.conf ./
 cp ~/.zprofile ./
 cp ~/.zshenv ./
 cp ~/.zshrc ./
+cp ~/.condarc ./
 
 # Remove all content before copying
 rm -r ./.config/alacritty
