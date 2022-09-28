@@ -96,9 +96,30 @@ alias tkill='tmux kill-session -t'
 # python
 alias pyenv='python3 -m venv venv'
 alias pyact='source ./venv/bin/activate'
-alias pipupg='python3 -m pip install --upgrade pip'
-alias pipins='python3 -m pip install'
-alias pipreq='python3 -m pip install -r requirements.txt'
+
+# pip
+alias pipupg='pip install --upgrade pip'
+alias pipins='pip install'
+alias pipinsreq='pip install -r requirements.txt'
+alias pipmkreq='pip freeze > requirements.txt'
+
+# conda
+alias cenv='conda create -n'
+alias cenvls='conda env list'
+alias cenvexp='conda env export >>'
+alias cenvimp='conda env create -f'
+alias cact='conda activate'
+alias cdeact='conda deactivate'
+alias cins='conda install'
+alias cinsreq='conda install -f requirements.txt'
+alias cmkreq='conda list -e > requirements.txt'
+alias cls='conda list'
+alias ccln='conda clean --all'
+
+cenvrm()
+{
+    conda env remove -n "$1" & conda clean --all
+}
 
 # jupyter
 alias jn='jupyter notebook'
