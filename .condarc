@@ -3,6 +3,7 @@ always_yes: False
 add_pip_as_python_dependency: True
 use_pip: False
 update_dependencies: True
+changeps1: False
 
 disallow:
   - anaconda
