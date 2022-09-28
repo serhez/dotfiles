@@ -104,6 +104,7 @@ alias pipinsreq='pip install -r requirements.txt'
 alias pipmkreq='pip freeze > requirements.txt'
 
 # conda
+alias cupg='conda update -n base -c defaults conda'
 alias cenv='conda create -n'
 alias cenvls='conda env list'
 alias cenvexp='conda env export >>'
