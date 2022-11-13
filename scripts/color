@@ -6,7 +6,7 @@ declare -A SUPPORTED=(
 	["ayu"]="dark light mirage"
 	["catppuccin"]="darker dark dimmed light"
 	["dracula"]=""
-	["github"]="dark dimmed light"
+	# ["github"]="dark dimmed light"
 	["gotham"]=""
 	["gruvbox"]="dark light"
 	["nord"]=""
@@ -114,19 +114,19 @@ then
 fi
 
 # Neovim
-if [ "$color" == "github" ]
-then
-	if [ "$variant" == "dark" ]
-	then
-		sed -i '' 's/colors_name\ =\ ".*"/colors_name\ =\ \"github_dark_default\"/g' ~/.config/nvim/lua/colors.lua
-	elif [ "$variant" == "dimmed" ]
-	then
-		sed -i '' 's/colors_name\ =\ ".*"/colors_name\ =\ \"github_dimmed\"/g' ~/.config/nvim/lua/colors.lua
-	elif [ "$variant" == "light" ]
-	then
-		sed -i '' 's/colors_name\ =\ ".*"/colors_name\ =\ \"github_light_default\"/g' ~/.config/nvim/lua/colors.lua
-	fi
-elif [ "$color" == "rosepine" ]
+# if [ "$color" == "github" ]
+# then
+# 	if [ "$variant" == "dark" ]
+# 	then
+# 		sed -i '' 's/colors_name\ =\ ".*"/colors_name\ =\ \"github_dark_default\"/g' ~/.config/nvim/lua/colors.lua
+# 	elif [ "$variant" == "dimmed" ]
+# 	then
+# 		sed -i '' 's/colors_name\ =\ ".*"/colors_name\ =\ \"github_dimmed\"/g' ~/.config/nvim/lua/colors.lua
+# 	elif [ "$variant" == "light" ]
+# 	then
+# 		sed -i '' 's/colors_name\ =\ ".*"/colors_name\ =\ \"github_light_default\"/g' ~/.config/nvim/lua/colors.lua
+# 	fi
+if [ "$color" == "rosepine" ]
 then
 	sed -i '' 's/colors_name\ =\ ".*"/colors_name\ =\ \"rose-pine\"/g' ~/.config/nvim/lua/colors.lua
 elif [ "$color" == "nightowl" ]

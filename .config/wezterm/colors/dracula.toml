@@ -1,24 +1,24 @@
 [colors]
 ansi = [
-    '#000000',
-    '#ff5555',
-    '#50fa7b',
-    '#f1fa8c',
-    '#bd93f9',
-    '#ff79c6',
-    '#8be9fd',
-    '#bbbbbb',
+  '#000000',
+  '#ff5555',
+  '#50fa7b',
+  '#f1fa8c',
+  '#bd93f9',
+  '#ff79c6',
+  '#8be9fd',
+  '#bbbbbb',
 ]
-background = '#1e1f29'
+background = '#282a36'
 brights = [
-    '#555555',
-    '#ff5555',
-    '#50fa7b',
-    '#f1fa8c',
-    '#bd93f9',
-    '#ff79c6',
-    '#8be9fd',
-    '#ffffff',
+  '#555555',
+  '#ff5555',
+  '#50fa7b',
+  '#f1fa8c',
+  '#bd93f9',
+  '#ff79c6',
+  '#8be9fd',
+  '#ffffff',
 ]
 cursor_bg = '#bbbbbb'
 cursor_border = '#bbbbbb'
