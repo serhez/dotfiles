@@ -38,7 +38,7 @@ return {
 	font_size = 16.0,
 
 	-- Colors
-	color_scheme = "catppuccin-darker",
+	color_scheme = "tokyonight-dark",
 
 	-- Tab bar
 	use_fancy_tab_bar = false,
