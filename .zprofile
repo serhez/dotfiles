@@ -52,6 +52,9 @@ export TERM="wezterm"
 ## Path
 export PATH=/opt/homebrew/opt/llvm/bin:$HOME/bin:$HOME/.local/bin:$HOME/scripts:$PM_BIN:$HOME/.dotnet/tools:/usr/local/go/bin:$HOME/go/bin:$PATH
 
+## Flags
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/.mujoco/mujoco210
+
 ## Key bindings
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
