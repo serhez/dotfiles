@@ -38,7 +38,7 @@ return {
 	font_size = 16.0,
 
 	-- Colors
-	color_scheme = "tokyonight-dark",
+	color_scheme = "tokyonight-dimmed",
 
 	-- Tab bar
 	use_fancy_tab_bar = false,

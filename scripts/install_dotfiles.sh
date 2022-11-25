@@ -39,6 +39,9 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
             sudo pacman -S ripgrep
             sudo pacman -S luajit
             sudo pacman -S node
+			sudo pacman -S llvm
+			sudo pacman -S boost
+			sudo pacman -S hdf5
 			sudo pacman -S docker
 			sudo pacman -S docker-compose
 			sudo pacman -S kubectl
@@ -110,6 +113,9 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
             brew install luajit
             brew install luarocks
             brew install node
+			brew install llvm
+			brew install boost
+			brew install hdf5
 			brew install docker
 			brew install --cask docker
 			brew install docker-compose
@@ -164,6 +170,9 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
             arch -arm64 brew install --HEAD luajit
             arch -arm64 brew install luarocks
             arch -arm64 brew install node
+			arch -arm64 brew install llvm
+			arch -arm64 brew install boost
+			arch -arm64 brew install hdf5
 			arch -arm64 brew install docker
 			arch -arm64 brew install --cask docker
 			arch -arm64 brew install docker-compose

@@ -15,12 +15,28 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
         x86_64)
             export PM_SHARE=/usr/local/share
             export PM_BIN=/usr/local/bin
+            export LDFLAGS="-L/usr/local/opt/llvm/lib"
+            export CPPFLAGS="-I/usr/local/opt/llvm/include"
+            export CC="/usr/local/opt/llvm/bin/clang"
+            export CXX="/usr/local/opt/llvm/bin/clang++"
+            export CXX11="/usr/local/opt/llvm/bin/clang++"
+            export CXX14="/usr/local/opt/llvm/bin/clang++"
+            export CXX17="/usr/local/opt/llvm/bin/clang++"
+            export CXX1X="/usr/local/opt/llvm/bin/clang++"
             ;;
 
         # Mac Apple silicon
         arm64)
             export PM_SHARE=/opt/homebrew/share
             export PM_BIN=/opt/homebrew/bin
+            export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+            export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+            export CC="/opt/homebrew/opt/llvm/bin/clang"
+            export CXX="/opt/homebrew/opt/llvm/bin/clang++"
+            export CXX11="/opt/homebrew/opt/llvm/bin/clang++"
+            export CXX14="/opt/homebrew/opt/llvm/bin/clang++"
+            export CXX17="/opt/homebrew/opt/llvm/bin/clang++"
+            export CXX1X="/opt/homebrew/opt/llvm/bin/clang++"
             ;;
     esac
 fi
@@ -33,7 +49,8 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export BAT_THEME="TwoDark"
 export TERM="wezterm"
 
-export PATH=$HOME/bin:$HOME/.local/bin:$HOME/scripts:$PM_BIN:$HOME/.dotnet/tools:/usr/local/go/bin:$HOME/go/bin:$PATH
+## Path
+export PATH=/opt/homebrew/opt/llvm/bin:$HOME/bin:$HOME/.local/bin:$HOME/scripts:$PM_BIN:$HOME/.dotnet/tools:/usr/local/go/bin:$HOME/go/bin:$PATH
 
 ## Key bindings
 
