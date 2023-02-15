@@ -4,6 +4,7 @@
 # Supports MacOS and Arch Linux
 
 cp ~/.nuxtrc ./
+cp ~/.lintr ./
 cp ~/.tmux.conf ./
 cp ~/.zprofile ./
 cp ~/.zshenv ./

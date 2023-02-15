@@ -257,6 +257,7 @@ cp ./.zshenv ~
 cp ./.condarc ~
 cp ./.tmux.conf ~
 cp ./.nuxtrc ~
+cp ./.lintr ~
 
 cp -r ./.config/alacritty ~/.config
 cp -r ./.config/gh ~/.config
