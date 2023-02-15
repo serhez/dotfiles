@@ -16,7 +16,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
             export PM_SHARE=/usr/local/share
             export PM_BIN=/usr/local/bin
             export LDFLAGS="-L/usr/local/opt/llvm/lib"
-            export CPPFLAGS="-I/usr/local/opt/llvm/include"
+            gxport CPPFLAGS="-I/usr/local/opt/llvm/include"
             export CC="/usr/local/opt/llvm/bin/clang"
             export CXX="/usr/local/opt/llvm/bin/clang++"
             export CXX11="/usr/local/opt/llvm/bin/clang++"
@@ -65,8 +65,8 @@ fi
 ## Aliases
 
 # find (files), search (text) and view
-alias f='fd'
-alias s='rg'
+alias f='fd -H'
+alias s='rg --hidden'
 alias ls='exa --long --no-user --header --icons --git --all --group-directories-first'
 alias tree='exa --long --no-user --header --icons --git --all --group-directories-first --tree'
 
@@ -118,11 +118,11 @@ alias pyenv='python3 -m venv venv'
 alias pyact='source ./venv/bin/activate'
 
 # pip
-alias pipupg='pip install --upgrade pip'
-alias pipins='pip install'
-alias pipinsreq='pip install -r'
-alias piprm='pip uninstall'
-alias pipmkreq='pip freeze > requirements.txt'
+alias pipupg='python -m pip install --upgrade pip'
+alias pipins='python -m pip install'
+alias pipinsreq='python -m pip install -r'
+alias piprm='python -m pip uninstall'
+alias pipmkreq='python -m pip freeze > requirements.txt'
 
 # conda
 alias cupg='conda update -n base -c defaults conda'

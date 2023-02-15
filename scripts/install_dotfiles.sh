@@ -149,6 +149,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 			brew install --cask firefox
 			brew install --cask neovide
 			brew install --cask miniconda
+			brew install --cask quarto
             ;;
 
         # Mac Apple silicon
@@ -206,6 +207,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 			arch -arm64 brew install --cask firefox
 			arch -arm64 brew install --cask neovide
 			arch -arm64 brew install --cask miniconda
+			arch -arm64 brew install --cask quarto
             ;;
     esac
 
