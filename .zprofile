@@ -16,7 +16,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
             export PM_SHARE=/usr/local/share
             export PM_BIN=/usr/local/bin
             export LDFLAGS="-L/usr/local/opt/llvm/lib"
-            gxport CPPFLAGS="-I/usr/local/opt/llvm/include"
+            export CPPFLAGS="-I/usr/local/opt/llvm/include"
             export CC="/usr/local/opt/llvm/bin/clang"
             export CXX="/usr/local/opt/llvm/bin/clang++"
             export CXX11="/usr/local/opt/llvm/bin/clang++"
@@ -32,6 +32,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
             export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
             export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
             export CC="/opt/homebrew/opt/llvm/bin/clang"
+            # export CC="/opt/homebrew/bin/gcc-12"
             export CXX="/opt/homebrew/opt/llvm/bin/clang++"
             export CXX11="/opt/homebrew/opt/llvm/bin/clang++"
             export CXX14="/opt/homebrew/opt/llvm/bin/clang++"
@@ -63,6 +64,10 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 fi
 
 ## Aliases
+
+# generic
+alias cl='clear'
+alias upgrade='brew update && brew upgrade && brew upgrade --cask wez/wezterm/wezterm-nightly --no-quarantine --greedy-latest && brew cleanup'
 
 # find (files), search (text) and view
 alias f='fd -H'

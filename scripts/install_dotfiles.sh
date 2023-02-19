@@ -23,7 +23,6 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
         NAME="Arch Linux")
 			sudo pacman -S --needed base-devel
 			sudo pacman -S bash
-			sudo pacman -S wezterm
 			sudo pacman -S kitty
 			sudo pacman -S alacritty
             sudo pacman -S git
@@ -68,7 +67,9 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 			sudo rm -r yay
 
 			yay -S google-chrome
+			yay -S wezterm-git
 			yay -S zsh-vi-mode
+			yay -S quarto-cli
             ;;
         *)
             echo "Your Linux distribution is not supported by the installer at this moment."
@@ -137,9 +138,10 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 			brew install zsh-autosuggestions
 			brew install zsh-vi-mode
 			brew install mockery
+			brew install glfw
 
 			brew tap wez/wezterm
-			brew install --cask wez/wezterm/wezterm
+			brew install --cask wez/wezterm/wezterm-nightly
 			brew install --cask kitty
 			brew install --cask rectangle
 			brew install --cask notion
@@ -195,9 +197,10 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 			arch -arm64 brew install zsh-autosuggestions
 			arch -arm64 brew install zsh-vi-mode
 			arch -arm64 brew install mockery
+			arch -arm64 brew install glfw
 
 			brew tap wez/wezterm
-			arch -arm64 brew install --cask wez/wezterm/wezterm
+			arch -arm64 brew install --cask wez/wezterm/wezterm-nightly
 			arch -arm64 brew install --cask kitty
 			arch -arm64 brew install --cask rectangle
 			arch -arm64 brew install --cask notion

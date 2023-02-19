@@ -177,10 +177,6 @@ wezterm.on("update-right-status", function(window)
 	}))
 end)
 
--- Color
-local color_scheme = "tokyonight-dimmed"
--- local colors, _ = wezterm.color.load_scheme("./colors/tokyonight-dimmed.toml")
-
 return {
 	-- General
 	automatically_reload_config = true,
@@ -230,7 +226,7 @@ return {
 	hide_tab_bar_if_only_one_tab = true,
 	switch_to_last_active_tab_when_closing_tab = true,
 
-	color_scheme = color_scheme,
+	color_scheme = "tokyonight-dimmed",
 	colors = {
 		tab_bar = {
 			-- background = colors.ansi[0],
