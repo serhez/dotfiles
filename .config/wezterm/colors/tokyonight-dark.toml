@@ -1,24 +1,24 @@
 [colors]
 ansi = [
-    '#15161e',
-    '#f7768e',
-    '#9ece6a',
-    '#e0af68',
-    '#7aa2f7',
-    '#bb9af7',
-    '#7dcfff',
-    '#a9b1d6',
+  '#15161e',
+  '#f7768e',
+  '#9ece6a',
+  '#e0af68',
+  '#7aa2f7',
+  '#bb9af7',
+  '#7dcfff',
+  '#a9b1d6',
 ]
 background = '#1a1b26'
 brights = [
-    '#414868',
-    '#f7768e',
-    '#9ece6a',
-    '#e0af68',
-    '#7aa2f7',
-    '#bb9af7',
-    '#7dcfff',
-    '#c0caf5',
+  '#414868',
+  '#f7768e',
+  '#9ece6a',
+  '#e0af68',
+  '#7aa2f7',
+  '#bb9af7',
+  '#7dcfff',
+  '#c0caf5',
 ]
 cursor_bg = '#c0caf5'
 cursor_border = '#c0caf5'
@@ -26,6 +26,23 @@ cursor_fg = '#15161e'
 foreground = '#c0caf5'
 selection_bg = '#33467c'
 selection_fg = '#c0caf5'
+
+[colors.tab_bar]
+background = "#1b1032"
+[colors.tab_bar.active_tab]
+bg_color = "#ffffff"
+fg_color = "#c0c0c0"
+intensity = "Normal"
+underline = "None"
+italic = false
+strikethrough = true
+[colors.tab_bar.inactive_tab]
+bg_color = "#1b1032"
+fg_color = "#808080"
+[colors.tab_bar.inactive_tab_hover]
+bg_color = "#3b3052"
+fg_color = "#909090"
+italic = true
 
 [colors.indexed]
 

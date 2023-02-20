@@ -27,6 +27,16 @@ foreground = '#e6e1cf'
 selection_bg = '#253340'
 selection_fg = '#e6e1cf'
 
+[colors.tab_bar]
+background = "#000000"
+[colors.tab_bar.active_tab]
+bg_color = "#e6e1cf"
+fg_color = "#000000"
+intensity = "Bold"
+[colors.tab_bar.inactive_tab]
+bg_color = "#253340"
+fg_color = "#e6e1cf"
+
 [colors.indexed]
 
 [metadata]
