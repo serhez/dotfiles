@@ -44,9 +44,9 @@ local icon_colors = {
 	mauve = "#CBA6F7",
 	red = "#F38BA8",
 	maroon = "#EBA0AC",
-	peach = "#FAB387",
+	peach = "#DFA44B",
 	yellow = "#F9E2AF",
-	green = "#A6E3A1",
+	green = "#669149",
 	teal = "#94E2D5",
 	sky = "#89DCEB",
 	sapphire = "#74C7EC",
@@ -232,8 +232,12 @@ return {
 
 	keys = {
 		{ key = "q", mods = "CMD", action = wezterm.action.QuitApplication },
-		{ key = "k", mods = "CMD", action = wezterm.action.CloseCurrentPane({ confirm = false }) },
-		{ key = "k", mods = "CMD|SHIFT", action = wezterm.action.CloseCurrentTab({ confirm = false }) },
+		{ key = "k", mods = "CMD", action = wezterm.action.CloseCurrentPane({ confirm = false }) }, -- TODO: Make this one work
+		{ key = "k", mods = "CMD|SHIFT", action = wezterm.action.CloseCurrentTab({ confirm = false }) }, -- TODO: Make this one work
+
+		{ key = "t", mods = "CMD", action = wezterm.action({ SpawnTab = "CurrentPaneDomain" }) },
+		{ key = "z", mods = "CMD", action = wezterm.action.TogglePaneZoomState },
+		{ key = "F11", mods = "", action = wezterm.action.ToggleFullScreen },
 
 		{ key = "/", mods = "CMD", action = wezterm.action({ SplitHorizontal = { domain = "CurrentPaneDomain" } }) },
 		{ key = "-", mods = "CMD", action = wezterm.action({ SplitVertical = { domain = "CurrentPaneDomain" } }) },
@@ -255,12 +259,7 @@ return {
 		{ key = "c", mods = "CMD", action = wezterm.action({ CopyTo = "Clipboard" }) },
 		{ key = "v", mods = "CMD", action = wezterm.action({ PasteFrom = "Clipboard" }) },
 		{ key = "v", mods = "CMD|SHIFT", action = wezterm.action.ActivateCopyMode },
-		-- { key = "f", mods = "CMD", action = wezterm.action.Search },
-
-		{ key = "t", mods = "CMD", action = wezterm.action({ SpawnTab = "CurrentPaneDomain" }) },
-		{ key = "k", mods = "CMD|SHIFT", action = wezterm.action({ CloseCurrentTab = { confirm = false } }) },
-		{ key = "z", mods = "CMD", action = wezterm.action.TogglePaneZoomState },
-		{ key = "F11", mods = "", action = wezterm.action.ToggleFullScreen },
+		-- { key = "f", mods = "CMD", action = wezterm.action.Search }, -- TODO: Make this one work
 
 		{ key = "h", mods = "CMD", action = wezterm.action.EmitEvent("ActivatePaneDirection-left") },
 		{ key = "j", mods = "CMD", action = wezterm.action.EmitEvent("ActivatePaneDirection-down") },
