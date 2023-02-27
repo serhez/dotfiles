@@ -5,8 +5,9 @@
 declare -A SUPPORTED=(
 	["ayu"]="dark light mirage"
 	["catppuccin"]="darker dark dimmed light"
+	["doom"]="dark light"
 	["dracula"]=""
-	# ["github"]="dark dimmed light"
+	["github"]="dark dimmed light"
 	["gotham"]=""
 	["gruvbox"]="dark light"
 	["nord"]=""
@@ -19,7 +20,7 @@ declare -A SUPPORTED=(
 )
 
 function in_array {
-	IFS=' ' read -ra array <<< $"2"
+	IFS=' ' read -ra array <<< $2
 
 	if [[ ${#array[@]} = 0 && "$1" = "" ]]
 	then
@@ -68,6 +69,11 @@ function print_help {
     echo "Example: \"color onedark\" or \"color ayu mirage\"."
 }
 
+function reload_nvim_colors {
+	nvim-ctrl 'source ~/.config/nvim/lua/highlights.lua'
+	nvim-ctrl 'syntax on'
+}
+
 while getopts 'h' flag; do
     case "${flag}" in
         h) print_help
@@ -89,7 +95,7 @@ then
     exit 1
 fi
 
-if [[ -v "${SUPPORTED}[${color}]" ]];
+if [[ -v "$SUPPORTED[${color}]" ]];
 then
     echo "ERROR: The proposed color is not currently supported."
 	echo "Use \"color -h\" for help."
@@ -104,28 +110,27 @@ then
     exit 1
 fi
 
-
 # Neovim
-# if [ "$color" == "github" ]
-# then
-# 	if [ "$variant" == "dark" ]
-# 	then
-# 		sed -i '' 's/colors_name\ =\ ".*"/colors_name\ =\ \"github_dark_default\"/g' ~/.config/nvim/lua/highlights.lua
-# 	elif [ "$variant" == "dimmed" ]
-# 	then
-# 		sed -i '' 's/colors_name\ =\ ".*"/colors_name\ =\ \"github_dimmed\"/g' ~/.config/nvim/lua/highlights.lua
-# 	elif [ "$variant" == "light" ]
-# 	then
-# 		sed -i '' 's/colors_name\ =\ ".*"/colors_name\ =\ \"github_light_default\"/g' ~/.config/nvim/lua/highlights.lua
-# 	fi
-if [ "$color" == "rosepine" ]
+if [ "$color" == "github" ]
 then
-	sed -i '' 's/colors_name\ =\ ".*"/colors_name\ =\ \"rose-pine\"/g' ~/.config/nvim/lua/highlights.lua
+	if [ "$variant" == "dark" ]
+	then
+		sed -i '' 's/vim.g.colors_name\ =\ ".*"/vim.g.colors_name\ =\ "github_dark_default\"/g' ~/.config/nvim/lua/highlights.lua
+	elif [ "$variant" == "dimmed" ]
+	then
+		sed -i '' 's/vim.g.colors_name\ =\ ".*"/vim.g.colors_name\ =\ "github_dimmed\"/g' ~/.config/nvim/lua/highlights.lua
+	elif [ "$variant" == "light" ]
+	then
+		sed -i '' 's/vim.g.colors_name\ =\ ".*"/vim.g.colors_name\ =\ "github_light\"/g' ~/.config/nvim/lua/highlights.lua
+	fi
+elif [ "$color" == "rosepine" ]
+then
+	sed -i '' 's/vim.g.colors_name\ =\ ".*"/vim.g.colors_name\ =\ "rose-pine\"/g' ~/.config/nvim/lua/highlights.lua
 elif [ "$color" == "nightowl" ]
 then
-	sed -i '' 's/colors_name\ =\ ".*"/colors_name\ =\ \"night-owl\"/g' ~/.config/nvim/lua/highlights.lua
+	sed -i '' 's/vim.g.colors_name\ =\ ".*"/vim.g.colors_name\ =\ "night-owl\"/g' ~/.config/nvim/lua/highlights.lua
 else
-	sed -i '' 's/colors_name\ =\ ".*"/colors_name\ =\ "'"$color"'"/g' ~/.config/nvim/lua/highlights.lua
+	sed -i '' 's/vim.g.colors_name\ =\ ".*"/vim.g.colors_name\ =\ "'"$color"'"/g' ~/.config/nvim/lua/highlights.lua
 fi
 
 if [ "$variant" != "" ]
@@ -134,77 +139,85 @@ then
     then
 		if [ "$variant" == "dark" ]
 		then
-			sed -i '' 's/colors_name\ =\ ".*"/colors_name\ =\ \"ayu-dark\"/g' ~/.config/nvim/lua/highlights.lua
+			sed -i '' 's/vim.g.colors_name\ =\ ".*"/vim.g.colors_name\ =\ "ayu-dark\"/g' ~/.config/nvim/lua/highlights.lua
 			sed -i '' 's/vim.o.background.*/vim.o.background\ =\ "dark"/g' ~/.config/nvim/lua/highlights.lua
 		elif [ "$variant" == "mirage" ]
         then
-			sed -i '' 's/colors_name\ =\ ".*"/colors_name\ =\ \"ayu-mirage\"/g' ~/.config/nvim/lua/highlights.lua
+			sed -i '' 's/vim.g.colors_name\ =\ ".*"/vim.g.colors_name\ =\ "ayu-mirage\"/g' ~/.config/nvim/lua/highlights.lua
 			sed -i '' 's/vim.o.background.*/vim.o.background\ =\ "dark"/g' ~/.config/nvim/lua/highlights.lua
         else
-			sed -i '' 's/colors_name\ =\ ".*"/colors_name\ =\ \"ayu-light\"/g' ~/.config/nvim/lua/highlights.lua
+			sed -i '' 's/vim.g.colors_name\ =\ ".*"/vim.g.colors_name\ =\ "ayu-light\"/g' ~/.config/nvim/lua/highlights.lua
 			sed -i '' 's/vim.o.background.*/vim.o.background\ =\ "light"/g' ~/.config/nvim/lua/highlights.lua
         fi
 	elif [ "$color" == "catppuccin" ]
 	then
 		if [ "$variant" == "darker" ]
 		then
-			sed -i '' 's/colors_name\ =\ ".*"/colors_name\ =\ \"catppuccin-mocha\"/g' ~/.config/nvim/lua/highlights.lua
-			sed -i '' "s/catppuccin_flavour\ =\ \".*\"/catppuccin_flavour\ =\ \"mocha\"/g" ~/.config/nvim/lua/highlights.lua
+			sed -i '' 's/vim.g.colors_name\ =\ ".*"/vim.g.colors_name\ =\ "catppuccin-mocha\"/g' ~/.config/nvim/lua/highlights.lua
+			# sed -i '' "s/catppuccin_flavour\ =\ \".*\"/catppuccin_flavour\ =\ \"mocha\"/g" ~/.config/nvim/lua/highlights.lua
 			sed -i '' 's/vim.o.background.*/vim.o.background\ =\ "dark"/g' ~/.config/nvim/lua/highlights.lua
 		elif [ "$variant" == "dark" ]
 		then
-			sed -i '' 's/colors_name\ =\ ".*"/colors_name\ =\ \"catppuccin-macchiato\"/g' ~/.config/nvim/lua/highlights.lua
-			sed -i '' "s/catppuccin_flavour\ =\ \".*\"/catppuccin_flavour\ =\ \"macchiato\"/g" ~/.config/nvim/lua/highlights.lua
+			sed -i '' 's/vim.g.colors_name\ =\ ".*"/vim.g.colors_name\ =\ "catppuccin-macchiato\"/g' ~/.config/nvim/lua/highlights.lua
+			# sed -i '' "s/catppuccin_flavour\ =\ \".*\"/catppuccin_flavour\ =\ \"macchiato\"/g" ~/.config/nvim/lua/highlights.lua
 			sed -i '' 's/vim.o.background.*/vim.o.background\ =\ "dark"/g' ~/.config/nvim/lua/highlights.lua
 		elif [ "$variant" == "dimmed" ]
 		then
-			sed -i '' 's/colors_name\ =\ ".*"/colors_name\ =\ \"catppuccin-frappe\"/g' ~/.config/nvim/lua/highlights.lua
-			sed -i '' "s/catppuccin_flavour\ =\ \".*\"/catppuccin_flavour\ =\ \"frappe\"/g" ~/.config/nvim/lua/highlights.lua
+			sed -i '' 's/vim.g.colors_name\ =\ ".*"/vim.g.colors_name\ =\ "catppuccin-frappe\"/g' ~/.config/nvim/lua/highlights.lua
 			sed -i '' 's/vim.o.background.*/vim.o.background\ =\ "dark"/g' ~/.config/nvim/lua/highlights.lua
 		elif [ "$variant" == "light" ]
 		then
-			sed -i '' 's/colors_name\ =\ ".*"/colors_name\ =\ \"catppuccin-latte\"/g' ~/.config/nvim/lua/highlights.lua
-			sed -i '' "s/catppuccin_flavour\ =\ \".*\"/catppuccin_flavour\ =\ \"latte\"/g" ~/.config/nvim/lua/highlights.lua
+			sed -i '' 's/vim.g.colors_name\ =\ ".*"/vim.g.colors_name\ =\ "catppuccin-latte\"/g' ~/.config/nvim/lua/highlights.lua
 			sed -i '' 's/vim.o.background.*/vim.o.background\ =\ "light"/g' ~/.config/nvim/lua/highlights.lua
 		fi
 	elif [ "$color" == "rosepine" ]
 	then
 		if [ "$variant" == "dimmed" ]
 		then
-			sed -i '' "s/dark_variant\ =\ \".*\"/dark_variant\ =\ \"moon\"/g" ~/.config/nvim/lua/plugins/configs/colorschemes/rose-pine/init.lua
+			sed -i '' "s/dark_variant\ =\ \".*\"/dark_variant\ =\ \"moon\"/g" ~/.config/nvim/lua/plugins/configs/rose-pine.lua
 			sed -i '' 's/vim.o.background.*/vim.o.background\ =\ "dark"/g' ~/.config/nvim/lua/highlights.lua
 		else
-			sed -i '' "s/dark_variant\ =\ \".*\"/dark_variant\ =\ \"main\"/g" ~/.config/nvim/lua/plugins/configs/colorschemes/rose-pine/init.lua
+			sed -i '' "s/dark_variant\ =\ \".*\"/dark_variant\ =\ \"main\"/g" ~/.config/nvim/lua/plugins/configs/rose-pine.lua
 			sed -i '' 's/vim.o.background.*/vim.o.background\ =\ "'"$variant"'"/g' ~/.config/nvim/lua/highlights.lua
 		fi
 	elif [ "$color" == "tokyonight" ]
 	then
 		if [ "$variant" == "dark" ]
 		then
-			sed -i '' 's/colors_name\ =\ ".*"/colors_name\ =\ \"tokyonight-night\"/g' ~/.config/nvim/lua/highlights.lua
+			sed -i '' 's/vim.g.colors_name\ =\ ".*"/vim.g.colors_name\ =\ "tokyonight-night\"/g' ~/.config/nvim/lua/highlights.lua
 			sed -i '' 's/vim.o.background.*/vim.o.background\ =\ "dark"/g' ~/.config/nvim/lua/highlights.lua
 		elif [ "$variant" == "dimmed" ]
 		then
-			sed -i '' 's/colors_name\ =\ ".*"/colors_name\ =\ \"tokyonight-storm\"/g' ~/.config/nvim/lua/highlights.lua
+			sed -i '' 's/vim.g.colors_name\ =\ ".*"/vim.g.colors_name\ =\ "tokyonight-storm\"/g' ~/.config/nvim/lua/highlights.lua
 			sed -i '' 's/vim.o.background.*/vim.o.background\ =\ "dark"/g' ~/.config/nvim/lua/highlights.lua
 		elif [ "$variant" == "light" ]
 		then
-			sed -i '' 's/colors_name\ =\ ".*"/colors_name\ =\ \"tokyonight-day\"/g' ~/.config/nvim/lua/highlights.lua
+			sed -i '' 's/vim.g.colors_name\ =\ ".*"/vim.g.colors_name\ =\ "tokyonight-day\"/g' ~/.config/nvim/lua/highlights.lua
 			sed -i '' 's/vim.o.background.*/vim.o.background\ =\ "light"/g' ~/.config/nvim/lua/highlights.lua
 		fi
 	elif [ "$color" == "onedark" ]
 	then
 		if [ "$variant" == "cooler" ]
 		then
-			sed -i '' 's/style\ =.*/style\ =\ "deep",/g' ~/.config/nvim/lua/plugins/configs/colorschemes/onedark/init.lua
+			sed -i '' 's/style\ =.*/style\ =\ "deep",/g' ~/.config/nvim/lua/plugins/configs/onedark.lua
 			sed -i '' 's/vim.o.background.*/vim.o.background\ =\ "dark"/g' ~/.config/nvim/lua/highlights.lua
 		elif [ "$variant" == "light" ]
 		then
-			sed -i '' 's/style\ =.*/style\ =\ "light",/g' ~/.config/nvim/lua/plugins/configs/colorschemes/onedark/init.lua
+			sed -i '' 's/style\ =.*/style\ =\ "light",/g' ~/.config/nvim/lua/plugins/configs/onedark.lua
 			sed -i '' 's/vim.o.background.*/vim.o.background\ =\ "light"/g' ~/.config/nvim/lua/highlights.lua
 		else
-			sed -i '' 's/style\ =.*/style\ =\ "'"$variant"'",/g' ~/.config/nvim/lua/plugins/configs/colorschemes/onedark/init.lua
+			sed -i '' 's/style\ =.*/style\ =\ "'"$variant"'",/g' ~/.config/nvim/lua/plugins/configs/onedark.lua
 			sed -i '' 's/vim.o.background.*/vim.o.background\ =\ "dark"/g' ~/.config/nvim/lua/highlights.lua
+		fi
+	elif [ "$color" == "doom" ]
+	then
+		sed -i '' 's/vim.g.colors_name\ =\ ".*"/vim.g.colors_name\ =\ "doom-one\"/g' ~/.config/nvim/lua/highlights.lua
+		if [ "$variant" == "dark" ]
+		then
+			sed -i '' 's/vim.o.background.*/vim.o.background\ =\ "dark"/g' ~/.config/nvim/lua/highlights.lua
+		elif [ "$variant" == "light" ]
+		then
+			sed -i '' 's/vim.o.background.*/vim.o.background\ =\ "light"/g' ~/.config/nvim/lua/highlights.lua
 		fi
 	else
 		if [ "$variant" == "light" ]
@@ -217,7 +230,8 @@ then
 else
 	sed -i '' 's/vim.o.background.*/vim.o.background\ =\ "dark"/g' ~/.config/nvim/lua/highlights.lua
 fi
-nvim-ctrl 'syntax on'
+
+reload_nvim_colors
 
 # alacritty
 if [ "$variant" != "" ]

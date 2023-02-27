@@ -227,6 +227,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 	defaults write com.apple.dock autohide-time-modifier -float 0.5
 	defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="small-spacer-tile";}'
 	defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="small-spacer-tile";}'
+	defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="small-spacer-tile";}'
     defaults write com.apple.Finder AppleShowAllFiles true
 	killall Dock
     killall Finder

@@ -228,7 +228,7 @@ return {
 	switch_to_last_active_tab_when_closing_tab = true,
 	window_close_confirmation = "NeverPrompt",
 
-	color_scheme = "tokyonight-dimmed",
+	color_scheme = "onedark-cool",
 
 	keys = {
 		{ key = "q", mods = "CMD", action = wezterm.action.QuitApplication },

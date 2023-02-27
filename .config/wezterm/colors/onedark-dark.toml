@@ -20,13 +20,14 @@ brights = [
   '#56b6c2',
   '#fffefe',
 ]
-cursor_bg = '#5c6370'
-cursor_border = '#5c6370'
-cursor_fg = '#5c6370'
-foreground = '#5c6370'
+
+cursor_bg = '#7d899f'
+cursor_border = '#a5b0c5'
+cursor_fg = '#000000'
+foreground = '#a5b0c5'
 
 [colors.indexed]
 
 [metadata]
-name = 'onedark'
+name = 'onedark-dark'
 origin_url = 'https://github.com/Gogh-Co/Gogh'
