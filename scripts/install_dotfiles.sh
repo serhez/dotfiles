@@ -152,6 +152,9 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 			brew install --cask neovide
 			brew install --cask miniconda
 			brew install --cask quarto
+			brew install --cask karabiner-elements
+			brew install --cask alt-tab
+			brew install --cask numi
             ;;
 
         # Mac Apple silicon
@@ -211,6 +214,9 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 			arch -arm64 brew install --cask neovide
 			arch -arm64 brew install --cask miniconda
 			arch -arm64 brew install --cask quarto
+			arch -arm64 brew install --cask karabiner-elements
+			arch -arm64 brew install --cask alt-tab
+			arch -arm64 brew install --cask numi
             ;;
     esac
 
@@ -280,6 +286,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     cp ./.Xresources ~
 elif [[ "$OSTYPE" == "darwin"* ]]; then
 	cp -r ./.config/rectangle ~/.config
+	cp -r ./.config/karabiner ~/.config
 
 	# NOTE: MacOS makes /usr/share/terminfo/ read-only, so we need to copy our terminfo files to a custom dir
 	# tmux

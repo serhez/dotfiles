@@ -66,6 +66,7 @@ fi
 ## Aliases
 
 # generic
+alias playlol='defaults write .GlobalPreferences com.apple.mouse.scaling -1'
 alias cl='clear'
 alias upgrade='brew update && brew upgrade && brew upgrade --cask wez/wezterm/wezterm-nightly --no-quarantine --greedy-latest && brew cleanup'
 

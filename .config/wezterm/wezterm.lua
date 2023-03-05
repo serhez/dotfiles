@@ -226,9 +226,9 @@ return {
 	tab_max_width = 50,
 	hide_tab_bar_if_only_one_tab = false,
 	switch_to_last_active_tab_when_closing_tab = true,
-	window_close_confirmation = "NeverPrompt",
+	window_close_confirmation = "AlwaysPrompt",
 
-	color_scheme = "onedark-cool",
+	color_scheme = "catppuccin-light",
 
 	keys = {
 		{ key = "q", mods = "CMD", action = wezterm.action.QuitApplication },

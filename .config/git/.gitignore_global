@@ -38,3 +38,7 @@ Thumbs.db
 # Editor files #
 ################
 .vscode
+
+# Python #
+################
+**/__pycache__

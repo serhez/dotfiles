@@ -26,8 +26,6 @@ rm -r ./.config/wezterm
 cp -r ~/.config/wezterm ./.config
 rm -r ./.config/mprocs
 cp -r ~/.config/mprocs ./.config
-rm -r ./.config/rectangle
-cp -r ~/.config/rectangle ./.config
 
 # Do not remove all content before copying
 cp ~/scripts/* ./scripts
@@ -50,4 +48,9 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     cp -r ~/.config/ranger ./.config
 	rm -r ./.config/rofi
     cp -r ~/.config/rofi ./.config
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+	rm -r ./.config/rectangle
+	cp -r ~/.config/rectangle ./.config
+	rm -r ./.config/karabiner
+	cp -r ~/.config/karabiner ./.config
 fi
