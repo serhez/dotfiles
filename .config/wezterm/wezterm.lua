@@ -6,7 +6,7 @@ end
 
 local function conditional_activate_pane(window, pane, pane_direction, vim_direction)
 	if is_vi_process(pane) then
-		window:perform_action(wezterm.action.SendKey({ key = vim_direction, mods = "ALT" }), pane)
+		window:perform_action(wezterm.action.SendKey({ key = vim_direction, mods = "CTRL" }), pane)
 	else
 		window:perform_action(wezterm.action.ActivatePaneDirection(pane_direction), pane)
 	end
@@ -228,7 +228,7 @@ return {
 	switch_to_last_active_tab_when_closing_tab = true,
 	window_close_confirmation = "AlwaysPrompt",
 
-	color_scheme = "catppuccin-light",
+	color_scheme = "tokyonight-dimmed",
 
 	keys = {
 		{ key = "q", mods = "CMD", action = wezterm.action.QuitApplication },
@@ -261,14 +261,14 @@ return {
 		{ key = "v", mods = "CMD|SHIFT", action = wezterm.action.ActivateCopyMode },
 		-- { key = "f", mods = "CMD", action = wezterm.action.Search }, -- TODO: Make this one work
 
-		{ key = "h", mods = "CMD", action = wezterm.action.EmitEvent("ActivatePaneDirection-left") },
-		{ key = "j", mods = "CMD", action = wezterm.action.EmitEvent("ActivatePaneDirection-down") },
-		{ key = "k", mods = "CMD", action = wezterm.action.EmitEvent("ActivatePaneDirection-up") },
-		{ key = "l", mods = "CMD", action = wezterm.action.EmitEvent("ActivatePaneDirection-right") },
-		{ key = "h", mods = "CMD|SHIFT", action = wezterm.action.AdjustPaneSize({ "Left", 1 }) },
-		{ key = "j", mods = "CMD|SHIFT", action = wezterm.action.AdjustPaneSize({ "Down", 1 }) },
-		{ key = "k", mods = "CMD|SHIFT", action = wezterm.action.AdjustPaneSize({ "Up", 1 }) },
-		{ key = "l", mods = "CMD|SHIFT", action = wezterm.action.AdjustPaneSize({ "Right", 1 }) },
+		{ key = "h", mods = "CTRL", action = wezterm.action.EmitEvent("ActivatePaneDirection-left") },
+		{ key = "j", mods = "CTRL", action = wezterm.action.EmitEvent("ActivatePaneDirection-down") },
+		{ key = "k", mods = "CTRL", action = wezterm.action.EmitEvent("ActivatePaneDirection-up") },
+		{ key = "l", mods = "CTRL", action = wezterm.action.EmitEvent("ActivatePaneDirection-right") },
+		{ key = "h", mods = "CTRL|CMD", action = wezterm.action.AdjustPaneSize({ "Left", 1 }) },
+		{ key = "j", mods = "CTRL|CMD", action = wezterm.action.AdjustPaneSize({ "Down", 1 }) },
+		{ key = "k", mods = "CTRL|CMD", action = wezterm.action.AdjustPaneSize({ "Up", 1 }) },
+		{ key = "l", mods = "CTRL|CMD", action = wezterm.action.AdjustPaneSize({ "Right", 1 }) },
 		{ key = "[", mods = "CMD", action = wezterm.action({ ActivateTabRelative = -1 }) },
 		{ key = "]", mods = "CMD", action = wezterm.action({ ActivateTabRelative = 1 }) },
 		{ key = "[", mods = "CMD|SHIFT", action = wezterm.action.MoveTabRelative(-1) },

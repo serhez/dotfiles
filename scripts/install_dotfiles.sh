@@ -155,6 +155,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 			brew install --cask karabiner-elements
 			brew install --cask alt-tab
 			brew install --cask numi
+			brew install --cask zotero
             ;;
 
         # Mac Apple silicon
@@ -217,6 +218,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 			arch -arm64 brew install --cask karabiner-elements
 			arch -arm64 brew install --cask alt-tab
 			arch -arm64 brew install --cask numi
+			arch -arm64 brew install --cask zotero
             ;;
     esac
 

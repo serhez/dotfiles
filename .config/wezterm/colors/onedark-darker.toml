@@ -1,0 +1,42 @@
+[colors]
+ansi = [
+  '#151820',
+  '#ef5f6b',
+  '#97ca72',
+  '#d99a5e',
+  '#5ab0f6',
+  '#ca72e4',
+  '#4dbdcb',
+  '#a5b0c5',
+]
+background = '#242b38'
+brights = [
+  '#5c6370',
+  '#e06c75',
+  '#98c379',
+  '#d19a66',
+  '#61afef',
+  '#c678dd',
+  '#56b6c2',
+  '#fffefe',
+]
+
+cursor_bg = '#7d899f'
+cursor_border = '#a5b0c5'
+cursor_fg = '#151820'
+foreground = '#a5b0c5'
+
+[colors.tab_bar]
+background = '#151820'
+[colors.tab_bar.active_tab]
+bg_color = '#5ab0f6'
+fg_color = '#151820'
+intensity = 'Bold'
+[colors.tab_bar.inactive_tab]
+bg_color = '#5c6370'
+fg_color = '#a5b0c5'
+
+[colors.indexed]
+
+[metadata]
+name = 'onedark-cool'
