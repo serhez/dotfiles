@@ -132,7 +132,6 @@ alias pipmkreq='python -m pip freeze > requirements.txt'
 
 # conda
 alias cupg='conda update -n base -c defaults conda'
-alias cnew='conda create -n'
 alias cenvls='conda env list'
 alias cenvexp='conda env export >>'
 alias cenvimp='conda env create -f'
@@ -145,9 +144,18 @@ alias cmkreq='conda list -e > requirements.txt'
 alias cls='conda list'
 alias ccln='conda clean --all'
 
+cnew()
+{
+    conda create -n "$1" &&
+    conda activate "$1" &&
+    python -m ipykernel install --user --name="$1" --display-name="$1"
+}
+
 cenvrm()
 {
-    conda env remove -n "$1" & conda clean --all
+    conda env remove -n "$1" &&
+    conda clean --all &&
+    jupyter kernelspec remove "$1"
 }
 
 # jupyter
