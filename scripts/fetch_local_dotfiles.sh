@@ -10,6 +10,7 @@ cp ~/.zprofile ./
 cp ~/.zshenv ./
 cp ~/.zshrc ./
 cp ~/.condarc ./
+cp ~/.config/starship.toml ./.config/
 
 # Remove all content before copying
 rm -r ./.config/alacritty
