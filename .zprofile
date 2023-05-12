@@ -29,8 +29,8 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
         arm64)
             export PM_SHARE=/opt/homebrew/share
             export PM_BIN=/opt/homebrew/bin
-            export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
-            export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+            export LDFLAGS="-L/opt/homebrew/opt/libomp/lib"
+            export CPPFLAGS="-I/opt/homebrew/opt/libomp/include"
             export CC="/opt/homebrew/opt/llvm/bin/clang"
             # export CC="/opt/homebrew/bin/gcc-12"
             export CXX="/opt/homebrew/opt/llvm/bin/clang++"
@@ -51,7 +51,7 @@ export BAT_THEME="TwoDark"
 export TERM="wezterm"
 
 ## Path
-export PATH=/opt/homebrew/opt/llvm/bin:$HOME/bin:$HOME/.local/bin:$HOME/scripts:$PM_BIN:$HOME/.dotnet/tools:/usr/local/go/bin:$HOME/go/bin:$PATH
+export PATH=/opt/homebrew/bin:/opt/homebrew/opt/llvm/bin:$HOME/bin:$HOME/.local/bin:$HOME/scripts:$PM_BIN:$HOME/.dotnet/tools:/usr/local/go/bin:$HOME/go/bin:$PATH
 
 ## Flags
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/.mujoco/mujoco210

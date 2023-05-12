@@ -148,7 +148,7 @@ local function get_process(tab)
 
 	return wezterm.format(
 		process_icons[process_name]
-			or { { Foreground = { Color = icon_colors.sky } }, { Text = string.format("[%s]", process_name) } }
+			or { { Foreground = { Color = icon_colors.text } }, { Text = string.format("[%s]", process_name) } }
 	)
 end
 
@@ -160,15 +160,9 @@ local function get_current_working_dir(tab)
 end
 
 wezterm.on("format-tab-title", function(tab)
-	return wezterm.format({
-		{ Text = " " },
-		"ResetAttributes",
-		{ Text = get_process(tab) },
-		{ Text = " " },
-		{ Text = get_current_working_dir(tab) },
-		{ Foreground = { Color = icon_colors.base } },
-		{ Text = " " },
-	})
+	return {
+		{ Text = " " .. get_process(tab) .. " " .. get_current_working_dir(tab) .. " " },
+	}
 end)
 
 wezterm.on("update-right-status", function(window)
@@ -218,7 +212,7 @@ return {
 		saturation = 1.0,
 		brightness = 0.85,
 	},
-	tab_bar_at_bottom = true,
+	tab_bar_at_bottom = false,
 	use_fancy_tab_bar = false,
 	show_new_tab_button_in_tab_bar = false,
 	show_tab_index_in_tab_bar = false,
@@ -232,9 +226,10 @@ return {
 
 	keys = {
 		{ key = "q", mods = "CMD", action = wezterm.action.QuitApplication },
-		{ key = "k", mods = "CMD", action = wezterm.action.CloseCurrentPane({ confirm = false }) }, -- TODO: Make this one work
-		{ key = "k", mods = "CMD|SHIFT", action = wezterm.action.CloseCurrentTab({ confirm = false }) }, -- TODO: Make this one work
+		{ key = "k", mods = "CMD", action = wezterm.action.CloseCurrentPane({ confirm = true }) },
+		{ key = "k", mods = "CMD|SHIFT", action = wezterm.action.CloseCurrentTab({ confirm = true }) },
 
+		{ key = "w", mods = "CMD", action = wezterm.action.SpawnWindow },
 		{ key = "t", mods = "CMD", action = wezterm.action({ SpawnTab = "CurrentPaneDomain" }) },
 		{ key = "z", mods = "CMD", action = wezterm.action.TogglePaneZoomState },
 		{ key = "F11", mods = "", action = wezterm.action.ToggleFullScreen },
@@ -274,8 +269,8 @@ return {
 		{ key = "[", mods = "CMD|SHIFT", action = wezterm.action.MoveTabRelative(-1) },
 		{ key = "]", mods = "CMD|SHIFT", action = wezterm.action.MoveTabRelative(1) },
 
-		{ key = "=", mods = "ALT", action = wezterm.action.IncreaseFontSize },
-		{ key = "-", mods = "ALT", action = wezterm.action.DecreaseFontSize },
+		{ key = "=", mods = "CMD", action = wezterm.action.IncreaseFontSize },
+		{ key = "-", mods = "CMD", action = wezterm.action.DecreaseFontSize },
 
 		{ mods = "ALT", key = "L", action = wezterm.action.EmitEvent("toggle-ligature") },
 	},
