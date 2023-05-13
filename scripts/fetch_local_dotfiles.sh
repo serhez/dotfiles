@@ -19,6 +19,8 @@ rm -r ./.config/tmux
 mkdir ./.config/tmux
 cp ~/.config/tmux/tmux.conf ./.config/tmux
 cp -r ~/.config/tmux/colorschemes ./.config/tmux
+rm -r ./.config/helix
+cp -r ~/.config/helix ./.config
 rm -r ./.config/htop
 cp -r ~/.config/htop ./.config
 rm -r ./.config/kitty

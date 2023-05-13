@@ -52,6 +52,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
             sudo pacman -S bat
 			sudo pacman -S gnu-tar
 			sudo pacman -S wget
+			sudo pacman -S helix
             sudo pacman -S starship
             sudo pacman -S htop
 			sudo pacman -S zsh-syntax-highlighting
@@ -131,6 +132,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
             brew install bat
 			brew install gnu-tar
 			brew install wget
+			brew install helix
             brew install starship
             brew install htop
             brew install pandoc
@@ -156,6 +158,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 			brew install --cask alt-tab
 			brew install --cask numi
 			brew install --cask zotero
+			brew install --cask unnaturalscrollwheels
             ;;
 
         # Mac Apple silicon
@@ -194,6 +197,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
             arch -arm64 brew install bat
 			arch -arm64 brew install gnu-tar
 			arch -arm64 brew install wget
+			arch -arm64 brew install helix
             arch -arm64 brew install starship
             arch -arm64 brew install htop
             arch -arm64 brew install pandoc
@@ -219,6 +223,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 			arch -arm64 brew install --cask alt-tab
 			arch -arm64 brew install --cask numi
 			arch -arm64 brew install --cask zotero
+			arch -arm64 brew install --cask unnaturalscrollwheels
             ;;
     esac
 
@@ -278,6 +283,7 @@ cp -r ./.config/htop ~/.config
 cp -r ./.config/kitty ~/.config
 cp -r ./.config/wezterm ~/.config
 cp -r ./.config/mprocs ~/.config
+cp -r ./.config/helix ~/.config
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     cp -r ./.config/awesome ~/.config

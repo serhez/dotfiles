@@ -109,6 +109,9 @@ alias v='nvim'
 alias vd='nvim -d'
 alias vui='neovide --multigrid --notabs' # ui
 
+# helix
+alias h='hx'
+
 # tmux
 alias t='tmux'
 alias tnew='tmux new -s'

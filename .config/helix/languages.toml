@@ -1,0 +1,7 @@
+[[language]]
+name = "python"
+file-types = ["py", "ipynb"]
+indent = { tab-width = 4, unit = "    " }
+auto-format = true
+language-server = { command = "~/.local/share/nvim/mason/packages/python-lsp-server/venv/bin/pylsp" }
+formatter = { command = "~/.local/share/nvim/mason/packages/black/venv/bin/black" , args = ["--stdin-filename", "$FILENAME", "--quiet", "-"] }
