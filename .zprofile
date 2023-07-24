@@ -31,13 +31,13 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
             export PM_BIN=/opt/homebrew/bin
             export LDFLAGS="-L/opt/homebrew/opt/libomp/lib"
             export CPPFLAGS="-I/opt/homebrew/opt/libomp/include"
-            export CC="/opt/homebrew/opt/llvm/bin/clang"
-            # export CC="/opt/homebrew/bin/gcc-12"
-            export CXX="/opt/homebrew/opt/llvm/bin/clang++"
-            export CXX11="/opt/homebrew/opt/llvm/bin/clang++"
-            export CXX14="/opt/homebrew/opt/llvm/bin/clang++"
-            export CXX17="/opt/homebrew/opt/llvm/bin/clang++"
-            export CXX1X="/opt/homebrew/opt/llvm/bin/clang++"
+            # export CC="/opt/homebrew/opt/llvm/bin/clang"
+            export CC="/opt/homebrew/bin/gcc-12"
+            # export CXX="/opt/homebrew/opt/llvm/bin/clang++"
+            # export CXX11="/opt/homebrew/opt/llvm/bin/clang++"
+            # export CXX14="/opt/homebrew/opt/llvm/bin/clang++"
+            # export CXX17="/opt/homebrew/opt/llvm/bin/clang++"
+            # export CXX1X="/opt/homebrew/opt/llvm/bin/clang++"
             ;;
     esac
 fi

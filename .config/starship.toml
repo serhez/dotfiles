@@ -9,21 +9,29 @@ vimcmd_visual_symbol = '[󱈈 ](bold yellow)'
 
 [git_status]
 format = '([\[$all_status$ahead_behind\]](bold) )'
-conflicted = '[](red)'
+conflicted = '[󱓌](red)'
 ahead = '[](yellow)'
 behind = '[](yellow)'
 diverged = '[󱡷](red)'
 up_to_date = '[✓](green)'
-untracked = '[](yellow)'
-stashed = '[](purple)'
+untracked = '[?](yellow)'
+stashed = '[](purple)'
 modified = '[](blue)'
-staged = '[+](green)'
+staged = '[󰐕](green)'
 renamed = '[→](blue)'
-deleted = '[](red)'
+deleted = '[](red)'
+
+[battery]
+full_symbol = '󱊣 '
+# full_symbol = '󰁹 '
+# full_symbol = '󱟢 '
+discharging_symbol = '󱊡 '
+# discharging_symbol = '󰁺 '
+charging_symbol = '󰂄 '
 
 [conda]
 format = '[$symbol$environment]($style) '
-symbol = ' '
+symbol = '󰆧 '
 
 [bun]
 format = "via [$symbol]($style)"

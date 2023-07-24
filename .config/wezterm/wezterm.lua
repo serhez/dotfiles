@@ -142,6 +142,42 @@ local function get_process(tab)
 			{ Foreground = { Color = icon_colors.mauve } },
 			{ Text = wezterm.nerdfonts.dev_github_badge },
 		},
+		["ruby"] = {
+			{ Foreground = { Color = icon_colors.mauve } },
+			{ Text = wezterm.nerdfonts.dev_ruby },
+		},
+		["ssh"] = {
+			{ Foreground = { Color = icon_colors.blue } },
+			{ Text = wezterm.nerdfonts.md_ssh },
+		},
+		["python"] = {
+			{ Foreground = { Color = icon_colors.peach } },
+			{ Text = wezterm.nerdfonts.dev_python },
+		},
+		["python3.9"] = {
+			{ Foreground = { Color = icon_colors.peach } },
+			{ Text = wezterm.nerdfonts.dev_python },
+		},
+		["python3.10"] = {
+			{ Foreground = { Color = icon_colors.peach } },
+			{ Text = wezterm.nerdfonts.dev_python },
+		},
+		["python3.11"] = {
+			{ Foreground = { Color = icon_colors.peach } },
+			{ Text = wezterm.nerdfonts.dev_python },
+		},
+		["python3.12"] = {
+			{ Foreground = { Color = icon_colors.peach } },
+			{ Text = wezterm.nerdfonts.dev_python },
+		},
+		["sftp"] = {
+			{ Foreground = { Color = icon_colors.blue } },
+			{ Text = wezterm.nerdfonts.md_download },
+		},
+		["ftp"] = {
+			{ Foreground = { Color = icon_colors.blue } },
+			{ Text = wezterm.nerdfonts.md_download },
+		},
 	}
 
 	local process_name = string.gsub(tab.active_pane.foreground_process_name, "(.*[/\\])(.*)", "%2")
@@ -167,7 +203,7 @@ end)
 
 wezterm.on("update-right-status", function(window)
 	window:set_right_status(wezterm.format({
-		{ Text = wezterm.strftime("%a %d %b %H:%M ") },
+		{ Text = wezterm.strftime(" %a %d %b  󰥔 %H:%M ") },
 	}))
 end)
 
@@ -202,19 +238,20 @@ return {
 	-- },
 
 	font = wezterm.font({
-		family = "JetBrainsMono NF",
-		weight = "Regular", -- "Medium" is also good, a bit thicker
+		family = "JetBrainsMono Nerd Font Mono",
+		weight = "Medium", -- "Normal" is also good, a bit thicker
 	}),
 	font_size = 16.0,
 	command_palette_font_size = 16.0,
 
 	inactive_pane_hsb = {
+		hue = 1.0,
 		saturation = 1.0,
-		brightness = 0.85,
+		brightness = 0.7,
 	},
 	tab_bar_at_bottom = false,
 	use_fancy_tab_bar = false,
-	show_new_tab_button_in_tab_bar = false,
+	show_new_tab_button_in_tab_bar = true,
 	show_tab_index_in_tab_bar = false,
 	window_background_opacity = 1.0,
 	tab_max_width = 50,
@@ -222,7 +259,8 @@ return {
 	switch_to_last_active_tab_when_closing_tab = true,
 	window_close_confirmation = "AlwaysPrompt",
 
-	color_scheme = "tokyonight-dimmed",
+	color_scheme = "kanagawa-dimmed",
+	force_reverse_video_cursor = true,
 
 	keys = {
 		{ key = "q", mods = "CMD", action = wezterm.action.QuitApplication },
@@ -232,10 +270,14 @@ return {
 		{ key = "w", mods = "CMD", action = wezterm.action.SpawnWindow },
 		{ key = "t", mods = "CMD", action = wezterm.action({ SpawnTab = "CurrentPaneDomain" }) },
 		{ key = "z", mods = "CMD", action = wezterm.action.TogglePaneZoomState },
-		{ key = "F11", mods = "", action = wezterm.action.ToggleFullScreen },
+		{ key = "f", mods = "CMD|SHIFT", action = wezterm.action.ToggleFullScreen },
 
 		{ key = "/", mods = "CMD", action = wezterm.action({ SplitHorizontal = { domain = "CurrentPaneDomain" } }) },
-		{ key = "-", mods = "CMD", action = wezterm.action({ SplitVertical = { domain = "CurrentPaneDomain" } }) },
+		{
+			key = "-",
+			mods = "CMD|SHIFT",
+			action = wezterm.action({ SplitVertical = { domain = "CurrentPaneDomain" } }),
+		},
 
 		{ key = "m", mods = "CMD", action = wezterm.action.ActivateCommandPalette },
 		{
@@ -254,7 +296,7 @@ return {
 		{ key = "c", mods = "CMD", action = wezterm.action({ CopyTo = "Clipboard" }) },
 		{ key = "v", mods = "CMD", action = wezterm.action({ PasteFrom = "Clipboard" }) },
 		{ key = "v", mods = "CMD|SHIFT", action = wezterm.action.ActivateCopyMode },
-		-- { key = "f", mods = "CMD", action = wezterm.action.Search }, -- TODO: Make this one work
+		{ key = "f", mods = "CMD", action = wezterm.action.Search("CurrentSelectionOrEmptyString") },
 
 		{ key = "h", mods = "CTRL", action = wezterm.action.EmitEvent("ActivatePaneDirection-left") },
 		{ key = "j", mods = "CTRL", action = wezterm.action.EmitEvent("ActivatePaneDirection-down") },

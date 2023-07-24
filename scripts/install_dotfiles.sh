@@ -267,7 +267,7 @@ python3 -m pip install --upgrade pip
 
 echo "Configuring the environment..."
 
-cp -r ./scripts ~
+cp ./scripts ~
 cp ./.zprofile ~
 cp ./.zshrc ~
 cp ./.zshenv ~
@@ -277,25 +277,25 @@ cp ./.nuxtrc ~
 cp ./.lintr ~
 cp ./.config/starship.toml ~/.config
 
-cp -r ./.config/alacritty ~/.config
-cp -r ./.config/gh ~/.config
-cp -r ./.config/htop ~/.config
-cp -r ./.config/kitty ~/.config
-cp -r ./.config/wezterm ~/.config
-cp -r ./.config/mprocs ~/.config
-cp -r ./.config/helix ~/.config
+cp ./.config/alacritty ~/.config
+cp ./.config/gh ~/.config
+cp ./.config/htop ~/.config
+cp ./.config/kitty ~/.config
+cp ./.config/wezterm ~/.config
+cp ./.config/mprocs ~/.config
+cp ./.config/helix ~/.config
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    cp -r ./.config/awesome ~/.config
-    cp -r ./.config/picom ~/.config
-    cp -r ./.config/ranger ~/.config
-    cp -r ./.config/rofi ~/.config
+    cp ./.config/awesome ~/.config
+    cp ./.config/picom ~/.config
+    cp ./.config/ranger ~/.config
+    cp ./.config/rofi ~/.config
 
-    cp -r ./.Xresources.d ~
+    cp ./.Xresources.d ~
     cp ./.Xresources ~
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-	cp -r ./.config/rectangle ~/.config
-	cp -r ./.config/karabiner ~/.config
+	cp ./.config/rectangle ~/.config
+	cp ./.config/karabiner ~/.config
 
 	# NOTE: MacOS makes /usr/share/terminfo/ read-only, so we need to copy our terminfo files to a custom dir
 	# tmux

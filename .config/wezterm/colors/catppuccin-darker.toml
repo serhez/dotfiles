@@ -1,24 +1,24 @@
 [colors]
 ansi = [
-    '#45475a',
-    '#f38ba8',
-    '#a6e3a1',
-    '#f9e2af',
-    '#89b4fa',
-    '#f5c2e7',
-    '#94e2d5',
-    '#bac2de',
+  '#45475a',
+  '#f38ba8',
+  '#a6e3a1',
+  '#f9e2af',
+  '#89b4fa',
+  '#f5c2e7',
+  '#94e2d5',
+  '#bac2de',
 ]
 background = '#1e1e2e'
 brights = [
-    '#585b70',
-    '#f38ba8',
-    '#a6e3a1',
-    '#f9e2af',
-    '#89b4fa',
-    '#f5c2e7',
-    '#94e2d5',
-    '#a6adc8',
+  '#585b70',
+  '#f38ba8',
+  '#a6e3a1',
+  '#f9e2af',
+  '#89b4fa',
+  '#f5c2e7',
+  '#94e2d5',
+  '#a6adc8',
 ]
 compose_cursor = '#f2cdcd'
 cursor_bg = '#f5e0dc'
@@ -57,7 +57,7 @@ strikethrough = false
 underline = 'None'
 
 [colors.tab_bar.inactive_tab_hover]
-bg_color = '#181825'
+bg_color = '#313244'
 fg_color = '#cdd6f4'
 intensity = 'Normal'
 italic = false
@@ -73,10 +73,10 @@ strikethrough = false
 underline = 'None'
 
 [colors.tab_bar.new_tab_hover]
-bg_color = '#181825'
+bg_color = '#313244'
 fg_color = '#cdd6f4'
 intensity = 'Normal'
-italic = true
+italic = false
 strikethrough = false
 underline = 'None'
 

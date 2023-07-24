@@ -1,44 +1,57 @@
 [colors]
+foreground = "#c8d3f5"
+background = "#222436"
+cursor_bg = "#c8d3f5"
+cursor_border = "#c8d3f5"
+cursor_fg = "#222436"
+selection_bg = "#2d3f76"
+selection_fg = "#c8d3f5"
+
 ansi = [
-  '#15161e',
-  '#f7768e',
-  '#9ece6a',
-  '#e0af68',
-  '#7aa2f7',
-  '#bb9af7',
-  '#7dcfff',
-  '#a9b1d6',
+    "#1b1d2b",
+    "#ff757f",
+    "#c3e88d",
+    "#ffc777",
+    "#82aaff",
+    "#c099ff",
+    "#86e1fc",
+    "#828bb8"
 ]
-background = '#1a1b26'
 brights = [
-  '#414868',
-  '#f7768e',
-  '#9ece6a',
-  '#e0af68',
-  '#7aa2f7',
-  '#bb9af7',
-  '#7dcfff',
-  '#c0caf5',
+    "#444a73",
+    "#ff757f",
+    "#c3e88d",
+    "#ffc777",
+    "#82aaff",
+    "#c099ff",
+    "#86e1fc",
+    "#c8d3f5"
 ]
-cursor_bg = '#c0caf5'
-cursor_border = '#c0caf5'
-cursor_fg = '#15161e'
-foreground = '#c0caf5'
-selection_bg = '#33467c'
-selection_fg = '#c0caf5'
 
 [colors.tab_bar]
-background = "#15161e"
-[colors.tab_bar.active_tab]
-bg_color = "#7aa2f7"
-fg_color = "#15161e"
-intensity = "Bold"
-[colors.tab_bar.inactive_tab]
-bg_color = "#33467c"
-fg_color = "#c0caf5"
+inactive_tab_edge = "#1e2030"
+background = "#191b28"
 
-[colors.indexed]
+[colors.tab_bar.active_tab]
+fg_color = "#82aaff"
+bg_color = "#222436"
+
+[colors.tab_bar.inactive_tab]
+bg_color = "#1e2030"
+fg_color = "#545c7e"
+
+[colors.tab_bar.inactive_tab_hover]
+bg_color = "#1e2030"
+fg_color = "#82aaff"
+
+[colors.tab_bar.new_tab_hover]
+fg_color = "#1e2030"
+bg_color = "#82aaff"
+
+[colors.tab_bar.new_tab]
+fg_color = "#82aaff"
+bg_color = "#191b28"
 
 [metadata]
-name = 'tokyonight-dark'
-origin_url = 'https://github.com/mbadolato/iTerm2-Color-Schemes'
+aliases = []
+author = "folke"

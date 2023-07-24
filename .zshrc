@@ -4,7 +4,7 @@ export ZSH="$HOME/.config/.oh-my-zsh"
 DEFAULT_USER="whoami"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="false"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
