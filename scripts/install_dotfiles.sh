@@ -284,6 +284,7 @@ cp ./.config/kitty ~/.config
 cp ./.config/wezterm ~/.config
 cp ./.config/mprocs ~/.config
 cp ./.config/helix ~/.config
+cp ./.config/neovide ~/.config
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     cp ./.config/awesome ~/.config

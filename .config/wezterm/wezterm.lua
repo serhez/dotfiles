@@ -239,7 +239,7 @@ return {
 
 	font = wezterm.font({
 		family = "JetBrainsMono Nerd Font Mono",
-		weight = "Medium", -- "Normal" is also good, a bit thicker
+		weight = "Regular", -- "Medium" is also good, a bit thicker
 	}),
 	font_size = 16.0,
 	command_palette_font_size = 16.0,
@@ -259,7 +259,7 @@ return {
 	switch_to_last_active_tab_when_closing_tab = true,
 	window_close_confirmation = "AlwaysPrompt",
 
-	color_scheme = "kanagawa-dimmed",
+	color_scheme = "rosepine-dimmed",
 	force_reverse_video_cursor = true,
 
 	keys = {

@@ -1,16 +1,77 @@
-# rose-pine-dawn
 [colors]
 foreground = "#575279"
 background = "#faf4ed"
-cursor_bg = "#9893a5"
-cursor_border = "#9893a5"
+cursor_bg = "#cecacd"
+cursor_border = "#cecacd"
 cursor_fg = "#575279"
-selection_bg = "#f2e9e1"
+selection_bg = '#2a283e'
 selection_fg = "#575279"
 
-ansi = ["#f2e9de", "#b4637a", "#286983", "#ea9d34", "#56949f", "#907aa9", "#d7827e", "#575279"]
-brights = ["#6e6a86", "#b4637a", "#286983", "#ea9d34", "#56949f", "#907aa9", "#d7827e", "#575279"]
+ansi = [
+  "#f2e9e1",
+  "#b4637a",
+  "#286983",
+  "#ea9d34",
+  "#56949f",
+  "#907aa9",
+  "#d7827e",
+  "#575279",
+]
+
+brights = [
+  "#9893a5",
+  "#b4637a",
+  "#286983",
+  "#ea9d34",
+  "#56949f",
+  "#907aa9",
+  "#d7827e",
+  "#575279",
+]
+
+[colors.tab_bar]
+background = "#faf4ed"
+inactive_tab_edge = "#9893a5"
+
+[colors.tab_bar.active_tab]
+bg_color = "#f2e9e1"
+fg_color = "#575279"
+intensity = 'Normal'
+italic = false
+strikethrough = false
+underline = 'None'
+
+[colors.tab_bar.inactive_tab]
+bg_color = "#faf4ed"
+fg_color = "#9893a5"
+intensity = 'Normal'
+italic = false
+strikethrough = false
+underline = 'None'
+
+[colors.tab_bar.inactive_tab_hover]
+bg_color = "#f2e9e1"
+fg_color = "#575279"
+intensity = 'Normal'
+italic = false
+strikethrough = false
+underline = 'None'
+
+[colors.tab_bar.new_tab]
+bg_color = "#faf4ed"
+fg_color = "#9893a5"
+intensity = 'Normal'
+italic = false
+strikethrough = false
+underline = 'None'
+
+[colors.tab_bar.new_tab_hover]
+bg_color = "#f2e9e1"
+fg_color = "#575279"
+intensity = 'Normal'
+italic = false
+strikethrough = false
+underline = 'None'
 
 [metadata]
-name = 'rosepine-light'
-origin_url = 'https://github.com/neapsix/wezterm'
+name = "rosepine-light"

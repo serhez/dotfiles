@@ -1,5 +1,4 @@
 #!/bin/bash
-# vim: ai:ts=4:sw=4:noet
 # Install SH development environment
 # Supports MacOS and Arch Linux
 
@@ -29,6 +28,8 @@ rm -r ./.config/wezterm
 cp -r ~/.config/wezterm ./.config
 rm -r ./.config/mprocs
 cp -r ~/.config/mprocs ./.config
+rm -r ./.config/neovide
+cp -r ~/.config/neovide ./.config
 
 # Do not remove all content before copying
 cp ~/scripts/* ./scripts
