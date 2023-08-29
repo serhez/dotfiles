@@ -59,6 +59,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 			sudo pacman -S zsh-autosuggestions
 			sudo pacman -S mockery
 			sudo pacman -S firefox
+			sudo pacman -S glow
 
 			# Install yay, an AUR package manager
 			git clone https://aur.archlinux.org/yay-git.git
@@ -141,6 +142,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 			brew install zsh-vi-mode
 			brew install mockery
 			brew install glfw
+			brew install glow
 
 			brew tap wez/wezterm
 			brew install --cask wez/wezterm/wezterm-nightly
@@ -206,6 +208,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 			arch -arm64 brew install zsh-vi-mode
 			arch -arm64 brew install mockery
 			arch -arm64 brew install glfw
+			arch -arm64 brew install glow
 
 			brew tap wez/wezterm
 			arch -arm64 brew install --cask wez/wezterm/wezterm-nightly
