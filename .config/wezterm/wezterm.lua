@@ -1,5 +1,10 @@
 local wezterm = require("wezterm")
 
+local font = wezterm.font({
+	family = "JetBrainsMono Nerd Font Mono",
+	weight = "Regular", -- "Medium" is also good, a bit thicker
+})
+
 local function is_vi_process(pane)
 	return pane:get_foreground_process_name():find("n?vim") ~= nil
 end
@@ -188,8 +193,8 @@ local function get_process(tab)
 	)
 end
 
-local function get_current_working_dir(tab)
-	local current_dir = tab.active_pane.current_working_dir
+local function get_cwd(tab)
+	local current_dir = tab.active_pane.current_working_dir.file_path
 	local HOME_DIR = string.format("file://%s", os.getenv("HOME"))
 
 	return current_dir == HOME_DIR and "~" or string.format("%s", string.gsub(current_dir, "(.*[/\\])(.*)", "%2"))
@@ -197,13 +202,20 @@ end
 
 wezterm.on("format-tab-title", function(tab)
 	return {
-		{ Text = " " .. get_process(tab) .. " " .. get_current_working_dir(tab) .. " " },
+		{ Text = "  " .. get_process(tab) .. " " .. get_cwd(tab) .. "  " },
 	}
 end)
 
 wezterm.on("update-right-status", function(window)
 	window:set_right_status(wezterm.format({
-		{ Text = wezterm.strftime(" %a %d %b  󰥔 %H:%M ") },
+		{ Foreground = { Color = icon_colors.mauve } },
+		{ Text = wezterm.strftime("  ") },
+		{ Foreground = { Color = icon_colors.text } },
+		{ Text = wezterm.strftime("%a %d %b") },
+		{ Foreground = { Color = icon_colors.blue } },
+		{ Text = wezterm.strftime("  󰥔 ") },
+		{ Foreground = { Color = icon_colors.text } },
+		{ Text = wezterm.strftime("%H:%M ") },
 	}))
 end)
 
@@ -223,24 +235,28 @@ return {
 	window_padding = {
 		left = "20pt",
 		right = "20pt",
-		top = "20pt",
+		top = "10pt",
 		bottom = "10pt",
 	},
 	default_cursor_style = "BlinkingBar",
 	enable_scroll_bar = false,
 
 	-- Titlebar
-	-- FIX: This should make the title bar transparent while still showing the icons
-	window_decorations = "RESIZE", -- TODO: Remove this when transparent title bar works
-	-- window_frame = {
-	-- 	inactive_titlebar_bg = "none",
-	-- 	active_titlebar_bg = "none",
-	-- },
+	window_decorations = "INTEGRATED_BUTTONS|RESIZE",
+	switch_to_last_active_tab_when_closing_tab = true,
+	tab_max_width = 50,
+	hide_tab_bar_if_only_one_tab = false,
+	tab_bar_at_bottom = false,
+	use_fancy_tab_bar = false,
+	show_new_tab_button_in_tab_bar = true,
+	show_tab_index_in_tab_bar = false,
+	window_frame = {
+		font = font,
+		font_size = 13.0,
+	},
 
-	font = wezterm.font({
-		family = "JetBrainsMono Nerd Font Mono",
-		weight = "Regular", -- "Medium" is also good, a bit thicker
-	}),
+	-- Font
+	font = font,
 	font_size = 16.0,
 	command_palette_font_size = 16.0,
 
@@ -249,17 +265,10 @@ return {
 		saturation = 1.0,
 		brightness = 0.7,
 	},
-	tab_bar_at_bottom = false,
-	use_fancy_tab_bar = false,
-	show_new_tab_button_in_tab_bar = true,
-	show_tab_index_in_tab_bar = false,
 	window_background_opacity = 1.0,
-	tab_max_width = 50,
-	hide_tab_bar_if_only_one_tab = false,
-	switch_to_last_active_tab_when_closing_tab = true,
 	window_close_confirmation = "AlwaysPrompt",
 
-	color_scheme = "rosepine-dimmed",
+	color_scheme = "catppuccin-dimmed",
 	force_reverse_video_cursor = true,
 
 	keys = {
