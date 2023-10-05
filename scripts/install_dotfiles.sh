@@ -73,6 +73,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 			yay -S wezterm-git
 			yay -S zsh-vi-mode
 			yay -S quarto-cli
+			yay -S julia-bin
             ;;
         *)
             echo "Your Linux distribution is not supported by the installer at this moment."
@@ -158,6 +159,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 			brew install --cask neovide
 			brew install --cask miniconda
 			brew install --cask quarto
+			brew install --cask julia
 			brew install --cask karabiner-elements
 			brew install --cask alt-tab
 			brew install --cask numi
@@ -225,6 +227,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 			arch -arm64 brew install --cask neovide
 			arch -arm64 brew install --cask miniconda
 			arch -arm64 brew install --cask quarto
+			arch -arm64 brew install --cask julia
 			arch -arm64 brew install --cask karabiner-elements
 			arch -arm64 brew install --cask alt-tab
 			arch -arm64 brew install --cask numi
