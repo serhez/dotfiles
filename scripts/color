@@ -10,6 +10,8 @@ declare -A SUPPORTED=(
 	["gotham"]=""
 	["gruvbox"]="dark light"
 	["kanagawa"]="dark dimmed light"
+	["nightfox"]="default light lighter purple nord blue carbon"
+	["nordfox"]=""
 	["nord"]=""
 	["nightowl"]=""
 	["onedark"]="dark darker cool cooler warm warmer light"
@@ -236,6 +238,37 @@ then
 		elif [ "$variant" == "light" ]
 		then
 			sed -i '' 's/vim.o.background.*/vim.o.background\ =\ "light"/g' ~/.config/nvim/lua/highlights.lua
+		fi
+	elif [ "$color" == "nightfox" ]
+	then
+		if [ "$variant" == "default" ]
+		then
+			sed -i '' 's/vim.g.colors_name\ =\ ".*"/vim.g.colors_name\ =\ "nightfox\"/g' ~/.config/nvim/lua/highlights.lua
+			sed -i '' 's/vim.o.background.*/vim.o.background\ =\ "dark"/g' ~/.config/nvim/lua/highlights.lua
+		elif [ "$variant" == "light" ]
+		then
+			sed -i '' 's/vim.g.colors_name\ =\ ".*"/vim.g.colors_name\ =\ "dayfox\"/g' ~/.config/nvim/lua/highlights.lua
+			sed -i '' 's/vim.o.background.*/vim.o.background\ =\ "light"/g' ~/.config/nvim/lua/highlights.lua
+		elif [ "$variant" == "lighter" ]
+		then
+			sed -i '' 's/vim.g.colors_name\ =\ ".*"/vim.g.colors_name\ =\ "dawnfox\"/g' ~/.config/nvim/lua/highlights.lua
+			sed -i '' 's/vim.o.background.*/vim.o.background\ =\ "light"/g' ~/.config/nvim/lua/highlights.lua
+		elif [ "$variant" == "purple" ]
+		then
+			sed -i '' 's/vim.g.colors_name\ =\ ".*"/vim.g.colors_name\ =\ "duskfox\"/g' ~/.config/nvim/lua/highlights.lua
+			sed -i '' 's/vim.o.background.*/vim.o.background\ =\ "dark"/g' ~/.config/nvim/lua/highlights.lua
+		elif [ "$variant" == "nord" ]
+		then
+			sed -i '' 's/vim.g.colors_name\ =\ ".*"/vim.g.colors_name\ =\ "nordfox\"/g' ~/.config/nvim/lua/highlights.lua
+			sed -i '' 's/vim.o.background.*/vim.o.background\ =\ "dark"/g' ~/.config/nvim/lua/highlights.lua
+		elif [ "$variant" == "blue" ]
+		then
+			sed -i '' 's/vim.g.colors_name\ =\ ".*"/vim.g.colors_name\ =\ "terafox\"/g' ~/.config/nvim/lua/highlights.lua
+			sed -i '' 's/vim.o.background.*/vim.o.background\ =\ "dark"/g' ~/.config/nvim/lua/highlights.lua
+		elif [ "$variant" == "carbon" ]
+		then
+			sed -i '' 's/vim.g.colors_name\ =\ ".*"/vim.g.colors_name\ =\ "carbonfox\"/g' ~/.config/nvim/lua/highlights.lua
+			sed -i '' 's/vim.o.background.*/vim.o.background\ =\ "dark"/g' ~/.config/nvim/lua/highlights.lua
 		fi
 	else
 		if [ "$variant" == "light" ]
