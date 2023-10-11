@@ -15,6 +15,7 @@ declare -A SUPPORTED=(
 	["nord"]=""
 	["nightowl"]=""
 	["onedark"]="dark darker cool cooler warm warmer light"
+	["oxocarbon"]=""
 	["palenight"]=""
 	["rosepine"]="dark dimmed light"
 	["solarized"]="dark light"
@@ -131,6 +132,9 @@ then
 elif [ "$color" == "nightowl" ]
 then
 	sed -i '' 's/vim.g.colors_name\ =\ ".*"/vim.g.colors_name\ =\ "night-owl\"/g' ~/.config/nvim/lua/highlights.lua
+elif [ "$color" == "oxocarbon" ]
+then
+	sed -i '' 's/vim.g.colors_name\ =\ ".*"/vim.g.colors_name\ =\ "oxocarbon\"/g' ~/.config/nvim/lua/highlights.lua
 elif [ "$color" == "kanagawa" ]
 then
 	sed -i '' 's/vim.g.colors_name\ =\ ".*"/vim.g.colors_name\ =\ "kanagawa\"/g' ~/.config/nvim/lua/highlights.lua
