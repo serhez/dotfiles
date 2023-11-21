@@ -146,6 +146,8 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 			brew install glfw
 			brew install glow
 			brew install git-delta
+			brew install imagemagick
+			brew install ghostscript
 
 			brew tap wez/wezterm
 			brew install --cask wez/wezterm/wezterm-nightly
@@ -214,6 +216,8 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 			arch -arm64 brew install glfw
 			arch -arm64 brew install glow
 			arch -arm64 brew install git-delta
+			arch -arm64 brew install imagemagick
+			arch -arm64 brew install ghostscript
 
 			brew tap wez/wezterm
 			arch -arm64 brew install --cask wez/wezterm/wezterm-nightly
@@ -251,6 +255,8 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 	defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="small-spacer-tile";}'
 	defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="small-spacer-tile";}'
     defaults write com.apple.Finder AppleShowAllFiles true
+	# defaults write -g KeyRepeat -int 250
+	# defaults write -g InitialKeyRepeat -int 2500
 	killall Dock
     killall Finder
 
@@ -270,9 +276,11 @@ cargo install --git https://github.com/chmln/nvim-ctrl
 npm install -g speed-test
 npm install -g tldr
 
-# FIX: Not working for Apple silicon: go install github.com/asciimoo/wuzz@latest
+go install github.com/asciimoo/wuzz@latest
 
 python3 -m pip install --upgrade pip
+
+luarocks install magick --lua-version=5.1
 
 echo "Configuring the environment..."
 

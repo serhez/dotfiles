@@ -56,6 +56,7 @@ export PATH=/opt/homebrew/bin:/opt/homebrew/opt/llvm/bin:$HOME/bin:$HOME/.local/
 
 ## Flags
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/.mujoco/mujoco210
+export DYLD_LIBRARY_PATH=/opt/homebrew/lib/
 
 ## Key bindings
 
