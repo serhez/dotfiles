@@ -268,7 +268,7 @@ return {
 	window_background_opacity = 1.0,
 	window_close_confirmation = "AlwaysPrompt",
 
-	color_scheme = "catppuccin-darker",
+	color_scheme = "catppuccin-dark",
 	force_reverse_video_cursor = true,
 
 	keys = {
