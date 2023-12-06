@@ -109,7 +109,8 @@ alias kui='k9s' # ui
 # nvim
 alias v='nvim'
 alias vd='nvim -d'
-alias vui='neovide --multigrid --notabs' # ui
+alias vv='neovide --multigrid --notabs' # vv(isual)
+alias vui='neovide --multigrid --notabs' # v(ui)
 
 # helix
 alias h='hx'
