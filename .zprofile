@@ -75,8 +75,8 @@ alias upgrade='brew update && brew upgrade && brew upgrade --cask wez/wezterm/we
 # find (files), search (text) and view
 alias f='fd -H'
 alias s='rg --hidden'
-alias ls='exa --long --no-user --header --icons --git --all --group-directories-first'
-alias tree='exa --long --no-user --header --icons --git --all --group-directories-first --tree'
+alias ls='eza --long --no-user --header --icons --git --all --group-directories-first'
+alias tree='eza --long --no-user --header --icons --git --all --group-directories-first --tree'
 
 # processes
 alias pui='htop'  # ui
@@ -135,6 +135,8 @@ alias pipins='python -m pip install'
 alias pipinsreq='python -m pip install -r'
 alias piprm='python -m pip uninstall'
 alias pipmkreq='python -m pip freeze > requirements.txt'
+alias pipcln='python -m pip cache purge'
+alias pipupl='python -m build && python -m twine upload dist/*'
 
 # conda
 alias cupg='conda update -n base -c defaults conda'
@@ -149,6 +151,7 @@ alias crm='conda remove'
 alias cmkreq='conda list -e > requirements.txt'
 alias cls='conda list'
 alias ccln='conda clean --all'
+alias crn='conda rename -n'
 
 cnew()
 {
