@@ -47,7 +47,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 			sudo pacman -S kubernetes-control-plane
             sudo pacman -S lazygit
             sudo pacman -S k9s
-            sudo pacman -S exa
+            sudo pacman -S eza
 			sudo pacman -S most
             sudo pacman -S bat
 			sudo pacman -S gnu-tar
@@ -130,7 +130,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
             brew install pvolok/mprocs/mprocs
             brew install jesseduffield/lazydocker/lazydocker
             brew install k9s
-            brew install exa
+            brew install eza
 			brew install most
             brew install bat
 			brew install gnu-tar
@@ -200,7 +200,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
             arch -arm64 brew install pvolok/mprocs/mprocs
             arch -arm64 brew install jesseduffield/lazydocker/lazydocker
             arch -arm64 brew install k9s
-            arch -arm64 brew install exa
+            arch -arm64 brew install eza
 			arch -arm64 brew install most
             arch -arm64 brew install bat
 			arch -arm64 brew install gnu-tar
