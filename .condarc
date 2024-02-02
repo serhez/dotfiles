@@ -7,7 +7,6 @@ changeps1: False
 
 create_default_packages:
   - python
-  - jupyter
 
 disallow:
   - anaconda
