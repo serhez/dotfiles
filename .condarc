@@ -6,7 +6,7 @@ update_dependencies: True
 changeps1: False
 
 create_default_packages:
-  - python
+  - python=3.11
 
 disallow:
   - anaconda
