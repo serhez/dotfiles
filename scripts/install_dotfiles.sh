@@ -247,7 +247,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 	ln -h -f -s -- /Applications/Alacritty.app/Contents/Resources/61/alacritty ~/.terminfo/61/alacritty
 	ln -h -f -s -- /Applications/Alacritty.app/Contents/Resources/61/alacritty-direct ~/.terminfo/61/alacritty-direct
 	sudo /usr/sbin/DevToolsSecurity -enable
-	sudo dscl . append /Groups/_developer GroupMembership $(whoami)
+	sudo dscl . append /Groups/_developer GroupMembership "$(whoami)"
 	defaults write com.apple.screencapture type jpg
 	defaults write com.apple.dock autohide-delay -float 0
 	defaults write com.apple.dock autohide-time-modifier -float 0.5
@@ -346,6 +346,7 @@ fi
 echo "Done! Your environment has been configured."
 
 echo "Some recommended downloads are:"
-echo "  - Beekeeper Studio [A GUI-based SQL editor and manager]: https://www.beekeeperstudio.io/get"
+echo "  - Beekeeper Studio [https://www.beekeeperstudio.io/get]: a GUI-based SQL editor and manager"
+echo "  - Obsidian [https://obsidian.md]: a note-taking app"
 
 exit 0
