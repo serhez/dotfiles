@@ -227,7 +227,6 @@ return {
 	enable_wayland = false,
 	pane_focus_follows_mouse = false,
 	warn_about_missing_glyphs = false,
-	show_update_window = false,
 	check_for_updates = false,
 	line_height = 1.0,
 	disable_default_key_bindings = true,
