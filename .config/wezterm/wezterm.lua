@@ -275,7 +275,7 @@ return {
 		{ key = "k", mods = "CMD", action = wezterm.action.CloseCurrentPane({ confirm = true }) },
 		{ key = "k", mods = "CMD|SHIFT", action = wezterm.action.CloseCurrentTab({ confirm = true }) },
 
-		{ key = "w", mods = "CMD", action = wezterm.action.SpawnWindow },
+		{ key = "w", mods = "CMD|SHIFT", action = wezterm.action.SpawnWindow },
 		{ key = "t", mods = "CMD", action = wezterm.action({ SpawnTab = "CurrentPaneDomain" }) },
 		{ key = "z", mods = "CMD", action = wezterm.action.TogglePaneZoomState },
 		{ key = "f", mods = "CMD|SHIFT", action = wezterm.action.ToggleFullScreen },
@@ -287,25 +287,17 @@ return {
 			action = wezterm.action({ SplitVertical = { domain = "CurrentPaneDomain" } }),
 		},
 
-		{ key = "m", mods = "CMD", action = wezterm.action.ActivateCommandPalette },
-		{
-			key = "n",
-			mods = "CMD",
-			action = wezterm.action.ShowLauncherArgs({ title = "Tabs", flags = "FUZZY|TABS" }),
-		},
-		{
-			key = "n",
-			mods = "CMD|SHIFT",
-			action = wezterm.action.ShowLauncherArgs({ title = "Workspaces", flags = "FUZZY|WORKSPACES" }),
-		},
+		{ key = "p", mods = "CMD", action = wezterm.action.ActivateCommandPalette },
 		{ key = "s", mods = "CMD", action = wezterm.action.PaneSelect },
 		{ key = "s", mods = "CMD|SHIFT", action = wezterm.action.PaneSelect({ mode = "SwapWithActive" }) },
 
+		-- Clipboard & selections
 		{ key = "c", mods = "CMD", action = wezterm.action({ CopyTo = "Clipboard" }) },
 		{ key = "v", mods = "CMD", action = wezterm.action({ PasteFrom = "Clipboard" }) },
 		{ key = "v", mods = "CMD|SHIFT", action = wezterm.action.ActivateCopyMode },
 		{ key = "f", mods = "CMD", action = wezterm.action.Search("CurrentSelectionOrEmptyString") },
 
+		-- Panes
 		{ key = "h", mods = "CTRL", action = wezterm.action.EmitEvent("ActivatePaneDirection-left") },
 		{ key = "j", mods = "CTRL", action = wezterm.action.EmitEvent("ActivatePaneDirection-down") },
 		{ key = "k", mods = "CTRL", action = wezterm.action.EmitEvent("ActivatePaneDirection-up") },
@@ -319,9 +311,42 @@ return {
 		{ key = "[", mods = "CMD|SHIFT", action = wezterm.action.MoveTabRelative(-1) },
 		{ key = "]", mods = "CMD|SHIFT", action = wezterm.action.MoveTabRelative(1) },
 
+		-- Workspaces
+		{
+			key = "w",
+			mods = "CMD",
+			action = wezterm.action.ShowLauncherArgs({ title = "Workspaces", flags = "FUZZY|WORKSPACES" }),
+		},
+		{
+			key = "n",
+			mods = "CMD",
+			action = wezterm.action.PromptInputLine({
+				description = wezterm.format({
+					{ Attribute = { Intensity = "Bold" } },
+					{ Foreground = { AnsiColor = "Fuchsia" } },
+					{ Text = "Enter name for new workspace" },
+				}),
+				action = wezterm.action_callback(function(window, pane, line)
+					-- line will be `nil` if they hit escape without entering anything
+					-- An empty string if they just hit enter
+					-- Or the actual line of text they wrote
+					if line then
+						window:perform_action(
+							wezterm.action.SwitchToWorkspace({
+								name = line,
+							}),
+							pane
+						)
+					end
+				end),
+			}),
+		},
+
+		-- Font
 		{ key = "=", mods = "CMD", action = wezterm.action.IncreaseFontSize },
 		{ key = "-", mods = "CMD", action = wezterm.action.DecreaseFontSize },
 
+		-- Ligatures
 		{ mods = "ALT", key = "L", action = wezterm.action.EmitEvent("toggle-ligature") },
 	},
 

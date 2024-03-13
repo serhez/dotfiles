@@ -78,9 +78,9 @@ alias s='rg --hidden'
 alias ls='eza --long --no-user --header --icons --git --all --group-directories-first'
 alias tree='eza --long --no-user --header --icons --git --all --group-directories-first --tree'
 
-# processes
-alias pui='htop'  # ui
-alias pm='mprocs' # manager
+# tasks
+alias tui='htop'  # ui
+alias tm='mprocs' # manager
 
 # git
 alias g='git'
@@ -130,13 +130,14 @@ alias pyenv='python3 -m venv venv'
 alias pyact='source ./venv/bin/activate'
 
 # pip
-alias pipupg='python -m pip install --upgrade pip'
-alias pipins='python -m pip install'
-alias pipinsreq='python -m pip install -r'
-alias piprm='python -m pip uninstall'
-alias pipmkreq='python -m pip freeze > requirements.txt'
-alias pipcln='python -m pip cache purge'
-alias pipupl='python -m build && python -m twine upload dist/*'
+alias pi='python -m pip install' # install package
+alias pr='python -m pip uninstall' # remove package
+alias pu='python -m pip install --upgrade' # upgrade package
+alias pU='python -m pip install --upgrade pip' # upgrade pip
+alias pir='python -m pip install -r' # install requirements
+alias pmr='python -m pip freeze > requirements.txt' # make requirements
+alias pc='python -m pip cache purge' # clear cache
+alias pP='python -m build && python -m twine upload dist/*' # publish package
 
 # conda
 alias cupg='conda update -n base -c defaults conda'
@@ -170,6 +171,15 @@ cenvrm()
 # jupyter
 alias jn='jupyter notebook'
 
+jr() # jupyter register environment
+{
+    python -m pip install ipykernel &&
+    python -m ipykernel install --user --name="$1" --display-name="$1"
+}
+
+# wezterm
+alias wrw='wezterm cli rename-workspace'
+
 # document format conversions
 md2pdf()
 {
@@ -199,3 +209,6 @@ md2pdf()
 # MacPorts Installer addition on 2022-09-20_at_15:20:28: adding an appropriate PATH variable for use with MacPorts.
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 # Finished adapting your PATH environment variable for use with MacPorts.
+
+# Secret keys etc.
+source $HOME/.secrets
