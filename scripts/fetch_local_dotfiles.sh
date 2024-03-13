@@ -9,6 +9,7 @@ cp ~/.zprofile ./
 cp ~/.zshenv ./
 cp ~/.zshrc ./
 cp ~/.condarc ./
+cp ~/.mambarc ./
 cp ~/.config/starship.toml ./.config/
 
 # Remove all content before copying

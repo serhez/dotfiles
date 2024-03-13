@@ -139,29 +139,30 @@ alias pmr='python -m pip freeze > requirements.txt' # make requirements
 alias pc='python -m pip cache purge' # clear cache
 alias pP='python -m build && python -m twine upload dist/*' # publish package
 
-# conda
-alias cupg='conda update -n base -c defaults conda'
-alias cenvls='conda env list'
-alias cenvexp='conda env export >>'
-alias cenvimp='conda env create -f'
-alias cact='conda activate'
-alias cdeact='conda deactivate'
-alias cins='conda install'
-alias cinsreq='conda install --file'
-alias crm='conda remove'
-alias cmkreq='conda list -e > requirements.txt'
-alias cls='conda list'
-alias ccln='conda clean --all'
-alias crn='conda rename -n'
+# mamba
+alias mu='micromamba update'
+alias mU='micromamba update'
+alias mle='micromamba env list'
+alias mee='micromamba env export >>' # export
+alias mie='micromamba env create -f' # import
+alias ma='micromamba activate'
+# alias md='conda deactivate' # TODO: how can we do this with micromamba?
+alias mi='micromamba install'
+alias mir='micromamba install --file' # install requirements
+alias mr='micromamba remove'
+alias mmr='micromamba list -e > requirements.txt'
+alias ml='micromamba list'
+alias mc='micromamba clean --all'
+# alias mr='conda rename -n' # TODO: how can we do this with micromamba?
+alias ms='micromamba search'
 
-cnew()
+mn()
 {
-    conda create -n "$1" &&
-    conda activate "$1" &&
-    python -m ipykernel install --user --name="$1" --display-name="$1"
+    micromamba create -n "$1" &&
+    micromamba activate "$1" &&
 }
 
-cenvrm()
+mre()
 {
     conda env remove -n "$1" &&
     conda clean --all &&
@@ -209,6 +210,9 @@ md2pdf()
 # MacPorts Installer addition on 2022-09-20_at_15:20:28: adding an appropriate PATH variable for use with MacPorts.
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 # Finished adapting your PATH environment variable for use with MacPorts.
+
+# Shell completions
+micromamba shell completion
 
 # Secret keys etc.
 source $HOME/.secrets

@@ -29,7 +29,6 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 			sudo pacman -S github-cli
 			sudo pacman -S glab
             sudo pacman -S python3
-            sudo pacman -S miniconda
 			sudo pacman -S r
             sudo pacman -S go
             sudo pacman -S gcc
@@ -82,6 +81,11 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     esac
 
     # Generic installs for Linux
+
+	## Mamba
+	curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj bin/micromamba
+
+	## Lua
     curl -R -O http://www.lua.org/ftp/lua-5.3.5.tar.gz
     tar -zxf lua-5.3.5.tar.gz
     cd lua-5.3.5 || exit 1
@@ -93,152 +97,75 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 
     npm install -g mprocs
 
+# MacOS
 elif [[ "$OSTYPE" == "darwin"* ]]; then
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-    # MacOS
-    architecture=$(uname -m)
-    case $architecture in
-        # Mac Intel silicon
-        x86_64)
-			brew install bash
-			brew install alacritty
-            brew install git
-			brew install gh
-			brew install glab
-            brew install python3
-			brew install miniconda
-			brew install r
-            brew install golang
-            brew install gcc
-            brew install gnu-sed
-			brew install xquartz
-            brew install fd
-            brew install ripgrep
-            brew install luajit
-            brew install luarocks
-            brew install node
-			brew install llvm
-			brew install boost
-			brew install hdf5
-			brew install docker
-			brew install --cask docker
-			brew install docker-compose
-			brew install docker-completion
-			brew install kubernetes-cli
-            brew install jesseduffield/lazygit/lazygit
-            brew install pvolok/mprocs/mprocs
-            brew install jesseduffield/lazydocker/lazydocker
-            brew install k9s
-            brew install eza
-			brew install most
-            brew install bat
-			brew install gnu-tar
-			brew install wget
-			brew install helix
-            brew install starship
-            brew install htop
-            brew install pandoc
-			brew install zsh-syntax-highlighting
-			brew install zsh-autosuggestions
-			brew install zsh-vi-mode
-			brew install mockery
-			brew install glfw
-			brew install glow
-			brew install git-delta
-			brew install imagemagick
-			brew install ghostscript
+	brew install bash
+	brew install alacritty
+	brew install git
+	brew install gh
+	brew install glab
+	brew install python3
+	brew install micromamba
+	brew install r
+	brew install golang
+	brew install gcc
+	brew install gnu-sed
+	brew install xquartz
+	brew install fd
+	brew install ripgrep
+	brew install luajit
+	brew install luarocks
+	brew install node
+	brew install llvm
+	brew install boost
+	brew install hdf5
+	brew install docker
+	brew install --cask docker
+	brew install docker-compose
+	brew install docker-completion
+	brew install kubernetes-cli
+	brew install jesseduffield/lazygit/lazygit
+	brew install pvolok/mprocs/mprocs
+	brew install jesseduffield/lazydocker/lazydocker
+	brew install k9s
+	brew install eza
+	brew install most
+	brew install bat
+	brew install gnu-tar
+	brew install wget
+	brew install helix
+	brew install starship
+	brew install htop
+	brew install pandoc
+	brew install zsh-syntax-highlighting
+	brew install zsh-autosuggestions
+	brew install zsh-vi-mode
+	brew install mockery
+	brew install glfw
+	brew install glow
+	brew install git-delta
+	brew install imagemagick
+	brew install ghostscript
 
-			brew tap wez/wezterm
-			brew install --cask wez/wezterm/wezterm-nightly
-			brew install --cask kitty
-			brew install --cask rectangle
-			brew install --cask notion
-			brew install --cask cheatsheet
-			brew install --cask raycast
-			brew install --cask google-chrome
-			brew install --cask firefox
-			brew install --cask neovide
-			brew install --cask miniconda
-			brew install --cask quarto
-			brew install --cask julia
-			brew install --cask karabiner-elements
-			brew install --cask alt-tab
-			brew install --cask numi
-			brew install --cask zotero
-			brew install --cask unnaturalscrollwheels
-            ;;
-
-        # Mac Apple silicon
-        arm64)
-			arch -arm64 brew install bash
-			arch -arm64 brew install alacritty
-            arch -arm64 brew install git
-			arch -arm64 brew install gh
-			arch -arm64 brew install glab
-            arch -arm64 brew install python3
-			arch -arm64 brew install miniconda
-			arch -arm64 brew install r
-            arch -arm64 brew install golang
-            arch -arm64 brew install gcc
-            arch -arm64 brew install gnu-sed
-			arch -arm64 brew install xquartz
-            arch -arm64 brew install fd
-            arch -arm64 brew install ripgrep
-            arch -arm64 brew install --HEAD luajit
-            arch -arm64 brew install luarocks
-            arch -arm64 brew install node
-			arch -arm64 brew install llvm
-			arch -arm64 brew install boost
-			arch -arm64 brew install hdf5
-			arch -arm64 brew install docker
-			arch -arm64 brew install --cask docker
-			arch -arm64 brew install docker-compose
-			arch -arm64 brew install docker-completion
-			arch -arm64 brew install kubernetes-cli
-            arch -arm64 brew install jesseduffield/lazygit/lazygit
-            arch -arm64 brew install pvolok/mprocs/mprocs
-            arch -arm64 brew install jesseduffield/lazydocker/lazydocker
-            arch -arm64 brew install k9s
-            arch -arm64 brew install eza
-			arch -arm64 brew install most
-            arch -arm64 brew install bat
-			arch -arm64 brew install gnu-tar
-			arch -arm64 brew install wget
-			arch -arm64 brew install helix
-            arch -arm64 brew install starship
-            arch -arm64 brew install htop
-            arch -arm64 brew install pandoc
-			arch -arm64 brew install zsh-syntax-highlighting
-			arch -arm64 brew install zsh-autosuggestions
-			arch -arm64 brew install zsh-vi-mode
-			arch -arm64 brew install mockery
-			arch -arm64 brew install glfw
-			arch -arm64 brew install glow
-			arch -arm64 brew install git-delta
-			arch -arm64 brew install imagemagick
-			arch -arm64 brew install ghostscript
-
-			brew tap wez/wezterm
-			arch -arm64 brew install --cask wez/wezterm/wezterm-nightly
-			arch -arm64 brew install --cask kitty
-			arch -arm64 brew install --cask rectangle
-			arch -arm64 brew install --cask notion
-			arch -arm64 brew install --cask cheatsheet
-			arch -arm64 brew install --cask raycast
-			arch -arm64 brew install --cask google-chrome
-			arch -arm64 brew install --cask firefox
-			arch -arm64 brew install --cask neovide
-			arch -arm64 brew install --cask miniconda
-			arch -arm64 brew install --cask quarto
-			arch -arm64 brew install --cask julia
-			arch -arm64 brew install --cask karabiner-elements
-			arch -arm64 brew install --cask alt-tab
-			arch -arm64 brew install --cask numi
-			arch -arm64 brew install --cask zotero
-			arch -arm64 brew install --cask unnaturalscrollwheels
-            ;;
-    esac
+	brew tap wez/wezterm
+	brew install --cask wez/wezterm/wezterm-nightly
+	brew install --cask kitty
+	brew install --cask rectangle
+	brew install --cask notion
+	brew install --cask cheatsheet
+	brew install --cask raycast
+	brew install --cask google-chrome
+	brew install --cask firefox
+	brew install --cask neovide
+	brew install --cask quarto
+	brew install --cask julia
+	brew install --cask karabiner-elements
+	brew install --cask alt-tab
+	brew install --cask numi
+	brew install --cask zotero
+	brew install --cask unnaturalscrollwheels
 
     # Generic installs for MacOS
 	xcode-select --install
@@ -289,6 +216,7 @@ cp ./.zprofile ~
 cp ./.zshrc ~
 cp ./.zshenv ~
 cp ./.condarc ~
+cp ./.mambarc ~
 cp ./.tmux.conf ~
 cp ./.nuxtrc ~
 cp ./.lintr ~
@@ -332,7 +260,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 	ln -h -f -s -- /Applications/Alacritty.app/Contents/Resources/61/alacritty-direct ~/.terminfo/61/alacritty-direct
 fi
 
-conda init zsh
+# conda init zsh # now using mamba
 
 if [[ "$nvim" == "y" ]]; then
 	echo "Installing and configuring Neovim..."
