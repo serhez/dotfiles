@@ -51,12 +51,15 @@ export BAT_THEME="TwoDark"
 export TERM="wezterm"
 export XDG_CONFIG_HOME=$HOME/.config
 
-## Path
+# Path
 export PATH=/opt/homebrew/bin:/opt/homebrew/opt/llvm/bin:$HOME/bin:$HOME/.local/bin:$HOME/scripts:$PM_BIN:$HOME/.dotnet/tools:/usr/local/go/bin:$HOME/go/bin:$PATH
 
-## Flags
+# Flags
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/.mujoco/mujoco210
 export DYLD_LIBRARY_PATH=/opt/homebrew/lib/
+
+# Applications
+export MAMBA_ROOT_PREFIX=$HOME
 
 ## Key bindings
 

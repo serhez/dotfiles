@@ -12,5 +12,7 @@ disallow:
   - anaconda
 
 envs_dirs:
+  - ~/envs
   - ~/.envs
-  - /opt/anaconda/envs
+  - ./env
+  - ./.env
