@@ -1,18 +1,16 @@
 auto_update_conda: True
-always_yes: False
+always_yes: True
 add_pip_as_python_dependency: True
 use_pip: False
 update_dependencies: True
 changeps1: False
-
-create_default_packages:
-  - python=3.11
-
 disallow:
   - anaconda
-
 envs_dirs:
   - ~/envs
   - ~/.envs
   - ./env
   - ./.env
+channels:
+  - conda-forge
+channel_priority: strict

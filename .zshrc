@@ -30,7 +30,10 @@ source $PM_SHARE/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $PM_SHARE/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $PM_SHARE/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
+compinit
+
 eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

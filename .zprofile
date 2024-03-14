@@ -75,6 +75,9 @@ alias playlol='defaults write .GlobalPreferences com.apple.mouse.scaling -1'
 alias cl='clear'
 alias upgrade='brew update && brew upgrade && brew upgrade --cask wez/wezterm/wezterm-nightly --no-quarantine --greedy-latest && brew cleanup'
 
+# cd (zoxide)
+alias cd='z'
+
 # find (files), search (text) and view
 alias f='fd -H'
 alias s='rg --hidden'
@@ -159,16 +162,22 @@ alias mc='micromamba clean --all'
 # alias mr='conda rename -n' # TODO: how can we do this with micromamba?
 alias ms='micromamba search'
 
-mn()
+mn() # mamba new
+{
+    micromamba create -n "$1" python=3.11 &&
+    micromamba activate "$1" &&
+}
+
+mN() # mamba new empty
 {
     micromamba create -n "$1" &&
     micromamba activate "$1" &&
 }
 
-mre()
+mre() # mamba remove environment
 {
-    conda env remove -n "$1" &&
-    conda clean --all &&
+    micromamba env remove -n "$1" &&
+    micromamba clean --all &&
     jupyter kernelspec remove "$1"
 }
 
@@ -215,7 +224,7 @@ export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 # Finished adapting your PATH environment variable for use with MacPorts.
 
 # Shell completions
-micromamba shell completion
+# micromamba shell completion # FIX: not working
 
 # Secret keys etc.
 source $HOME/.secrets

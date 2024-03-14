@@ -34,6 +34,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
             sudo pacman -S gcc
             sudo pacman -S gnu-sed
             sudo pacman -S fd
+            sudo pacman -S zoxide
             sudo pacman -S ripgrep
             sudo pacman -S luajit
             sudo pacman -S node
@@ -114,6 +115,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 	brew install gnu-sed
 	brew install xquartz
 	brew install fd
+	brew install zoxide
 	brew install ripgrep
 	brew install luajit
 	brew install luarocks
