@@ -71,6 +71,7 @@ fi
 ## Aliases
 
 # generic
+alias mkd='mkdir -p'
 alias playlol='defaults write .GlobalPreferences com.apple.mouse.scaling -1'
 alias cl='clear'
 alias upgrade='brew update && brew upgrade && brew upgrade --cask wez/wezterm/wezterm-nightly --no-quarantine --greedy-latest && brew cleanup'
@@ -152,7 +153,7 @@ alias mle='micromamba env list'
 alias mee='micromamba env export >>' # export
 alias mie='micromamba env create -f' # import
 alias ma='micromamba activate'
-# alias md='conda deactivate' # TODO: how can we do this with micromamba?
+alias md='micromamba activate base'
 alias mi='micromamba install'
 alias mir='micromamba install --file' # install requirements
 alias mr='micromamba remove'
