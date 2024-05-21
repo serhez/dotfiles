@@ -280,7 +280,7 @@ return {
 		{ key = "z", mods = "CMD", action = wezterm.action.TogglePaneZoomState },
 		{ key = "f", mods = "CMD|SHIFT", action = wezterm.action.ToggleFullScreen },
 
-		{ key = "/", mods = "CMD", action = wezterm.action({ SplitHorizontal = { domain = "CurrentPaneDomain" } }) },
+		{ key = "|", mods = "CMD", action = wezterm.action({ SplitHorizontal = { domain = "CurrentPaneDomain" } }) },
 		{
 			key = "-",
 			mods = "CMD|SHIFT",

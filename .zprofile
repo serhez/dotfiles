@@ -57,6 +57,7 @@ export PATH=/opt/homebrew/bin:/opt/homebrew/opt/llvm/bin:$HOME/bin:$HOME/.local/
 # Flags
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/.mujoco/mujoco210
 export DYLD_LIBRARY_PATH=/opt/homebrew/lib/
+export GRAPHVIZ_DIR=/opt/homebrew/opt/graphviz/
 
 # Applications
 export MAMBA_ROOT_PREFIX=$HOME
@@ -133,6 +134,7 @@ alias tls='tmux ls'
 alias tkill='tmux kill-session -t'
 
 # python
+alias p='ipython'
 alias pyenv='python3 -m venv venv'
 alias pyact='source ./venv/bin/activate'
 
