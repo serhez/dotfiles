@@ -23,21 +23,19 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
             export CXX14="/usr/local/opt/llvm/bin/clang++"
             export CXX17="/usr/local/opt/llvm/bin/clang++"
             export CXX1X="/usr/local/opt/llvm/bin/clang++"
+            export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
             ;;
 
         # Mac Apple silicon
         arm64)
             export PM_SHARE=/opt/homebrew/share
             export PM_BIN=/opt/homebrew/bin
-            export LDFLAGS="-L/opt/homebrew/opt/libomp/lib"
-            export CPPFLAGS="-I/opt/homebrew/opt/libomp/include"
-            # export CC="/opt/homebrew/opt/llvm/bin/clang"
-            export CC="/opt/homebrew/bin/gcc-12"
-            # export CXX="/opt/homebrew/opt/llvm/bin/clang++"
-            # export CXX11="/opt/homebrew/opt/llvm/bin/clang++"
-            # export CXX14="/opt/homebrew/opt/llvm/bin/clang++"
-            # export CXX17="/opt/homebrew/opt/llvm/bin/clang++"
-            # export CXX1X="/opt/homebrew/opt/llvm/bin/clang++"
+            export LDFLAGS="-L/opt/homebrew/opt/libomp/lib:/opt/homebrew/opt/ruby/lib"
+            export CPPFLAGS="-I/opt/homebrew/opt/libomp/include:/opt/homebrew/opt/ruby/include"
+            # export CPLUS_INCLUDE_PATH=/Library/Developer/CommandLineTools/usr/include/c++/v1
+            export PKG_CONFIG_PATH="/opt/homebrew/opt/ruby/lib/pkgconfig"
+            # export CC="/opt/homebrew/bin/gcc-12"
+            # export CXX="/opt/homebrew/bin/gcc-12"
             ;;
     esac
 fi
@@ -46,21 +44,37 @@ export TERMINAL=wezterm
 export EDITOR=nvim
 export VISUAL=nvim
 export PAGER=most
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANPAGER="nvim -c 'Man!' -o -"
 export BAT_THEME="TwoDark"
 export TERM="wezterm"
 export XDG_CONFIG_HOME=$HOME/.config
 
 # Path
-export PATH=/opt/homebrew/bin:/opt/homebrew/opt/llvm/bin:$HOME/bin:$HOME/.local/bin:$HOME/scripts:$PM_BIN:$HOME/.dotnet/tools:/usr/local/go/bin:$HOME/go/bin:$PATH
+export PATH=/opt/homebrew/opt/ruby/bin:/opt/homebrew/lib/ruby/gems/3.3.0/bin:/Users/ser/.gem/ruby/3.3.0/bin:/opt/homebrew/bin:/opt/homebrew/opt/llvm/bin:/opt/local/bin:/opt/local/sbin:$HOME/bin:$HOME/.local/bin:$HOME/scripts:$PM_BIN:$HOME/.dotnet/tools:/usr/local/go/bin:$HOME/go/bin:$PATH
+
+# Java & Android
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+# Flutter
+export PATH=$HOME/dev/.tools/flutter/bin:$PATH
+
+# Gems
+export PATH=$HOME/.gem/bin:$PATH
 
 # Flags
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/.mujoco/mujoco210
 export DYLD_LIBRARY_PATH=/opt/homebrew/lib/
 export GRAPHVIZ_DIR=/opt/homebrew/opt/graphviz/
+export PRETTIERD_DEFAULT_CONFIG=$HOME/.config/.prettierrc
 
-# Applications
+# Python
 export MAMBA_ROOT_PREFIX=$HOME
+
+# Node.js
+source $(brew --prefix nvm)/nvm.sh
 
 ## Key bindings
 
@@ -70,6 +84,9 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 fi
 
 ## Aliases
+
+# gcc (aghhhhhh)
+# alias gcc='gcc-14'
 
 # generic
 alias mkd='mkdir -p'
@@ -123,15 +140,17 @@ alias vui='neovide --no-tabs --title-hidden' # v(ui)
 # helix
 alias h='hx'
 
+# zellij
+alias zj='zellij a' # attach to last session
+
 # tmux
 alias t='tmux'
-alias tnew='tmux new -s'
-alias tattach='tmux attach -t'
-alias tatt='tmux attach -t'
-alias tdetach='tmux detach'
-alias tdet='tmux detach'
+alias tn='tmux new -s'
+alias ta='tmux attach -t'
+alias td='tmux detach'
 alias tls='tmux ls'
-alias tkill='tmux kill-session -t'
+alias ts='tmux kill-server'
+alias tk='tmux kill-session -t'
 
 # python
 alias p='ipython'
@@ -146,7 +165,7 @@ alias pU='python -m pip install --upgrade pip' # upgrade pip
 alias pir='python -m pip install -r' # install requirements
 alias pmr='python -m pip freeze > requirements.txt' # make requirements
 alias pc='python -m pip cache purge' # clear cache
-alias pP='python -m build && python -m twine upload dist/*' # publish package
+alias pub='python -m build && python -m twine upload dist/*' # publish package
 
 # mamba
 alias mu='micromamba update'
@@ -221,10 +240,6 @@ md2pdf()
 ##
 # Your previous /Users/ser/.zprofile file was backed up as /Users/ser/.zprofile.macports-saved_2022-09-20_at_15:20:28
 ##
-
-# MacPorts Installer addition on 2022-09-20_at_15:20:28: adding an appropriate PATH variable for use with MacPorts.
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-# Finished adapting your PATH environment variable for use with MacPorts.
 
 # Shell completions
 # micromamba shell completion # FIX: not working

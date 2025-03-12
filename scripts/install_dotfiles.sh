@@ -227,6 +227,7 @@ fi
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 mv -r ~/.oh-my-zsh ~/.config
+bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
 
 curl https://sh.rustup.rs -sSf | sh
 cargo install --git https://github.com/chmln/nvim-ctrl

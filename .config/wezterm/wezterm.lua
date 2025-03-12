@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 
 local font = wezterm.font({
 	family = "JetBrainsMono Nerd Font Mono",
-	weight = "Regular", -- "Medium" is also good, a bit thicker
+	weight = "Light", -- "Medium" is also good, a bit thicker
 })
 
 local function is_vi_process(pane)
@@ -228,7 +228,7 @@ return {
 	pane_focus_follows_mouse = false,
 	warn_about_missing_glyphs = false,
 	check_for_updates = false,
-	line_height = 1.0,
+	line_height = 1.15,
 	disable_default_key_bindings = true,
 	front_end = "WebGpu",
 	window_padding = {
@@ -267,15 +267,18 @@ return {
 	window_background_opacity = 1.0,
 	window_close_confirmation = "AlwaysPrompt",
 
-	color_scheme = "catppuccin-dark",
+	color_scheme = "tokyonight-dimmed",
 	force_reverse_video_cursor = true,
 
+	-- Keybindings
+	enable_kitty_keyboard = true,
+	enable_csi_u_key_encoding = false,
 	keys = {
 		{ key = "q", mods = "CMD", action = wezterm.action.QuitApplication },
-		{ key = "k", mods = "CMD", action = wezterm.action.CloseCurrentPane({ confirm = true }) },
-		{ key = "k", mods = "CMD|SHIFT", action = wezterm.action.CloseCurrentTab({ confirm = true }) },
+		{ key = "w", mods = "CMD", action = wezterm.action.CloseCurrentPane({ confirm = true }) },
+		{ key = "w", mods = "CMD|SHIFT", action = wezterm.action.CloseCurrentTab({ confirm = true }) },
 
-		{ key = "w", mods = "CMD|SHIFT", action = wezterm.action.SpawnWindow },
+		{ key = "n", mods = "CMD|SHIFT", action = wezterm.action.SpawnWindow },
 		{ key = "t", mods = "CMD", action = wezterm.action({ SpawnTab = "CurrentPaneDomain" }) },
 		{ key = "z", mods = "CMD", action = wezterm.action.TogglePaneZoomState },
 		{ key = "f", mods = "CMD|SHIFT", action = wezterm.action.ToggleFullScreen },
@@ -302,10 +305,10 @@ return {
 		{ key = "j", mods = "CTRL", action = wezterm.action.EmitEvent("ActivatePaneDirection-down") },
 		{ key = "k", mods = "CTRL", action = wezterm.action.EmitEvent("ActivatePaneDirection-up") },
 		{ key = "l", mods = "CTRL", action = wezterm.action.EmitEvent("ActivatePaneDirection-right") },
-		{ key = "h", mods = "CTRL|CMD", action = wezterm.action.AdjustPaneSize({ "Left", 1 }) },
-		{ key = "j", mods = "CTRL|CMD", action = wezterm.action.AdjustPaneSize({ "Down", 1 }) },
-		{ key = "k", mods = "CTRL|CMD", action = wezterm.action.AdjustPaneSize({ "Up", 1 }) },
-		{ key = "l", mods = "CTRL|CMD", action = wezterm.action.AdjustPaneSize({ "Right", 1 }) },
+		{ key = "h", mods = "CTRL|SHIFT", action = wezterm.action.AdjustPaneSize({ "Left", 1 }) },
+		{ key = "j", mods = "CTRL|SHIFT", action = wezterm.action.AdjustPaneSize({ "Down", 1 }) },
+		{ key = "k", mods = "CTRL|SHIFT", action = wezterm.action.AdjustPaneSize({ "Up", 1 }) },
+		{ key = "l", mods = "CTRL|SHIFT", action = wezterm.action.AdjustPaneSize({ "Right", 1 }) },
 		{ key = "[", mods = "CMD", action = wezterm.action({ ActivateTabRelative = -1 }) },
 		{ key = "]", mods = "CMD", action = wezterm.action({ ActivateTabRelative = 1 }) },
 		{ key = "[", mods = "CMD|SHIFT", action = wezterm.action.MoveTabRelative(-1) },
@@ -313,7 +316,7 @@ return {
 
 		-- Workspaces
 		{
-			key = "w",
+			key = "g",
 			mods = "CMD",
 			action = wezterm.action.ShowLauncherArgs({ title = "Workspaces", flags = "FUZZY|WORKSPACES" }),
 		},
