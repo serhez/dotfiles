@@ -6,8 +6,8 @@
 echo "Do you want to install Neovim and it's config? (y/n)"
 read -r nvim
 while [[ "$nvim" != "y" ]] && [[ "$nvim" != "n" ]]; do
-    echo "Please, answer with \"y\" for yes or \"n\" for no: do you want to install Neovim and it's config?"
-    read -r nvim
+	echo "Please, answer with \"y\" for yes or \"n\" for no: do you want to install Neovim and it's config?"
+	read -r nvim
 done
 
 echo "Installing dependencies..."
@@ -17,86 +17,97 @@ echo "Installing dependencies..."
 [[ -d ~/.envs ]] || mkdir ~/.envs
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    # Linux
-    distribution=$(grep '^NAME' /etc/os-release)
-    case $distribution in
-        NAME="Arch Linux")
-			sudo pacman -S --needed base-devel
-			sudo pacman -S bash
-			sudo pacman -S kitty
-			sudo pacman -S alacritty
-            sudo pacman -S git
-			sudo pacman -S github-cli
-			sudo pacman -S glab
-            sudo pacman -S python3
-			sudo pacman -S r
-            sudo pacman -S go
-            sudo pacman -S gcc
-            sudo pacman -S gnu-sed
-            sudo pacman -S fd
-            sudo pacman -S zoxide
-            sudo pacman -S ripgrep
-            sudo pacman -S luajit
-            sudo pacman -S node
-			sudo pacman -S llvm
-			sudo pacman -S boost
-			sudo pacman -S hdf5
-			sudo pacman -S docker
-			sudo pacman -S docker-compose
-			sudo pacman -S kubectl
-			sudo pacman -S kubernetes-control-plane
-            sudo pacman -S lazygit
-            sudo pacman -S k9s
-            sudo pacman -S eza
-			sudo pacman -S most
-            sudo pacman -S bat
-			sudo pacman -S gnu-tar
-			sudo pacman -S wget
-			sudo pacman -S helix
-            sudo pacman -S starship
-            sudo pacman -S htop
-			sudo pacman -S zsh-syntax-highlighting
-			sudo pacman -S zsh-autosuggestions
-			sudo pacman -S mockery
-			sudo pacman -S firefox
-			sudo pacman -S glow
-			sudo pacman -S git-delta
+	# Linux
+	distribution=$(grep '^NAME' /etc/os-release)
+	case $distribution in
+	NAME="Arch Linux")
+		sudo pacman -S --needed base-devel
+		sudo pacman -S bash
+		sudo pacman -S kitty
+		sudo pacman -S alacritty
+		sudo pacman -S git
+		sudo pacman -S github-cli
+		sudo pacman -S glab
+		sudo pacman -S python3
+		sudo pacman -S python@3.9
+		sudo pacman -S python@3.12
+		sudo pacman -S r
+		sudo pacman -S go
+		sudo pacman -S gcc
+		sudo pacman -S gnu-sed
+		sudo pacman -S fd
+		sudo pacman -S zoxide
+		sudo pacman -S ripgrep
+		sudo pacman -S luajit
+		sudo pacman -S node
+		sudo pacman -S llvm
+		sudo pacman -S boost
+		sudo pacman -S hdf5
+		sudo pacman -S docker
+		sudo pacman -S docker-compose
+		sudo pacman -S kubectl
+		sudo pacman -S kubernetes-control-plane
+		sudo pacman -S lazygit
+		sudo pacman -S k9s
+		sudo pacman -S eza
+		sudo pacman -S most
+		sudo pacman -S bat
+		sudo pacman -S gnu-tar
+		sudo pacman -S wget
+		sudo pacman -S helix
+		sudo pacman -S starship
+		sudo pacman -S htop
+		sudo pacman -S zsh-syntax-highlighting
+		sudo pacman -S zsh-autosuggestions
+		sudo pacman -S mockery
+		sudo pacman -S firefox
+		sudo pacman -S glow
+		sudo pacman -S git-delta
+		sudo pacman -S jq
+		sudo pacman -S watchman
+		sudo pacman -S postman
+		sudo pacman -S nvm
+		sudo pacman -S fzf
+		sudo pacman -S librsvg
+		sudo pacman -S libnotify
+		sudo pacman -S yq
 
-			# Install yay, an AUR package manager
-			git clone https://aur.archlinux.org/yay-git.git
-			cd yay || exit 1
-			makepkg -si
-			cd ..
-			sudo rm -r yay
+		# Install yay, an AUR package manager
+		git clone https://aur.archlinux.org/yay-git.git
+		cd yay || exit 1
+		makepkg -si
+		cd ..
+		sudo rm -r yay
 
-			yay -S google-chrome
-			yay -S wezterm-git
-			yay -S zsh-vi-mode
-			yay -S quarto-cli
-			yay -S julia-bin
-            ;;
-        *)
-            echo "Your Linux distribution is not supported by the installer at this moment."
-            exit 1
-            ;;
-    esac
+		yay -S google-chrome
+		yay -S wezterm-git
+		yay -S zsh-vi-mode
+		yay -S quarto-cli
+		yay -S julia-bin
+		yay -S sesh-bin
+		;;
+	*)
+		echo "Your Linux distribution is not supported by the installer at this moment."
+		exit 1
+		;;
+	esac
 
-    # Generic installs for Linux
+	# Generic installs for Linux
 
 	## Mamba
 	curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj bin/micromamba
 
 	## Lua
-    curl -R -O http://www.lua.org/ftp/lua-5.3.5.tar.gz
-    tar -zxf lua-5.3.5.tar.gz
-    cd lua-5.3.5 || exit 1
-    sudo make install
-    cd ..
-    sudo rm -r lua-5.3.5
+	curl -R -O http://www.lua.org/ftp/lua-5.3.5.tar.gz
+	tar -zxf lua-5.3.5.tar.gz
+	cd lua-5.3.5 || exit 1
+	sudo make install
+	cd ..
+	sudo rm -r lua-5.3.5
 
-    go get github.com/jesseduffield/lazydocker
+	go get github.com/jesseduffield/lazydocker
 
-    npm install -g mprocs
+	npm install -g mprocs
 
 # MacOS
 elif [[ "$OSTYPE" == "darwin"* ]]; then
@@ -108,6 +119,8 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 	brew install gh
 	brew install glab
 	brew install python3
+	brew install python@3.9
+	brew install python@3.12
 	brew install micromamba
 	brew install r
 	brew install golang
@@ -150,6 +163,14 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 	brew install git-delta
 	brew install imagemagick
 	brew install ghostscript
+	brew install jq
+	brew install watchman
+	brew install nvm
+	brew install fzf
+	brew install librsvg
+	brew install libnotify
+	brew install yq
+	brew install sesh
 
 	brew tap wez/wezterm
 	brew install --cask wez/wezterm/wezterm-nightly
@@ -168,8 +189,9 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 	brew install --cask numi
 	brew install --cask zotero
 	brew install --cask unnaturalscrollwheels
+	brew install --cask postman
 
-    # Generic installs for MacOS
+	# Generic installs for MacOS
 	xcode-select --install
 
 	# Generic settings for MacOS
@@ -183,15 +205,22 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 	defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="small-spacer-tile";}'
 	defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="small-spacer-tile";}'
 	defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="small-spacer-tile";}'
-    defaults write com.apple.Finder AppleShowAllFiles true
+	defaults write com.apple.Finder AppleShowAllFiles true
 	# defaults write -g KeyRepeat -int 250
 	# defaults write -g InitialKeyRepeat -int 2500
 	killall Dock
-    killall Finder
+	killall Finder
 
+	# Rosetta 2
+	sudo softwareupdate --install-rosetta --agree-to-license
+
+	# Xcode
+	sudo sh -c 'xcode-select -s /Applications/Xcode.app/Contents/Developer && xcodebuild -runFirstLaunch'
+	sudo xcodebuild -license
+	xcodebuild -downloadPlatform iOS
 else
-    echo "Your OS is not supported by the installer at this moment."
-    exit 1
+	echo "Your OS is not supported by the installer at this moment."
+	exit 1
 fi
 
 # Generic installs for all OS's
@@ -201,6 +230,7 @@ mv -r ~/.oh-my-zsh ~/.config
 
 curl https://sh.rustup.rs -sSf | sh
 cargo install --git https://github.com/chmln/nvim-ctrl
+cargo install --locked zellij
 
 npm install -g speed-test
 npm install -g tldr
@@ -208,8 +238,15 @@ npm install -g tldr
 go install github.com/asciimoo/wuzz@latest
 
 python3 -m pip install --upgrade pip
+python3 -m pip install --break-system-packages --user libtmux
 
 luarocks install magick --lua-version=5.1
+
+# Deno
+curl -fsSL https://deno.land/install.sh | sh
+
+# CocoaPods
+sudo gem install cocoapods
 
 echo "Configuring the environment..."
 
@@ -234,27 +271,27 @@ cp ./.config/helix ~/.config
 cp ./.config/neovide ~/.config
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    cp ./.config/awesome ~/.config
-    cp ./.config/picom ~/.config
-    cp ./.config/ranger ~/.config
-    cp ./.config/rofi ~/.config
+	cp ./.config/awesome ~/.config
+	cp ./.config/picom ~/.config
+	cp ./.config/ranger ~/.config
+	cp ./.config/rofi ~/.config
 
-    cp ./.Xresources.d ~
-    cp ./.Xresources ~
+	cp ./.Xresources.d ~
+	cp ./.Xresources ~
 elif [[ "$OSTYPE" == "darwin"* ]]; then
 	cp ./.config/rectangle ~/.config
 	cp ./.config/karabiner ~/.config
 
 	# NOTE: MacOS makes /usr/share/terminfo/ read-only, so we need to copy our terminfo files to a custom dir
 	# tmux
-	curl -LO https://invisible-island.net/datafiles/current/terminfo.src.gz \
-		&& gunzip terminfo.src.gz \
-		&& tic -xe tmux-256color terminfo.src
+	curl -LO https://invisible-island.net/datafiles/current/terminfo.src.gz &&
+		gunzip terminfo.src.gz &&
+		tic -xe tmux-256color terminfo.src
 	# wezterm
-	tempfile=$(mktemp) \
-		&& curl -o "$tempfile" https://raw.githubusercontent.com/wez/wezterm/master/termwiz/data/wezterm.terminfo \
-		&& tic -x -o ~/.terminfo "$tempfile" \
-		&& rm "$tempfile"
+	tempfile=$(mktemp) &&
+		curl -o "$tempfile" https://raw.githubusercontent.com/wez/wezterm/master/termwiz/data/wezterm.terminfo &&
+		tic -x -o ~/.terminfo "$tempfile" &&
+		rm "$tempfile"
 	# kitty
 	ln -h -f -s -- /Applications/kitty.app/Contents/Resources/terminfo/78/xterm-kitty ~/.terminfo/78/xterm-kitty
 	# alacritty
