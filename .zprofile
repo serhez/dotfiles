@@ -40,13 +40,13 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     esac
 fi
 
-export TERMINAL=wezterm
+export TERMINAL=kitty
 export EDITOR=nvim
 export VISUAL=nvim
 export PAGER=most
 export MANPAGER="nvim -c 'Man!' -o -"
 export BAT_THEME="TwoDark"
-export TERM="wezterm"
+export TERM="tmux-256color"
 export XDG_CONFIG_HOME=$HOME/.config
 
 # Path
