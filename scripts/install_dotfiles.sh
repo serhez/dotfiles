@@ -63,6 +63,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 		sudo pacman -S firefox
 		sudo pacman -S glow
 		sudo pacman -S git-delta
+		sudo pacman -S difftastic
 		sudo pacman -S jq
 		sudo pacman -S watchman
 		sudo pacman -S postman
@@ -161,6 +162,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 	brew install glfw
 	brew install glow
 	brew install git-delta
+	brew install difftastic
 	brew install imagemagick
 	brew install ghostscript
 	brew install jq
