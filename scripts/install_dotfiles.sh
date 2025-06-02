@@ -54,6 +54,10 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 		sudo pacman -S bat
 		sudo pacman -S gnu-tar
 		sudo pacman -S wget
+
+		sudo pacman -S tmux
+		git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 		sudo pacman -S helix
 		sudo pacman -S starship
 		sudo pacman -S htop
@@ -114,6 +118,10 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 elif [[ "$OSTYPE" == "darwin"* ]]; then
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
+	echo >>~/.zprofile
+	echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>~/.zprofile
+	eval "$(/opt/homebrew/bin/brew shellenv)"
+
 	brew install bash
 	brew install alacritty
 	brew install git
@@ -122,7 +130,10 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 	brew install python3
 	brew install python@3.9
 	brew install python@3.12
+
 	brew install micromamba
+	/opt/homebrew/opt/micromamba/bin/mamba shell init --shell zsh --root-prefix ~/mamba
+
 	brew install r
 	brew install golang
 	brew install gcc
@@ -151,6 +162,10 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 	brew install bat
 	brew install gnu-tar
 	brew install wget
+
+	brew install tmux
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 	brew install helix
 	brew install starship
 	brew install htop
@@ -167,7 +182,10 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 	brew install ghostscript
 	brew install jq
 	brew install watchman
+
 	brew install nvm
+	mkdir ~/.nvm
+
 	brew install fzf
 	brew install librsvg
 	brew install libnotify
@@ -228,7 +246,7 @@ fi
 # Generic installs for all OS's
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-mv -r ~/.oh-my-zsh ~/.config
+mv ~/.oh-my-zsh ~/.config
 bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
 
 curl https://sh.rustup.rs -sSf | sh
@@ -253,7 +271,7 @@ sudo gem install cocoapods
 
 echo "Configuring the environment..."
 
-cp ./scripts ~
+cp -r ./scripts ~
 cp ./.zprofile ~
 cp ./.zshrc ~
 cp ./.zshenv ~
@@ -264,32 +282,34 @@ cp ./.nuxtrc ~
 cp ./.lintr ~
 cp ./.config/starship.toml ~/.config
 
-cp ./.config/alacritty ~/.config
-cp ./.config/gh ~/.config
-cp ./.config/htop ~/.config
-cp ./.config/kitty ~/.config
-cp ./.config/wezterm ~/.config
-cp ./.config/mprocs ~/.config
-cp ./.config/helix ~/.config
-cp ./.config/neovide ~/.config
+cp -r ./.config/alacritty ~/.config
+cp -r ./.config/gh ~/.config
+cp -r ./.config/htop ~/.config
+cp -r ./.config/kitty ~/.config
+cp -r ./.config/wezterm ~/.config
+cp -r ./.config/tmux ~/.config
+cp -r ./.config/mprocs ~/.config
+cp -r ./.config/helix ~/.config
+cp -r ./.config/neovide ~/.config
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-	cp ./.config/awesome ~/.config
-	cp ./.config/picom ~/.config
-	cp ./.config/ranger ~/.config
-	cp ./.config/rofi ~/.config
+	cp -r ./.config/awesome ~/.config
+	cp -r ./.config/picom ~/.config
+	cp -r ./.config/ranger ~/.config
+	cp -r ./.config/rofi ~/.config
 
-	cp ./.Xresources.d ~
-	cp ./.Xresources ~
+	cp -r ./.Xresources.d ~
+	cp -r ./.Xresources ~
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-	cp ./.config/rectangle ~/.config
-	cp ./.config/karabiner ~/.config
+	cp -r ./.config/rectangle ~/.config
+	cp -r ./.config/karabiner ~/.config
 
-	# NOTE: MacOS makes /usr/share/terminfo/ read-only, so we need to copy our terminfo files to a custom dir
-	# tmux
+	# MacOS makes /usr/share/terminfo/ read-only, so we need to copy our terminfo files to a custom dir
 	curl -LO https://invisible-island.net/datafiles/current/terminfo.src.gz &&
 		gunzip terminfo.src.gz &&
 		tic -xe tmux-256color terminfo.src
+	# tmux
+	sudo ln -s /opt/homebrew/bin/tmux /usr/local/bin/tmux
 	# wezterm
 	tempfile=$(mktemp) &&
 		curl -o "$tempfile" https://raw.githubusercontent.com/wez/wezterm/master/termwiz/data/wezterm.terminfo &&
