@@ -213,6 +213,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 	brew install --cask zotero
 	brew install --cask unnaturalscrollwheels
 	brew install --cask postman
+	brew install --cask visual-studio-code
 
 	# Generic installs for MacOS
 	xcode-select --install
