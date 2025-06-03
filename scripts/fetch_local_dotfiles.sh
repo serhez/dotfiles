@@ -8,6 +8,9 @@ cp ~/.tmux.conf ./
 cp ~/.zprofile ./
 cp ~/.zshenv ./
 cp ~/.zshrc ./
+cp ~/.profile ./
+cp ~/.bash_profile ./
+cp ~/.bashrc ./
 cp ~/.condarc ./
 cp ~/.mambarc ./
 cp ~/.config/starship.toml ./.config/
@@ -41,18 +44,18 @@ cp ~/.config/git/config ./.config/git
 cp ~/.config/git/.gitignore_global ./.config/git
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    cp ~/.Xresources ./
+	cp ~/.Xresources ./
 
 	rm -r ./.config/.Xresources.d/colorscheme
-    cp -r ~/.config/.Xresources.d/colorscheme ./.Xresources.d
+	cp -r ~/.config/.Xresources.d/colorscheme ./.Xresources.d
 	rm -r ./.config/awesome
-    cp -r ~/.config/awesome ./.config
+	cp -r ~/.config/awesome ./.config
 	rm -r ./.config/picom
-    cp -r ~/.config/picom ./.config
+	cp -r ~/.config/picom ./.config
 	rm -r ./.config/ranger
-    cp -r ~/.config/ranger ./.config
+	cp -r ~/.config/ranger ./.config
 	rm -r ./.config/rofi
-    cp -r ~/.config/rofi ./.config
+	cp -r ~/.config/rofi ./.config
 elif [[ "$OSTYPE" == "darwin"* ]]; then
 	rm -r ./.config/rectangle
 	cp -r ~/.config/rectangle ./.config

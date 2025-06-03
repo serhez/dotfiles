@@ -15,6 +15,7 @@ echo "Installing dependencies..."
 [[ -d ~/.config ]] || mkdir ~/.config
 [[ -d ~/.terminfo ]] || mkdir ~/.terminfo
 [[ -d ~/.envs ]] || mkdir ~/.envs
+[[ -d ~/.envs ]] || mkdir ~/.envs
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 	# Linux
@@ -56,7 +57,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 		sudo pacman -S wget
 
 		sudo pacman -S tmux
-		git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+		git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 
 		sudo pacman -S helix
 		sudo pacman -S starship
@@ -163,6 +164,8 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 	brew install gnu-tar
 	brew install wget
 
+	brew install fontforge
+
 	brew install tmux
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
@@ -260,6 +263,8 @@ go install github.com/asciimoo/wuzz@latest
 
 python3 -m pip install --upgrade pip
 python3 -m pip install --break-system-packages --user libtmux
+/usr/bin/python3 -m pip install --upgrade pip
+/usr/bin/python3 -m pip install --user -U libtmux
 
 luarocks install magick --lua-version=5.1
 
@@ -275,6 +280,9 @@ cp -r ./scripts ~
 cp ./.zprofile ~
 cp ./.zshrc ~
 cp ./.zshenv ~
+cp ./.profile ~
+cp ./.bash_profile ~
+cp ./.bashrc ~
 cp ./.condarc ~
 cp ./.mambarc ~
 cp ./.tmux.conf ~
@@ -322,7 +330,43 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 	ln -h -f -s -- /Applications/Alacritty.app/Contents/Resources/61/alacritty-direct ~/.terminfo/61/alacritty-direct
 fi
 
+# Fix npm bug
+sudo chown -R 501:20 "$HOME/.npm"
+
+# Silence "last login" message
+touch ~/.hushlogin
+
 # conda init zsh # now using mamba
+
+# Fonts
+cd ~/.config || exit 1
+# git clone https://github.com/serhez/fonts.git
+# cd fonts || exit 1
+# wget https://raw.githubusercontent.com/ryanoasis/nerd-fonts/refs/heads/master/font-patcher
+# chmod +x font-patcher
+# wget https://raw.githubusercontent.com/ryanoasis/nerd-fonts/refs/heads/master/glyphnames.json
+# mkdir src
+# # TODO: download the src/glyphs folder from the nerd-fonts repo using https://download-directory.github.io/ and place it in the fonts/src/glyphs folder
+# # This?
+# wget -O src/glyphs.zip https://github.com/ryanoasis/nerd-fonts/archive/refs/heads/master.zip && unzip src/glyphs.zip -d src
+# # TODO: download original JetBrains Mono font and install them from https://www.jetbrains.com/lp/mono/# and install them by clickling on the downloaded .ttf files
+# python3 font-patcher ~/Library/Fonts/JetBrainsMono-Bold.ttf -s -c -out jetbrains
+# python3 font-patcher ~/Library/Fonts/JetBrainsMono-BoldItalic.ttf -s -c -out jetbrains
+# python3 font-patcher ~/Library/Fonts/JetBrainsMono-ExtraBold.ttf -s -c -out jetbrains
+# python3 font-patcher ~/Library/Fonts/JetBrainsMono-ExtraBoldItalic.ttf -s -c -out jetbrains
+# python3 font-patcher ~/Library/Fonts/JetBrainsMono-ExtraLight.ttf -s -c -out jetbrains
+# python3 font-patcher ~/Library/Fonts/JetBrainsMono-ExtraLightItalic.ttf -s -c -out jetbrains
+# python3 font-patcher ~/Library/Fonts/JetBrainsMono-Italic.ttf -s -c -out jetbrains
+# python3 font-patcher ~/Library/Fonts/JetBrainsMono-Light.ttf -s -c -out jetbrains
+# python3 font-patcher ~/Library/Fonts/JetBrainsMono-LightItalic.ttf -s -c -out jetbrains
+# python3 font-patcher ~/Library/Fonts/JetBrainsMono-Medium.ttf -s -c -out jetbrains
+# python3 font-patcher ~/Library/Fonts/JetBrainsMono-MediumItalic.ttf -s -c -out jetbrains
+# python3 font-patcher ~/Library/Fonts/JetBrainsMono-Regular.ttf -s -c -out jetbrains
+# python3 font-patcher ~/Library/Fonts/JetBrainsMono-SemiBold.ttf -s -c -out jetbrains
+# python3 font-patcher ~/Library/Fonts/JetBrainsMono-SemiBoldItalic.ttf -s -c -out jetbrains
+# python3 font-patcher ~/Library/Fonts/JetBrainsMono-Thin.ttf -s -c -out jetbrains
+# python3 font-patcher ~/Library/Fonts/JetBrainsMono-ThinItalic.ttf -s -c -out jetbrains
+# # TODO: install the created nerd fonts
 
 if [[ "$nvim" == "y" ]]; then
 	echo "Installing and configuring Neovim..."
