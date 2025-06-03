@@ -35,6 +35,10 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 		sudo pacman -S r
 		sudo pacman -S go
 		sudo pacman -S gcc
+
+		sudo pacman -S elan
+		elan-init -y
+
 		sudo pacman -S gnu-sed
 		sudo pacman -S fd
 		sudo pacman -S zoxide
@@ -138,6 +142,10 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 	brew install r
 	brew install golang
 	brew install gcc
+
+	brew install elan
+	elan-init -y
+
 	brew install gnu-sed
 	brew install xquartz
 	brew install fd
