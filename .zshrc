@@ -131,6 +131,7 @@ export PATH="$PATH:$HOME/.rvm/bin"
 . "/Users/ser/.deno/env"
 
 # Change tmux window name on directory change
+export TMUX_PLUGIN_MANAGER_PATH="$HOME/.config/tmux/plugins/"
 tmux-window-name() {
 	($TMUX_PLUGIN_MANAGER_PATH/tmux-window-name/scripts/rename_session_windows.py &)
 }

@@ -8,9 +8,6 @@ cp ~/.tmux.conf ./
 cp ~/.zprofile ./
 cp ~/.zshenv ./
 cp ~/.zshrc ./
-cp ~/.profile ./
-cp ~/.bash_profile ./
-cp ~/.bashrc ./
 cp ~/.condarc ./
 cp ~/.mambarc ./
 cp ~/.config/starship.toml ./.config/
@@ -39,9 +36,9 @@ cp -r ~/.config/neovide ./.config
 cp ~/scripts/* ./scripts
 
 # Sensitive (do not use *)
-cp ~/.config/gh/config.yml ./.config/gh
-cp ~/.config/git/config ./.config/git
-cp ~/.config/git/.gitignore_global ./.config/git
+cp ~/.config/gh/config.yml ./.config/gh || true
+cp ~/.config/git/config ./.config/git || true
+cp ~/.config/git/.gitignore_global ./.config/git || true
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 	cp ~/.Xresources ./
@@ -57,8 +54,16 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 	rm -r ./.config/rofi
 	cp -r ~/.config/rofi ./.config
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-	rm -r ./.config/rectangle
-	cp -r ~/.config/rectangle ./.config
-	rm -r ./.config/karabiner
-	cp -r ~/.config/karabiner ./.config
+	if [[ -d ~/.config/rectangle ]]; then
+		rm -r ./.config/rectangle
+		cp -r ~/.config/rectangle ./.config
+	else
+		cp -r ~/.config/rectangle ./.config || true
+	fi
+	if [[ -d ~/.config/karabiner ]]; then
+		rm -r ./.config/karabiner
+		cp -r ~/.config/karabiner ./.config
+	else
+		cp -r ~/.config/karabiner ./.config || true
+	fi
 fi

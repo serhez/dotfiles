@@ -274,6 +274,7 @@ python3 -m pip install --upgrade pip
 python3 -m pip install --break-system-packages --user libtmux
 /usr/bin/python3 -m pip install --upgrade pip
 /usr/bin/python3 -m pip install --user -U libtmux
+curl -LsSf https://astral.sh/uv/install.sh | sh
 
 luarocks install magick --lua-version=5.1
 

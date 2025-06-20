@@ -50,7 +50,7 @@ export TERM="tmux-256color"
 export XDG_CONFIG_HOME=$HOME/.config
 
 # Path
-export PATH=/opt/homebrew/opt/ruby/bin:/opt/homebrew/lib/ruby/gems/3.3.0/bin:/Users/ser/.gem/ruby/3.3.0/bin:/opt/homebrew/bin:/opt/homebrew/opt/llvm/bin:/opt/local/bin:/opt/local/sbin:$HOME/bin:$HOME/.local/bin:$HOME/scripts:$PM_BIN:$HOME/.dotnet/tools:/usr/local/go/bin:$HOME/go/bin:$PATH
+export PATH=/opt/homebrew/opt/ruby/bin:/opt/homebrew/lib/ruby/gems/3.3.0/bin:/Users/ser/.gem/ruby/3.3.0/bin:/opt/homebrew/bin:/opt/homebrew/opt/llvm/bin:/opt/local/bin:/opt/local/sbin:$HOME/bin:$HOME/.local/bin:$HOME/scripts:$PM_BIN:$HOME/.dotnet/tools:/usr/local/go/bin:$HOME/go/bin:$PATH:/usr/local/bin:/usr/bin:/bin
 
 # Java & Android
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
@@ -88,9 +88,6 @@ fi
 
 ## Aliases
 
-# gcc (aghhhhhh)
-# alias gcc='gcc-14'
-
 # generic
 alias mkd='mkdir -p'
 alias playlol='defaults write .GlobalPreferences com.apple.mouse.scaling -1'
@@ -109,6 +106,12 @@ alias tree='eza --long --no-user --header --icons --git --all --group-directorie
 # tasks
 alias tui='htop'  # ui
 alias tm='mprocs' # manager
+
+# assistant
+ai()
+{
+    gh copilot suggest "$@"
+}
 
 # git
 alias g='git'
@@ -249,3 +252,5 @@ md2pdf()
 
 # Secret keys etc.
 source $HOME/.secrets
+
+export PATH="$HOME/.elan/bin:$PATH"
