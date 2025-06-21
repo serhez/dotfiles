@@ -35,10 +35,14 @@ cp -r ~/.config/neovide ./.config
 # Do not remove all content before copying
 cp ~/scripts/* ./scripts
 
-# Sensitive (do not use *)
-cp ~/.config/gh/config.yml ./.config/gh || true
-cp ~/.config/git/config ./.config/git || true
-cp ~/.config/git/.gitignore_global ./.config/git || true
+# Sensitive or cluttered (do not use *)
+mkdir -p ./.config/gh
+mkdir -p ./.config/git
+mkdir -p ./.config/pixi
+cp ~/.config/gh/config.yml ./.config/gh/config.yml || true
+cp ~/.config/git/config ./.config/git/config || true
+cp ~/.config/git/.gitignore_global ./.config/git/.gitignore_global || true
+cp ~/.config/pixi/config.toml ./.config/pixi/config.toml || true
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 	cp ~/.Xresources ./

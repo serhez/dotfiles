@@ -72,6 +72,7 @@ export PRETTIERD_DEFAULT_CONFIG=$HOME/.config/.prettierrc
 
 # Python
 export MAMBA_ROOT_PREFIX=$HOME
+export PIXI_HOME=$HOME/.config/pixi
 
 # Node.js
 source $(brew --prefix nvm)/nvm.sh
@@ -208,6 +209,35 @@ mre() # mamba remove environment
     micromamba clean --all &&
     jupyter kernelspec remove "$1"
 }
+
+# pixi
+alias pixin='pixi init --format pyproject --scm github'
+alias pixils='pixi list'
+alias pixia='pixi add'
+alias pixir='pixi remove'
+alias pixii='pixi install'
+alias pixis='pixi shell'
+alias pixiS='pixi search'
+alias pixit='pixi tree'
+
+# uv
+alias uvi='uv init'
+alias uva='uv add'
+alias uvs='uv sync'
+alias uvR='uv remove'
+alias uvr='uv run'
+alias uvt='uv tree'
+alias uvb='uv build'
+alias uvp='uv publish'
+alias uvpi='uv python install'
+alias uvpls='uv python list'
+alias uvpf='uv python find'
+alias uvpp='uv python pin'
+alias uvpu='uv python uninstall'
+alias uvtr='uv tool run'
+alias uvti='uv tool install'
+alias uvtu='uv tool uninstall'
+alias uvtls='uv tool list'
 
 # jupyter
 alias jn='jupyter notebook'

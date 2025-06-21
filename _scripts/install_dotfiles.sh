@@ -107,6 +107,9 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 	## Mamba
 	curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj bin/micromamba
 
+	## Pixi
+	curl -fsSL https://pixi.sh/install.sh | sh
+
 	## Lua
 	curl -R -O http://www.lua.org/ftp/lua-5.3.5.tar.gz
 	tar -zxf lua-5.3.5.tar.gz
@@ -138,6 +141,8 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 
 	brew install micromamba
 	/opt/homebrew/opt/micromamba/bin/mamba shell init --shell zsh --root-prefix ~/mamba
+
+	brew install pixi
 
 	brew install r
 	brew install golang
@@ -301,7 +306,6 @@ cp ./.lintr ~
 cp ./.config/starship.toml ~/.config
 
 cp -r ./.config/alacritty ~/.config
-cp -r ./.config/gh ~/.config
 cp -r ./.config/htop ~/.config
 cp -r ./.config/kitty ~/.config
 cp -r ./.config/wezterm ~/.config
@@ -309,6 +313,14 @@ cp -r ./.config/tmux ~/.config
 cp -r ./.config/mprocs ~/.config
 cp -r ./.config/helix ~/.config
 cp -r ./.config/neovide ~/.config
+
+mkdir ~/.config/git || true
+mkdir ~/.config/gh || true
+mkdir ~/.config/pixi || true
+cp ./.config/git/config ~/.config/git
+cp ./.config/git/.gitignore_global ~/.config/git
+cp ./.config/gh/config.yml ~/.config/gh
+cp ./.config/pixi/config.toml ~/.config/pixi
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 	cp -r ./.config/awesome ~/.config
