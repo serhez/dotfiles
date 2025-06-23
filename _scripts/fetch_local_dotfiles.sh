@@ -11,6 +11,7 @@ cp ~/.zshrc ./
 cp ~/.condarc ./
 cp ~/.mambarc ./
 cp ~/.config/starship.toml ./.config/
+cp ~/.config/.prettierrc ./.config/
 
 # Remove all content before copying
 rm -r ./.config/alacritty

@@ -304,6 +304,7 @@ cp ./.tmux.conf ~
 cp ./.nuxtrc ~
 cp ./.lintr ~
 cp ./.config/starship.toml ~/.config
+cp ./.config/.prettierrc ~/.config
 
 cp -r ./.config/alacritty ~/.config
 cp -r ./.config/htop ~/.config
