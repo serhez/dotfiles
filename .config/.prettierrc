@@ -1,0 +1,20 @@
+{
+    "printWidth": 120,
+    "embeddedLanguageFormatting": "auto",
+    "tabWidth": 4,
+    "singleQuote": false,
+    "overrides": [
+        {
+            "files": ["*.yml", "*.yaml"],
+            "options": {
+                "tabWidth": 2
+            }
+        },
+        {
+            "files": ["*.js", "*.ts", "*.tsx", "*.jsx", "*.html", "*.css", "*.scss", "*.vue"],
+            "options": {
+                "singleQuote": true
+            }
+        }
+    ]
+}
