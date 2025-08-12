@@ -44,7 +44,7 @@ bindkey '^n' history-search-forward
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(dotenv command-not-found gitfast gh ssh ssh-agent docker docker-compose kubectl pip npm nvm)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -98,21 +98,6 @@ then
     eval "$(_MARIMO_COMPLETE=zsh_source marimo)"
 fi
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/opt/homebrew/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-# if [ $? -eq 0 ]; then
-#     eval "$__conda_setup"
-# else
-#     if [ -f "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
-#         . "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh"
-#     else
-#         export PATH="/opt/homebrew/Caskroom/miniconda/base/bin:$PATH"
-#     fi
-# fi
-# unset __conda_setup
-# <<< conda initialize <<<
-
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'mamba init' !!
 export MAMBA_EXE='/opt/homebrew/bin/micromamba';
@@ -132,10 +117,6 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 # Change tmux window name on directory change
 export TMUX_PLUGIN_MANAGER_PATH="$HOME/.config/tmux/plugins/"
-tmux-window-name() {
-	($TMUX_PLUGIN_MANAGER_PATH/tmux-window-name/scripts/rename_session_windows.py &)
-}
-add-zsh-hook chpwd tmux-window-name
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then

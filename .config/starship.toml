@@ -1,11 +1,45 @@
-# Replace the '❯' symbol in the prompt
-[character]
-success_symbol = '[󰌵 ](bold green)'
-error_symbol = '[󰌶 ](bold red)'
-vimcmd_symbol = '[󱈈 ](bold green)'
-vimcmd_replace_one_symbol = '[󱈈 ](bold purple)'
-vimcmd_replace_symbol = '[󱈈 ](bold purple)'
-vimcmd_visual_symbol = '[󱈈 ](bold yellow)'
+format = """
+$username\
+$hostname\
+$localip\
+$shlvl\
+$singularity\
+$kubernetes\
+$directory\
+$pijul_channel\
+$docker_context\
+$nix_shell\
+$python\
+$conda\
+$meson\
+$spack\
+$fossil_branch\
+$git_branch\
+$git_commit\
+$git_state\
+$hg_branch\
+$nats\
+$custom\
+$sudo\
+$line_break\
+$jobs\
+$status\
+$container\
+$character"""
+
+[python]
+format = 'in [$symbol $virtualenv]($style) '
+symbol = '󰆧'
+
+[hostname]
+ssh_only = true
+format = '[$ssh_symbol](bold blue) on [$hostname](bold red) '
+trim_at = '.aalto.fi'
+disabled = false
+
+[conda]
+format = 'in [$symbol $environment]($style) '
+symbol = '󰆧'
 
 [git_status]
 format = '([\[$all_status$ahead_behind\]](bold) )'
@@ -23,139 +57,14 @@ deleted = '[󰍴](red)'
 
 [battery]
 full_symbol = '󱊣 '
-# full_symbol = '󰁹 '
-# full_symbol = '󱟢 '
 discharging_symbol = '󱊡 '
-# discharging_symbol = '󰁺 '
 charging_symbol = '󰂄 '
 
-[cmd_duration]
-disabled = true
-
-[hostname]
-ssh_only = true
-format = '[$ssh_symbol](bold blue) on [$hostname](bold red) '
-trim_at = '.aalto.fi'
-disabled = false
-
-[conda]
-format = '[$symbol$environment]($style) '
-symbol = '󰆧 '
-
-[bun]
-format = "via [$symbol]($style)"
-
-[buf]
-format = "via [$symbol]($style)"
-
-[cmake]
-format = "via [$symbol]($style)"
-
-[cobol]
-format = "via [$symbol]($style)"
-
-[crystal]
-format = "via [$symbol]($style)"
-
-[daml]
-format = "via [$symbol]($style)"
-
-[dart]
-format = "via [$symbol]($style)"
-
-[deno]
-format = "via [$symbol]($style)"
-
-[dotnet]
-format = "[$symbol(🎯 $tfm )]($style)"
-
-[elixir]
-format = 'via [$symbol]($style)'
-
-[elm]
-format = 'via [$symbol]($style)'
-
-[erlang]
-format = 'via [$symbol]($style)'
-
-[fennel]
-format = 'via [$symbol]($style)'
-
-[golang]
-format = 'via [$symbol]($style)'
-
-[gradle]
-format = 'via [$symbol]($style)'
-
-[haxe]
-format = 'via [$symbol]($style)'
-
-[helm]
-format = 'via [$symbol]($style)'
-
-[julia]
-format = 'via [$symbol]($style)'
-
-[kotlin]
-format = 'via [$symbol]($style)'
-
-[lua]
-format = 'via [$symbol]($style)'
-
-[meson]
-format = 'via [$symbol]($style)'
-
-[nim]
-format = 'via [$symbol]($style)'
-
-[nodejs]
-format = 'via [$symbol]($style)'
-
-[ocaml]
-format = 'via [$symbol(\($switch_indicator$switch_name\) )]($style)'
-
-[opa]
-format = 'via [$symbol]($style)'
-
-[perl]
-format = 'via [$symbol]($style)'
-
-[php]
-format = 'via [$symbol]($style)'
-
-[pulumi]
-format = 'via [$symbol$stack]($style)'
-
-[purescript]
-format = 'via [$symbol]($style)'
-
-[python]
-format = 'via [$symbol]($style)'
-symbol = ' '
-
-[raku]
-format = 'via [$symbol]($style)'
-
-[red]
-format = 'via [$symbol]($style)'
-
-[rlang]
-format = 'via [$symbol]($style)'
-
-[ruby]
-format = 'via [$symbol]($style)'
-
-[rust]
-format = 'via [$symbol]($style)'
-
-[swift]
-format = 'via [$symbol]($style)'
-
-[vagrant]
-format = 'via [$symbol]($style)'
-
-[vlang]
-format = 'via [$symbol]($style)'
-
-[zig]
-format = 'via [$symbol]($style)'
+# Replace the '❯' symbol in the prompt
+[character]
+success_symbol = '[󰌵 ](bold green)'
+error_symbol = '[󰌶 ](bold red)'
+vimcmd_symbol = '[󱈈 ](bold green)'
+vimcmd_replace_one_symbol = '[󱈈 ](bold purple)'
+vimcmd_replace_symbol = '[󱈈 ](bold purple)'
+vimcmd_visual_symbol = '[󱈈 ](bold yellow)'
