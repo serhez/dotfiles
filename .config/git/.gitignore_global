@@ -42,3 +42,8 @@ Thumbs.db
 # Python #
 ################
 **/__pycache__
+
+# Vim #
+################
+*.swp
+.vim
