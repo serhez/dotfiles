@@ -15,7 +15,6 @@ echo "Installing dependencies..."
 [[ -d ~/.config ]] || mkdir ~/.config
 [[ -d ~/.terminfo ]] || mkdir ~/.terminfo
 [[ -d ~/.envs ]] || mkdir ~/.envs
-[[ -d ~/.envs ]] || mkdir ~/.envs
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 	# Linux
