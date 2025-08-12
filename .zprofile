@@ -108,6 +108,9 @@ alias tree='eza --long --no-user --header --icons --git --all --group-directorie
 alias tui='htop'  # ui
 alias tm='mprocs' # manager
 
+# slurm
+alias sq='squeue -u bkr361'
+
 # assistant
 ai()
 {
@@ -138,11 +141,124 @@ alias dui='lazydocker' # ui
 # kubernetes
 alias kui='k9s' # ui
 
+# mounting
+# Slow network flags: -o port=2221,auto_cache,defer_permissions,noappledouble,no_readahead,cache=yes,cache_timeout=115200,attr_timeout=115200,entry_timeout=1200,negative_timeout=1200,slow_statfs,iosize=16384
+
+# mnt [galvani|ferranti] [path_from_home]
+mnt()
+{
+    if [ -z "$1" ] || [ -z "$2" ]; then
+        echo "Usage: mnt [galvani|ferranti] [path_from_home]"
+        return 1
+    fi
+
+    local ip
+    if [ "$1" = "galvani" ]; then
+        ip="134.2.168.43"
+    elif [ "$1" = "ferranti" ]; then
+        ip="134.2.168.202"
+    else
+        echo "Invalid argument: $1"
+        echo "Usage: mnt [galvani|ferranti] [path_from_home]"
+        return 1
+    fi
+
+    # Create mount point if it does not exist
+    mkdir -p $HOME/mnt/"$1"/"$2"
+
+    # Mount the remote directory using sshfs
+    sshfs -o port=2221 bkr361@"$ip":"$2" $HOME/mnt/"$1"/"$2"
+    if [ $? -ne 0 ]; then
+        echo "Failed to mount $1:$2"
+        return 1
+    fi
+}
+
+# unmnt [galvani|ferranti] [path_from_home]
+unmnt()
+{
+    if [ -z "$1" ] || [ -z "$2" ]; then
+        echo "Usage: unmnt [galvani|ferranti] [path_from_home]"
+        return 1
+    fi
+        
+    # Unmount the remote directory using diskutil
+    diskutil umount force $HOME/mnt/"$1"/"$2"
+    if [ $? -ne 0 ]; then
+        echo "Failed to unmount $1:$2"
+        return 1
+    fi
+}
+
 # nvim
 alias v='nvim'
 alias vd='nvim -d'
 alias vv='neovide --no-tabs --title-hidden' # vv(isual)
 alias vui='neovide --no-tabs --title-hidden' # v(ui)
+alias vslow='nvim -c "let g:slow_network = 1"'
+
+# vr [host] [--storage|-s home|work] [--dir|-d path_from_storage]
+vr()
+{
+    local host=""
+    local storage="home"
+    local dir=""
+    
+    # Parse arguments
+    while [[ $# -gt 0 ]]; do
+        case $1 in
+            --storage|-s)
+                storage="$2"
+                shift 2
+                ;;
+            --dir|-d)
+                dir="$2"
+                shift 2
+                ;;
+            *)
+                if [ -z "$host" ]; then
+                    host="$1"
+                    shift
+                else
+                    echo "Unknown argument: $1"
+                    echo "Usage: vr [host] [--storage|-s home|work] [--dir|-d path_from_storage]"
+                    return 1
+                fi
+                ;;
+        esac
+    done
+
+    if [ -z "$host" ]; then
+        echo "Usage: vr [host] [--storage|-s home|work] [--dir|-d path_from_storage]"
+        return 1
+    fi
+
+    local base_path
+    if [ "$storage" = "home" ]; then
+        base_path="/home/bethge/bkr361"
+    elif [ "$storage" = "work" ] && [ "$host" = "galvani" ] || [ "$host" = "galvani2" ]; then
+        base_path="/mnt/lustre/work/bethge/bkr361"
+    elif [ "$storage" = "work" ] && [ "$host" = "ferranti" ] || [ "$host" = "ferranti2" ]; then
+        echo "Invalid storage: $storage"
+        echo "Ferranti does not have a work directory"
+        return 1
+    else
+        echo "Invalid storage: $storage"
+        echo "Usage: vr [host] [--storage|-s home|work] [--dir|-d path_from_storage]"
+        return 1
+    fi
+
+    # Open the remote directory in nvim using oil
+    if [ -z "$dir" ]; then
+        nvim oil-ssh://"$host"/"$base_path"/
+    else
+        nvim oil-ssh://"$host"/"$base_path"/"$dir"/.  # we add a dot as a workaround hack; otherwise, it opens the parent directory
+    fi
+    if [ $? -ne 0 ]; then
+        echo "Failed to open neovim at $host:$storage/$dir"
+        return 1
+    fi
+}
 
 # helix
 alias h='hx'
@@ -214,6 +330,7 @@ mre() # mamba remove environment
 alias pixin='pixi init --format pyproject --scm github'
 alias pixils='pixi list'
 alias pixia='pixi add'
+alias pixiar='pixi add --pypi $(cat requirements.txt)'
 alias pixir='pixi remove'
 alias pixii='pixi install'
 alias pixis='pixi shell'
