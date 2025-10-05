@@ -266,6 +266,7 @@ mv ~/.oh-my-zsh ~/.config
 bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
 
 curl https://sh.rustup.rs -sSf | sh
+cargo install --locked tree-sitter-cli
 cargo install --git https://github.com/chmln/nvim-ctrl
 cargo install --locked zellij
 
