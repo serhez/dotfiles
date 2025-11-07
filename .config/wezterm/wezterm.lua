@@ -267,7 +267,7 @@ return {
 	window_background_opacity = 1.0,
 	window_close_confirmation = "AlwaysPrompt",
 
-	color_scheme = "tokyonight-dimmed",
+	color_scheme = "teide-dark",
 	force_reverse_video_cursor = true,
 
 	-- Keybindings
