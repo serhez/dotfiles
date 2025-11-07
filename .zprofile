@@ -120,15 +120,17 @@ ai()
 # git
 alias g='git'
 alias gui='lazygit' # ui
-alias ga='git add --all'
+alias ga='git add'
+alias gaa='git add --all'
 alias gb='git branch'
 alias gC='git clone'
 alias gc='git commit -m'
 alias gd='git diff'
 alias gm='git merge'
-alias gk='git checkout'
-alias gK='git checkout -b'
+alias gco='git checkout'
+alias gn='git checkout -b' # *new* branch
 alias gp='git pull'
+alias gsp='git stash && git pull && git stash pop'
 alias gP='git push'
 alias gr='git rebase'
 alias gR='git reset'
