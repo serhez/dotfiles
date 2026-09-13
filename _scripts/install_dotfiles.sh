@@ -295,6 +295,7 @@ cp -r ./scripts ~
 cp ./.zprofile ~
 cp ./.zshrc ~
 cp ./.zshenv ~
+cp ./.zsh_aliases ~
 cp ./.profile ~
 cp ./.bash_profile ~
 cp ./.bashrc ~
@@ -366,6 +367,10 @@ sudo chown -R 501:20 "$HOME/.npm"
 
 # Silence "last login" message
 touch ~/.hushlogin
+
+# SSH config
+mkdir -p ~/.ssh/sockets
+chmod 700 ~/.ssh/sockets
 
 # conda init zsh # now using mamba
 

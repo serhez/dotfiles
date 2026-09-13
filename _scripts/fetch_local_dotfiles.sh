@@ -8,6 +8,7 @@ cp ~/.tmux.conf ./
 cp ~/.zprofile ./
 cp ~/.zshenv ./
 cp ~/.zshrc ./
+cp ~/.zsh_aliases ./
 cp ~/.condarc ./
 cp ~/.mambarc ./
 cp ~/.config/starship.toml ./.config/

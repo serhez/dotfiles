@@ -1,6 +1,18 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.config/.oh-my-zsh"
 
+if [[ -n "${__SER_ZSHRC_LOADED:-}" && "${(t)__SER_ZSHRC_LOADED}" != *export* ]]; then
+  [[ -r "$HOME/.ssh/agent/env" ]] && source "$HOME/.ssh/agent/env" >/dev/null
+  [[ -r "$HOME/.zsh_aliases" ]] && source "$HOME/.zsh_aliases"
+  return
+fi
+typeset -g __SER_ZSHRC_LOADED=1
+typeset +x __SER_ZSHRC_LOADED
+
+if [[ -z "${__SER_ZPROFILE_LOADED:-}" && -r "$HOME/.zprofile" ]]; then
+  source "$HOME/.zprofile"
+fi
+
 DEFAULT_USER="whoami"
 
 # Uncomment the following line to enable command auto-correction.
@@ -44,12 +56,70 @@ bindkey '^n' history-search-forward
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(dotenv command-not-found gitfast gh ssh ssh-agent docker docker-compose kubectl pip npm nvm)
+zstyle ':omz:plugins:nvm' lazy yes
+# Keep ssh-agent out of the plugin list so keys are requested only on actual SSH use.
+plugins=(dotenv command-not-found gitfast gh ssh docker docker-compose kubectl pip npm nvm)
 
 source $ZSH/oh-my-zsh.sh
 
-# Source my profile after oh-my-zsh, else it will override my custom aliases etc.
-source $HOME/.zprofile
+_ser_setup_ssh_agent() {
+  [[ "$OSTYPE" == darwin* ]] || return 0
+
+  local agent_dir="$HOME/.ssh/agent"
+  local agent_env="$agent_dir/env"
+  local agent_sock="$agent_dir/agent.sock"
+  local keychain_loaded="$agent_dir/keychain-loaded"
+  local agent_status started=0
+
+  mkdir -p "$agent_dir"
+  chmod 700 "$agent_dir"
+
+  _ser_ssh_agent_status() {
+    [[ -n "${SSH_AUTH_SOCK:-}" && -S "$SSH_AUTH_SOCK" ]] || return 2
+    ssh-add -l >/dev/null 2>&1
+    agent_status=$?
+    [[ "$agent_status" -eq 0 || "$agent_status" -eq 1 ]] && return "$agent_status"
+    return 2
+  }
+
+  _ser_ssh_agent_status
+  agent_status=$?
+
+  if [[ "$agent_status" -eq 2 && -r "$agent_env" ]]; then
+    source "$agent_env" >/dev/null
+    _ser_ssh_agent_status
+    agent_status=$?
+  fi
+
+  if [[ "$agent_status" -eq 2 ]]; then
+    rm -f "$agent_sock"
+    rm -f "$keychain_loaded"
+    eval "$(ssh-agent -s -a "$agent_sock")" >/dev/null
+    started=1
+    {
+      printf 'export SSH_AUTH_SOCK=%q\n' "$SSH_AUTH_SOCK"
+      printf 'export SSH_AGENT_PID=%q\n' "$SSH_AGENT_PID"
+    } >| "$agent_env"
+    chmod 600 "$agent_env"
+    _ser_ssh_agent_status
+    agent_status=$?
+  fi
+
+  if [[ ("$started" -eq 1 || "$agent_status" -eq 1) && ! -e "$keychain_loaded" ]]; then
+    ssh-add --apple-load-keychain -q >/dev/null 2>&1 || true
+    : >| "$keychain_loaded"
+    chmod 600 "$keychain_loaded"
+  fi
+
+  launchctl setenv SSH_AUTH_SOCK "$SSH_AUTH_SOCK" >/dev/null 2>&1 || true
+  unfunction _ser_ssh_agent_status
+}
+_ser_setup_ssh_agent
+unfunction _ser_setup_ssh_agent
+
+if [[ -r "$HOME/.zsh_aliases" ]]; then
+  source "$HOME/.zsh_aliases"
+fi
 
 if [[ -f "/opt/homebrew/bin/brew" ]] then
   # If you're using macOS, you'll want this enabled
@@ -76,13 +146,34 @@ zinit light Aloxaf/fzf-tab
 
 # Add in snippets
 # zinit snippet OMZL::git.zsh
-zinit snippet OMZP::git
-zinit snippet OMZP::sudo
-zinit snippet OMZP::archlinux
-zinit snippet OMZP::aws
-zinit snippet OMZP::kubectl
-zinit snippet OMZP::kubectx
-zinit snippet OMZP::command-not-found
+# zinit snippet OMZP::sudo
+# zinit snippet OMZP::archlinux
+# zinit snippet OMZP::aws
+# zinit snippet OMZP::kubectl
+# zinit snippet OMZP::kubectx
+# zinit snippet OMZP::command-not-found
+
+# Docker Desktop completions
+ZSH_COMPLETION_CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/completions"
+mkdir -p "$ZSH_COMPLETION_CACHE"
+fpath=("$ZSH_COMPLETION_CACHE" /Users/ser/.docker/completions $fpath)
+
+_zsh_cache_completion() {
+  local name="$1"
+  shift
+  local command_name="$1"
+  local completion_file="$ZSH_COMPLETION_CACHE/_$name"
+
+  (( $+commands[$command_name] )) || return 0
+  if [[ ! -s "$completion_file" || "$commands[$command_name]" -nt "$completion_file" ]]; then
+    "$@" >| "$completion_file" 2>/dev/null
+  fi
+}
+
+_zsh_cache_completion pixi pixi completion --shell zsh
+_zsh_cache_completion uv uv generate-shell-completion zsh
+_zsh_cache_completion uvx uvx --generate-shell-completion zsh
+unfunction _zsh_cache_completion
 
 # Load completions
 autoload -Uz compinit && compinit
@@ -92,6 +183,8 @@ zinit cdreplay -q
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 eval "$(fzf --zsh)"
+
+export _ZO_DOCTOR=0  # no annoying notifications
 
 if command -v marimo 2>&1 >/dev/null
 then
@@ -141,9 +234,5 @@ zinit light-mode for \
 
 ### End of Zinit's installer chunk
 
-# pixi
-eval "$(pixi completion --shell zsh)"
-
-# uv
-eval "$(uv generate-shell-completion zsh)"
-eval "$(uvx --generate-shell-completion zsh)"
+# Added by Antigravity
+export PATH="/Users/ser/.antigravity/antigravity/bin:$PATH"
