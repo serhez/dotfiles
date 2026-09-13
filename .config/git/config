@@ -2,7 +2,7 @@
 	name = Sergio Hernández Gutiérrez
 	email = contact.sergiohernandez@gmail.com
 [init]
-	defaultBranch = master
+	defaultBranch = main
 [core]
 	editor = nvim
 	excludesfile = ~/.config/git/.gitignore_global
@@ -11,7 +11,7 @@
 [push]
     autoSetupRemote = true
 [diff]
-    tool = nvim -d
+	tool = codediff
 [difftool]
     prompt = false
 [gitflow "prefix"]
@@ -54,3 +54,15 @@
 	process = git-lfs filter-process
 [pull]
 	rebase = true
+[merge]
+	tool = codediff
+[mergetool "codediff"]
+	cmd = nvim \"$MERGED\" -c \"CodeDiff merge \\\"$MERGED\\\"\"
+[difftool "codediff"]
+	cmd = nvim \"$LOCAL\" \"$REMOTE\" +\"CodeDiff file $LOCAL $REMOTE\"
+[credential "https://github.com"]
+	helper =
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !/opt/homebrew/bin/gh auth git-credential

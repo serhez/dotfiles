@@ -47,3 +47,13 @@ Thumbs.db
 ################
 *.swp
 .vim
+
+# AI #
+################
+.claude/
+CLAUDE.md
+AGENTS.md
+TODO.md
+
+# Internal #
+.notes/
