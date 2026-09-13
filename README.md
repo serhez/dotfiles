@@ -29,6 +29,7 @@ I use Neovim as a text editor. I have a [Neovim config](https://github.com/serhe
 
 The fetch and install scripts track:
 
-- Claude Code's global instructions, settings, and status-line script from `~/.claude/`.
-- Codex's global instructions and configuration from `~/.codex/`.
+- Shared global instructions in `~/.codex/AGENTS.md`, linked from Claude Code and OpenCode's instruction paths.
+- Claude Code's settings and status-line script from `~/.claude/`.
+- Codex's configuration from `~/.codex/config.toml`.
 - OpenCode's main configuration at `~/.config/opencode/opencode.jsonc`.

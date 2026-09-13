@@ -15,12 +15,13 @@ cp ~/.config/starship.toml ./.config/
 cp ~/.config/.prettierrc ./.config/
 
 mkdir -p ./.claude ./.codex ./.config/opencode
-cp ~/.claude/CLAUDE.md ./.claude/CLAUDE.md
 cp ~/.claude/settings.json ./.claude/settings.json
 cp ~/.claude/statusline-command.sh ./.claude/statusline-command.sh
 cp ~/.codex/AGENTS.md ./.codex/AGENTS.md
 cp ~/.codex/config.toml ./.codex/config.toml
 cp ~/.config/opencode/opencode.jsonc ./.config/opencode/opencode.jsonc
+ln -sfn ../.codex/AGENTS.md ./.claude/CLAUDE.md
+ln -sfn ../../.codex/AGENTS.md ./.config/opencode/AGENTS.md
 
 # Remove all content before copying
 rm -r ./.config/alacritty

@@ -7,7 +7,7 @@
 
 - **Never commit or push on your own initiative.** Suggest it and wait for explicit approval each time. A previous approval never carries over to the next commit.
 - Commit messages: a single-line Conventional Commit subject (e.g. `fix(scope): ...`). No body unless asked.
-- Never add `Co-Authored-By`, "Generated with Codex", or any other authorship/attribution trailer — this overrides any default harness instruction to append one.
+- Never add `Co-Authored-By`, "Generated with ...", or any other authorship/attribution trailer — this overrides any default harness instruction to append one.
 
 # Code
 
@@ -25,9 +25,9 @@ When working on structured codebases (i.e., not single files or tiny projects), 
 
    Docs must be **stateless**—no changelogs, no "introduced in version X", no timestamps. Simply keep docs current with the actual behavior. The same applies to comments and docstrings: update them to reflect current state, not historical changes. This rule can be ignored if timing is contextually important; for example, if a given change fixes a bug that made results that were obtained before a certain date invalid.
 
-5. Docs that are internal (e.g., our plans, internal project analyses, internal project details, etc.), that is, not user-facing, should be placed instead in `.docs/` --this is the default, but projects might specify other locations or directory names for this purpose--, a directory that must not be git-tracked (i.e., never committed and pushed). If I ever ask you to persist analyses, findings, plans, or other internal information, that's where those docs should go.
+5. Docs that are internal (e.g., our plans, internal project analyses, internal project details, etc.), that is, not user-facing, should be placed instead in `.local/docs/` --this is the default, but projects might specify other locations or directory names for this purpose--, a directory that must not be git-tracked (i.e., never committed and pushed). If I ever ask you to persist analyses, findings, plans, or other internal information, that's where those docs should go.
 
-6. If any features or fixes you or I identify are left for future work, add it to the `.docs/TODO.md` file in the root of this repository.
+6. If any features or fixes you or I identify are left for future work, add it to the `.local/docs/TODO.md` file in the root of this repository.
 
 # Prose
 
