@@ -24,3 +24,11 @@ I have created a script you can use via `make fetch-local` where any changes mad
 ## Neovim
 
 I use Neovim as a text editor. I have a [Neovim config](https://github.com/serhez/nvim-conf) which you can also optionally install through the installer (it will ask you).
+
+## AI coding agents
+
+The fetch and install scripts track:
+
+- Claude Code's global instructions, settings, and status-line script from `~/.claude/`.
+- Codex's global instructions and configuration from `~/.codex/`.
+- OpenCode's main configuration at `~/.config/opencode/opencode.jsonc`.

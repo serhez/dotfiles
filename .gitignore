@@ -1,2 +1,12 @@
 # Git ignores the following files and directories
 .config/tmux/plugins
+.config/karabiner/automatic_backups/
+
+# Explicitly tracked AI instructions (overrides the global gitignore).
+!.claude/
+!.claude/CLAUDE.md
+!.claude/settings.json
+!.claude/statusline-command.sh
+!.codex/
+!.codex/AGENTS.md
+!.codex/config.toml

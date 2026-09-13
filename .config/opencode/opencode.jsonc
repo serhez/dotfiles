@@ -1,0 +1,24 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+
+  "model": "opencode/x-preview-f-free",
+
+  "compaction": {
+    "auto": true,
+    "reserved": 20000
+  },
+
+  "provider": {
+    "opencode": {
+      "models": {
+        "x-preview-f-free": {
+          "limit": {
+            "context": 1000000,
+            "input": 282144,
+            "output": 131072
+          }
+        }
+      }
+    }
+  }
+}

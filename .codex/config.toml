@@ -1,0 +1,111 @@
+model = "gpt-6-astra"
+model_reasoning_effort = "max"
+personality = "pragmatic"
+plan_mode_reasoning_effort = "high"
+[projects."/Users/ser/dev/llenvs"]
+trust_level = "trusted"
+
+# model_context_window = 1000000
+# model_auto_compact_token_limit = 256000
+
+sandbox_mode = "workspace-write"
+approval_policy = "on-request"
+approvals_reviewer = "user"
+
+[sandbox_workspace_write]
+writable_roots = ["/Users/ser/.config/nvim", "/Users/ser/dev"]
+
+[projects."/Users/ser/dev/value-bench"]
+trust_level = "trusted"
+
+[projects."/Users/ser/dev/inverse-strategy"]
+trust_level = "trusted"
+
+[projects."/Users/ser/Downloads/_NeurIPS_26__ValueBench (3)"]
+trust_level = "trusted"
+
+[projects."/Users/ser/dev/signal-bench"]
+trust_level = "trusted"
+
+[projects."/Users/ser/dev/llenvs-anon"]
+trust_level = "trusted"
+
+[projects."/Users/ser/.config/nvim"]
+trust_level = "trusted"
+
+[projects."/Users/ser/dev/bento.nvim"]
+trust_level = "trusted"
+
+[projects."/Users/ser/dev"]
+trust_level = "trusted"
+
+[projects."/Users/ser/.config/tmux"]
+trust_level = "trusted"
+
+[projects."/Users/ser"]
+trust_level = "trusted"
+
+[projects."/Users/ser/dev/overleaf.nvim"]
+trust_level = "trusted"
+
+[projects."/Users/ser/dev/portfolio"]
+trust_level = "trusted"
+
+[projects."/Users/ser/dev/doclab"]
+trust_level = "trusted"
+
+[projects."/Users/ser/dev/hypo-signal"]
+trust_level = "trusted"
+
+[projects."/Users/ser/dev/pdf-reader"]
+trust_level = "trusted"
+
+[projects."/Users/ser/dev/tabern.nvim"]
+trust_level = "trusted"
+
+[projects."/Users/ser/dev/literature-review"]
+trust_level = "trusted"
+
+[projects."/Users/ser/dev/literature-scout"]
+trust_level = "trusted"
+
+[notice]
+hide_rate_limit_model_nudge = true
+
+[notice.model_migrations]
+"gpt-5.3-codex" = "gpt-5.4"
+"gpt-5.2-codex" = "gpt-5.4"
+
+[features]
+multi_agent = true
+apps = true
+
+[tui]
+status_line = [
+  "model-with-reasoning",
+  "context-remaining",
+  "current-dir",
+  "git-branch",
+  "five-hour-limit",
+  "weekly-limit",
+]
+
+[tui.model_availability_nux]
+"gpt-5.5" = 4
+"gpt-5.6-sol" = 1
+gpt-6-astra = 3
+
+[mcp_servers.fff]
+command = "fff-mcp"
+
+[mcp_servers.fff.tools.find_files]
+approval_mode = "approve"
+
+[mcp_servers.fff.tools.multi_grep]
+approval_mode = "approve"
+
+[mcp_servers.fff.tools.grep]
+approval_mode = "approve"
+
+[plugins."github@openai-curated"]
+enabled = true
