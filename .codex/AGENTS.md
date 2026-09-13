@@ -29,6 +29,8 @@ When working on structured codebases (i.e., not single files or tiny projects), 
 
 6. If any features or fixes you or I identify are left for future work, add it to the `.local/docs/TODO.md` file in the root of this repository.
 
+7. When auditing, analyzing, or debugging, if you need to create one-off scripts, do so under `.local/scripts/`, unless the project-specific instructions determine another location for such temporary files. Same idea for temporary data or results, defaulting to `.local/data/`.
+
 # Prose
 
 The following does not apply to reasoning, thinking, or any other internal generations, only to user-facing output (i.e., when you write a final response to me after working on or analysing something, or when you write documents, summaries, reviews, etc.). For such cases, follow these guidelines:
