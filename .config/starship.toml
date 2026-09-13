@@ -1,7 +1,6 @@
 format = """
 $username\
 $hostname\
-$localip\
 $shlvl\
 $singularity\
 $kubernetes\
@@ -27,18 +26,30 @@ $status\
 $container\
 $character"""
 
-[python]
-format = 'in [$symbol $virtualenv]($style) '
-symbol = '󰆧'
+# Replace the '❯' symbol in the prompt
+[character]
+success_symbol = '[󰌵 ](bold green)'
+error_symbol = '[󰌶 ](bold red)'
+vimcmd_symbol = '[󱈈 ](bold green)'
+vimcmd_replace_one_symbol = '[󱈈 ](bold purple)'
+vimcmd_replace_symbol = '[󱈈 ](bold purple)'
+vimcmd_visual_symbol = '[󱈈 ](bold yellow)'
+
+[username]
+style_root = 'bold red'
+style_user = 'bold green'
+format = '[$user]($style) '
 
 [hostname]
-ssh_only = true
-format = '[$ssh_symbol](bold blue) on [$hostname](bold red) '
-trim_at = '.aalto.fi'
-disabled = false
+format = 'in [$hostname](bold bright-green): '
+trim_at = '-'
+
+[python]
+format = '(via [$symbol $virtualenv]($style) )'
+symbol = '󰆧'
 
 [conda]
-format = 'in [$symbol $environment]($style) '
+format = '(via [$symbol $environment]($style) )'
 symbol = '󰆧'
 
 [git_status]
@@ -59,12 +70,3 @@ deleted = '[󰍴](red)'
 full_symbol = '󱊣 '
 discharging_symbol = '󱊡 '
 charging_symbol = '󰂄 '
-
-# Replace the '❯' symbol in the prompt
-[character]
-success_symbol = '[󰌵 ](bold green)'
-error_symbol = '[󰌶 ](bold red)'
-vimcmd_symbol = '[󱈈 ](bold green)'
-vimcmd_replace_one_symbol = '[󱈈 ](bold purple)'
-vimcmd_replace_symbol = '[󱈈 ](bold purple)'
-vimcmd_visual_symbol = '[󱈈 ](bold yellow)'
