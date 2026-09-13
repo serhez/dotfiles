@@ -34,7 +34,9 @@ rm -r ./.config/neovide
 cp -r ~/.config/neovide ./.config
 
 # Do not remove all content before copying
-cp ~/scripts/* ./scripts
+for script in ~/scripts/*; do
+	[[ -f "$script" ]] && cp "$script" ./scripts
+done
 
 # Sensitive or cluttered (do not use *)
 mkdir -p ./.config/gh
