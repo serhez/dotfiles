@@ -19,7 +19,7 @@ declare -A SUPPORTED=(
     ["palenight"]=""
     ["rosepine"]="dark dimmed light"
     ["solarized"]="dark light"
-    ["teide"]="dark dimmed light"
+    ["teide"]="darker dark dimmed light"
     ["tokyonight"]="darker dark dimmed light"
 )
 
@@ -186,7 +186,10 @@ if [ "$variant" != "" ]; then
             sed -i '' 's/vim.o.background.*/vim.o.background\ =\ "light"/g' ~/.config/nvim/lua/highlights.lua
         fi
     elif [ "$color" == "teide" ]; then
-        if [ "$variant" == "dark" ]; then
+        if [ "$variant" == "darker" ]; then
+            sed -i '' 's/vim.g.colors_name\ =\ ".*"/vim.g.colors_name\ =\ "teide-darker\"/g' ~/.config/nvim/lua/highlights.lua
+            sed -i '' 's/vim.o.background.*/vim.o.background\ =\ "dark"/g' ~/.config/nvim/lua/highlights.lua
+        elif [ "$variant" == "dark" ]; then
             sed -i '' 's/vim.g.colors_name\ =\ ".*"/vim.g.colors_name\ =\ "teide-dark\"/g' ~/.config/nvim/lua/highlights.lua
             sed -i '' 's/vim.o.background.*/vim.o.background\ =\ "dark"/g' ~/.config/nvim/lua/highlights.lua
         elif [ "$variant" == "dimmed" ]; then
