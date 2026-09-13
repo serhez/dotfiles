@@ -56,4 +56,6 @@ AGENTS.md
 TODO.md
 
 # Internal #
+.local/
+.docs/
 .notes/
