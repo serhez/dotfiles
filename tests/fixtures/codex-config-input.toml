@@ -1,0 +1,44 @@
+model = "gpt-test"
+notify = ["/Users/test/.codex/computer-use/Codex Computer Use.app/client", "turn-ended"]
+
+[features]
+hooks = true
+
+[mcp_servers.custom]
+command = "custom-mcp"
+
+[mcp_servers.node_repl]
+command = "/Applications/ChatGPT.app/node_repl"
+
+[mcp_servers.node_repl.env]
+CODEX_HOME = "/Users/test/.codex"
+
+[mcp_servers.computer-use]
+command = "./Codex Computer Use.app/client"
+enabled = false
+
+[plugins."browser@openai-bundled"]
+enabled = true
+
+[desktop]
+followUpQueueMode = "steer"
+
+[marketplaces.openai-bundled]
+source_type = "local"
+source = "/Users/test/.codex/.tmp/openai-bundled"
+
+[marketplaces.openai-primary-runtime]
+source_type = "local"
+source = "/Users/test/.cache/codex-runtimes/openai-primary-runtime"
+
+[marketplaces.personal]
+source_type = "git"
+source = "https://example.com/plugins.git"
+
+[hooks.state]
+
+[hooks.state."/Users/test/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:test"
+
+[projects."/work/project"]
+trust_level = "trusted"

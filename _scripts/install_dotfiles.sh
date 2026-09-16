@@ -44,6 +44,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 		sudo pacman -S ripgrep
 		sudo pacman -S luajit
 		sudo pacman -S node
+		sudo pacman -S bun
 		sudo pacman -S llvm
 		sudo pacman -S boost
 		sudo pacman -S hdf5
@@ -103,6 +104,10 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 
 	# Generic installs for Linux
 
+	## Herdr
+	curl -fsSL https://herdr.dev/install.sh | sh
+	export PATH="$HOME/.local/bin:$PATH"
+
 	## Mamba
 	curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj bin/micromamba
 
@@ -158,6 +163,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 	brew install luajit
 	brew install luarocks
 	brew install node
+	brew install bun
 	brew install llvm
 	brew install boost
 	brew install hdf5
@@ -179,6 +185,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 	brew install fontforge
 
 	brew install tmux
+	brew install herdr
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 	brew install helix
@@ -315,6 +322,21 @@ cp ./.codex/config.toml ~/.codex/config.toml
 cp ./.config/opencode/opencode.jsonc ~/.config/opencode/opencode.jsonc
 ln -sfn ../.codex/AGENTS.md ~/.claude/CLAUDE.md
 ln -sfn ../../.codex/AGENTS.md ~/.config/opencode/AGENTS.md
+
+herdr plugin install beyondlex/herdr-recent-navigator --yes
+herdr plugin install sagmans/herdr-pickers --yes
+herdr plugin install piesuke/herdr-worktree-bootstrap --yes
+herdr plugin install paulbkim-dev/vim-herdr-navigation --yes
+herdr integration install claude
+herdr integration install codex
+herdr integration install opencode
+
+mkdir -p ~/.config/herdr/plugins/config/beyondlex.herdr-recent-navigator
+mkdir -p ~/.config/herdr/plugins/config/herdr-pickers
+cp ./.config/herdr/config.toml ~/.config/herdr/config.toml
+cp ./.config/herdr/plugins/config/beyondlex.herdr-recent-navigator/config.toml ~/.config/herdr/plugins/config/beyondlex.herdr-recent-navigator/config.toml
+cp ./.config/herdr/plugins/config/herdr-pickers/config.toml ~/.config/herdr/plugins/config/herdr-pickers/config.toml
+herdr config check
 
 cp -r ./.config/alacritty ~/.config
 cp -r ./.config/htop ~/.config

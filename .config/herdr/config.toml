@@ -1,0 +1,223 @@
+# Herdr configuration.
+#
+# Mirrors ~/.config/tmux/tmux.conf as closely as Herdr allows: the tmux model
+# maps onto Herdr as window -> tab, session -> workspace, pane -> pane.
+# Apply changes to a running server with `herdr server reload-config`.
+
+onboarding = false
+
+# ─────────────────────────────── Theme ────────────────────────────────────
+# Teide Dark, the same palette kitty and tmux use.
+
+[theme]
+# Anything not pinned below follows the host terminal's ANSI palette.
+name = "terminal"
+
+[theme.custom]
+panel_bg      = "#1D2228"  # terminal background
+sidebar_bg    = "#171B20"  # one step darker, so the sidebar reads as chrome
+active_row_bg = "#2C313A"
+selection_bg  = "#33394A"
+surface0      = "#1D2228"  # blend inactive tabs into the bar, like tmux
+surface1      = "#33394A"
+surface_dim   = "#171B20"
+overlay0      = "#586172"  # tmux inactive window foreground
+overlay1      = "#586172"  # tmux inactive window foreground
+text          = "#E7EAEE"
+subtext0      = "#A9B1D6"
+accent        = "#5CCEFF"  # kitty active tab/border, tmux status-right
+red           = "#F97791"
+green         = "#38FFA5"  # tmux session colour
+yellow        = "#FFCB77"
+blue          = "#89BEFF"
+mauve         = "#B0A0FF"
+teal          = "#41FFDC"
+peach         = "#FF9858"  # tmux pane-active-border colour
+
+# ──────────────────────────────── UI ──────────────────────────────────────
+
+[ui]
+accent = "#5CCEFF"
+agent_panel_sort = "spaces"
+
+sidebar_start_collapsed = true     # no tmux counterpart; keep it out of the way
+sidebar_collapsed_mode = "hidden"  # zero width, not the narrow rail (prefix+b toggles)
+
+tab_bar_position = "top"           # tmux: status-position top
+tab_bar_right = [{ type = "text", text = " local " }]
+tab_bar_right_separator = " "
+
+pane_borders = "auto"              # borders only between splits
+pane_outer_borders = false         # tmux-style internal splitters, no outer frame
+pane_gaps = false                  # splits share a divider, like tmux
+pane_scrollbars = false            # tmux has none
+
+prompt_new_tab_name = false        # tmux new-window does not prompt
+mouse_scroll_lines = 3
+
+# tmux-notify equivalent: let kitty raise the desktop notification.
+[ui.toast]
+delivery = "system"
+
+# tmux runs silent: bell-action none, monitor-activity off, visual-activity off.
+[ui.sound]
+enabled = false
+
+# ───────────────────────────── Keybindings ────────────────────────────────
+# Every `bind -n` chord from tmux.conf is bound on both cmd and alt, cmd
+# first. Prefix chords follow tmux defaults.
+
+[keys]
+prefix = "ctrl+a"
+
+# Tabs (tmux windows)
+new_tab           = ["cmd+t", "alt+t", "prefix+c"]
+rename_tab        = ["cmd+r", "alt+r", "prefix+comma"]
+close_tab         = ["cmd+shift+x", "alt+shift+x", "prefix+shift+x"]
+switch_tab        = ["cmd+1..9", "alt+1..9", "prefix+1..9"]
+previous_tab      = ["cmd+[", "alt+[", "prefix+p"]
+next_tab          = ["cmd+]", "alt+]", "prefix+n"]
+move_tab_previous = ["cmd+shift+[", "alt+shift+["]
+move_tab_next     = ["cmd+shift+]", "alt+shift+]"]
+
+# Workspaces (tmux sessions)
+new_workspace    = ["cmd+n", "alt+n", "prefix+shift+n"]
+rename_workspace = ["cmd+shift+r", "alt+shift+r", "prefix+shift+w"]
+close_workspace  = "prefix+shift+d"
+workspace_picker = "prefix+w"
+toggle_sidebar   = ["cmd+b", "alt+b", "prefix+b"]
+goto             = ["cmd+g", "alt+g", "prefix+g"]  # spaces/tabs navigator
+
+# Worktrees are worktree-backed spaces, not a separate list, so they also show
+# up under cmd+s. These are the only worktree-specific actions Herdr has; both
+# need the focused space to sit inside a Git work tree.
+new_worktree    = ["cmd+ctrl+g", "alt+ctrl+g", "prefix+shift+g"]
+open_worktree   = ["cmd+shift+g", "alt+shift+g"]
+remove_worktree = "prefix+ctrl+g"
+
+# Panes
+split_vertical    = ['cmd+shift+\', 'alt+shift+\', "prefix+v"]   # tmux: split-window -h
+split_horizontal  = ["cmd+shift+minus", "alt+shift+minus", "prefix+minus"]  # tmux: split-window -v
+close_pane        = ["cmd+x", "alt+x", "prefix+x"]
+zoom              = ["cmd+z", "alt+z", "prefix+z"]
+focus_pane_left   = "prefix+h"   # cmd/alt+h/j/k/l go through the vim-aware plugin below
+focus_pane_down   = "prefix+j"
+focus_pane_up     = "prefix+k"
+focus_pane_right  = "prefix+l"
+resize_pane_left  = ["ctrl+cmd+h", "ctrl+alt+h"]
+resize_pane_down  = ["ctrl+cmd+j", "ctrl+alt+j"]
+resize_pane_up    = ["ctrl+cmd+k", "ctrl+alt+k"]
+resize_pane_right = ["ctrl+cmd+l", "ctrl+alt+l"]
+
+# Session
+detach        = "prefix+d"
+reload_config = "prefix+r"
+resize_mode   = "prefix+shift+r"   # moved aside; tmux uses prefix+r to reload
+
+# tmux: bind a popup -E -d "#{pane_current_path}" -w 95% -h 95% "opencode"
+[[keys.command]]
+key = "prefix+a"
+type = "popup"
+command = "opencode"
+description = "opencode"
+width = "95%"
+height = "95%"
+
+# ─────────────────────────── Plugin keybindings ───────────────────────────
+
+# tmux: bind -n 'M-s' run-shell "sesh connect ..." via fzf-tmux -p 50%,65%
+# Recent Navigator opens directly on the requested MRU view. Tab/Shift-Tab
+# cycles through its other views. Herdr's native spaces/tabs navigator remains
+# available on cmd+g.
+[[keys.command]]
+key = "cmd+a"
+type = "plugin_action"
+command = "beyondlex.herdr-recent-navigator.focus-agents"
+description = "recent agents"
+
+[[keys.command]]
+key = "alt+a"
+type = "plugin_action"
+command = "beyondlex.herdr-recent-navigator.focus-agents"
+description = "recent agents"
+
+[[keys.command]]
+key = "cmd+s"
+type = "plugin_action"
+command = "beyondlex.herdr-recent-navigator.focus-workspaces"
+description = "recent workspaces"
+
+[[keys.command]]
+key = "alt+s"
+type = "plugin_action"
+command = "beyondlex.herdr-recent-navigator.focus-workspaces"
+description = "recent workspaces"
+
+# Temporary comparison bindings for Herdr Pickers.
+[[keys.command]]
+key = "cmd+shift+a"
+type = "shell"
+command = "herdr plugin action invoke herdr-pickers.agents"
+description = "Herdr Pickers agents"
+
+[[keys.command]]
+key = "cmd+shift+s"
+type = "shell"
+command = "herdr plugin action invoke herdr-pickers.workspaces"
+description = "Herdr Pickers workspaces"
+
+# tmux: bind-key -n 'M-h' if-shell "$is_vim" 'send-keys M-h' { select-pane -L }
+# The plugin forwards ctrl+h/j/k/l into a pane running vim/nvim and moves
+# Herdr's pane focus everywhere else; see after/plugin/herdr-navigation.lua
+# in the Neovim config for the editor half.
+[[keys.command]]
+key = "cmd+h"
+type = "plugin_action"
+command = "vim-herdr-navigation.left"
+description = "focus pane left (vim-aware)"
+
+[[keys.command]]
+key = "alt+h"
+type = "plugin_action"
+command = "vim-herdr-navigation.left"
+description = "focus pane left (vim-aware)"
+
+[[keys.command]]
+key = "cmd+j"
+type = "plugin_action"
+command = "vim-herdr-navigation.down"
+description = "focus pane down (vim-aware)"
+
+[[keys.command]]
+key = "alt+j"
+type = "plugin_action"
+command = "vim-herdr-navigation.down"
+description = "focus pane down (vim-aware)"
+
+[[keys.command]]
+key = "cmd+k"
+type = "plugin_action"
+command = "vim-herdr-navigation.up"
+description = "focus pane up (vim-aware)"
+
+[[keys.command]]
+key = "alt+k"
+type = "plugin_action"
+command = "vim-herdr-navigation.up"
+description = "focus pane up (vim-aware)"
+
+[[keys.command]]
+key = "cmd+l"
+type = "plugin_action"
+command = "vim-herdr-navigation.right"
+description = "focus pane right (vim-aware)"
+
+[[keys.command]]
+key = "alt+l"
+type = "plugin_action"
+command = "vim-herdr-navigation.right"
+description = "focus pane right (vim-aware)"
+
+# tmux: @resurrect-capture-pane-contents 'on'
+[experimental]
+pane_history = true

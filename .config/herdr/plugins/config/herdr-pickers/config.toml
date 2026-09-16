@@ -1,0 +1,18 @@
+# Optional. popup (default) is a 75% centered float.
+# overlay is a full-pane zoom and hides Kitty images from the pane underneath.
+# placement = "overlay"
+
+[projects]
+# Optional. Parent directories that contain project repositories.
+# When empty, navigation mirrors repositories Herdr already tracks.
+# Set roots to include repositories not yet opened in Herdr.
+# Example: roots = ["~/projects"]
+roots = []
+
+# Optional. Each action list replaces only that action's default keys.
+# Actions: up, down, accept, reload.
+# Keys: up, down, enter, ctrl-a through ctrl-z, except ctrl-c.
+# Escape and Ctrl-C are fixed cancellation controls.
+# [keymap]
+# up = ["up", "ctrl-k"]
+# down = ["down", "ctrl-j"]

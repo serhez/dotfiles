@@ -1,7 +1,8 @@
-model = "gpt-6-astra"
-model_reasoning_effort = "xhigh"
+model = "gpt-5.6-sol"
+model_reasoning_effort = "medium"
 personality = "pragmatic"
 plan_mode_reasoning_effort = "high"
+
 [projects."/Users/ser/dev/llenvs"]
 trust_level = "trusted"
 
@@ -69,6 +70,12 @@ trust_level = "trusted"
 [projects."/Users/ser/dev/literature-scout"]
 trust_level = "trusted"
 
+[projects."/Users/ser/dev/dotfiles"]
+trust_level = "trusted"
+
+[projects."/Users/ser/.config/herdr"]
+trust_level = "trusted"
+
 [notice]
 hide_rate_limit_model_nudge = true
 
@@ -77,6 +84,7 @@ hide_rate_limit_model_nudge = true
 "gpt-5.2-codex" = "gpt-5.4"
 
 [features]
+hooks = true
 multi_agent = true
 apps = true
 
@@ -93,7 +101,7 @@ status_line = [
 [tui.model_availability_nux]
 "gpt-5.5" = 4
 "gpt-5.6-sol" = 1
-gpt-6-astra = 3
+gpt-6-astra = 4
 
 [mcp_servers.fff]
 command = "fff-mcp"
@@ -109,3 +117,38 @@ approval_mode = "approve"
 
 [plugins."github@openai-curated"]
 enabled = true
+
+[plugins."codex-app-tools@openai-bundled"]
+enabled = true
+
+[plugins."browser@openai-bundled"]
+enabled = true
+
+[plugins."unified-computer-use@openai-bundled"]
+enabled = true
+
+[plugins."computer-use@openai-bundled"]
+enabled = true
+
+[plugins."visualize@openai-bundled"]
+enabled = true
+
+[plugins."documents@openai-primary-runtime"]
+enabled = true
+
+[plugins."pdf@openai-primary-runtime"]
+enabled = true
+
+[plugins."spreadsheets@openai-primary-runtime"]
+enabled = true
+
+[plugins."presentations@openai-primary-runtime"]
+enabled = true
+
+[plugins."template-creator@openai-primary-runtime"]
+enabled = true
+
+[desktop]
+followUpQueueMode = "steer"
+conversationDetailMode = "STEPS_COMMANDS"
+ambient-suggestions-enabled = false

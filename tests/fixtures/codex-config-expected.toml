@@ -1,0 +1,20 @@
+model = "gpt-test"
+
+[features]
+hooks = true
+
+[mcp_servers.custom]
+command = "custom-mcp"
+
+[plugins."browser@openai-bundled"]
+enabled = true
+
+[desktop]
+followUpQueueMode = "steer"
+
+[marketplaces.personal]
+source_type = "git"
+source = "https://example.com/plugins.git"
+
+[projects."/work/project"]
+trust_level = "trusted"

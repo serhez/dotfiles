@@ -18,10 +18,22 @@ mkdir -p ./.claude ./.codex ./.config/opencode
 cp ~/.claude/settings.json ./.claude/settings.json
 cp ~/.claude/statusline-command.sh ./.claude/statusline-command.sh
 cp ~/.codex/AGENTS.md ./.codex/AGENTS.md
-cp ~/.codex/config.toml ./.codex/config.toml
+codex_config_tmp=$(mktemp)
+trap 'rm -f "$codex_config_tmp"' EXIT HUP INT TERM
+if ! awk -f ./_scripts/filter_codex_config.awk ~/.codex/config.toml >"$codex_config_tmp"; then
+	exit 1
+fi
+mv "$codex_config_tmp" ./.codex/config.toml
+trap - EXIT HUP INT TERM
 cp ~/.config/opencode/opencode.jsonc ./.config/opencode/opencode.jsonc
 ln -sfn ../.codex/AGENTS.md ./.claude/CLAUDE.md
 ln -sfn ../../.codex/AGENTS.md ./.config/opencode/AGENTS.md
+
+mkdir -p ./.config/herdr/plugins/config/beyondlex.herdr-recent-navigator
+mkdir -p ./.config/herdr/plugins/config/herdr-pickers
+cp ~/.config/herdr/config.toml ./.config/herdr/config.toml
+cp ~/.config/herdr/plugins/config/beyondlex.herdr-recent-navigator/config.toml ./.config/herdr/plugins/config/beyondlex.herdr-recent-navigator/config.toml
+cp ~/.config/herdr/plugins/config/herdr-pickers/config.toml ./.config/herdr/plugins/config/herdr-pickers/config.toml
 
 # Remove all content before copying
 rm -r ./.config/alacritty
