@@ -35,11 +35,13 @@ The fetch and install scripts track:
 - Codex's configuration from `~/.codex/config.toml`, excluding ChatGPT-app
   runtime paths, bundled local marketplace paths, and hook trust cache.
 - OpenCode's main configuration at `~/.config/opencode/opencode.jsonc`.
+- Herdr's official global skill for Claude Code and Codex.
 
 ## Herdr
 
 The fetch and install scripts track Herdr's main configuration and user-edited
 plugin settings. The installer also installs the plugins referenced by that
 configuration and regenerates Herdr's managed Claude, Codex, and OpenCode
-integrations. Runtime state, logs, session data, generated integration hooks,
-plugin registries, and downloaded plugin sources are not tracked.
+integrations. It also installs Herdr's official shared agent skill for Claude
+Code and Codex. Runtime state, logs, session data, generated integration hooks,
+plugin registries, downloaded plugin sources, and skill caches are not tracked.

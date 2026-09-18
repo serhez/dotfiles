@@ -63,6 +63,10 @@ delivery = "system"
 [ui.sound]
 enabled = false
 
+# Keep linked checkouts together without cluttering the normal project list.
+[worktrees]
+directory = "~/dev/.worktrees"
+
 # ───────────────────────────── Keybindings ────────────────────────────────
 # Every `bind -n` chord from tmux.conf is bound on both cmd and alt, cmd
 # first. Prefix chords follow tmux defaults.
@@ -89,11 +93,11 @@ toggle_sidebar   = ["cmd+b", "alt+b", "prefix+b"]
 goto             = ["cmd+g", "alt+g", "prefix+g"]  # spaces/tabs navigator
 
 # Worktrees are worktree-backed spaces, not a separate list, so they also show
-# up under cmd+s. These are the only worktree-specific actions Herdr has; both
+# up under cmd+s. These are the only worktree-specific actions Herdr has; they
 # need the focused space to sit inside a Git work tree.
-new_worktree    = ["cmd+ctrl+g", "alt+ctrl+g", "prefix+shift+g"]
-open_worktree   = ["cmd+shift+g", "alt+shift+g"]
-remove_worktree = "prefix+ctrl+g"
+open_worktree   = "cmd+w"
+new_worktree    = "cmd+shift+w"
+remove_worktree = "cmd+ctrl+w"  # Herdr always asks for confirmation
 
 # Panes
 split_vertical    = ['cmd+shift+\', 'alt+shift+\', "prefix+v"]   # tmux: split-window -h

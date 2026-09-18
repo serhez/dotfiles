@@ -330,6 +330,7 @@ herdr plugin install paulbkim-dev/vim-herdr-navigation --yes
 herdr integration install claude
 herdr integration install codex
 herdr integration install opencode
+npx --yes skills add herdrdev/herdr --skill herdr --agent claude-code codex --global --yes
 
 mkdir -p ~/.config/herdr/plugins/config/beyondlex.herdr-recent-navigator
 mkdir -p ~/.config/herdr/plugins/config/herdr-pickers
