@@ -211,6 +211,18 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # Change tmux window name on directory change
 export TMUX_PLUGIN_MANAGER_PATH="$HOME/.config/tmux/plugins/"
 
+# Herdr's server keeps the environment of whatever launched it, so its panes can
+# inherit TMUX/TERM_PROGRAM from a tmux session they are not actually part of.
+# Drop those only when tmux disowns this shell's $TMUX_PANE: a real tmux running
+# inside a herdr pane still claims it, and keeps its variables. TERM cannot be
+# repaired here -- herdr passes the outer terminal's TERM through, so a server
+# started from tmux hands every pane "tmux-256color" until it is restarted.
+if [[ -n "${HERDR_ENV:-}" && -n "${TMUX:-}" ]]; then
+    if ! tmux list-panes -a -F '#{pane_id}' 2>/dev/null | grep -qxF "${TMUX_PANE:-}"; then
+        unset TMUX TMUX_PANE TMUX_PLUGIN_MANAGER_PATH TERM_PROGRAM TERM_PROGRAM_VERSION
+    fi
+fi
+
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"

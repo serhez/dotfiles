@@ -230,7 +230,7 @@
     ],
     "defaultMode": "plan"
   },
-  "model": "claude-fable-5-1[1m]",
+  "model": "opus[1m]",
   "hooks": {
     "SessionStart": [
       {
@@ -260,7 +260,7 @@
       "effortLevel": "high"
     },
     "claude-opus-5": {
-      "effortLevel": "xhigh"
+      "effortLevel": "medium"
     }
   },
   "autoCompactWindow": 300000,
