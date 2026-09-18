@@ -325,7 +325,7 @@ ln -sfn ../../.codex/AGENTS.md ~/.config/opencode/AGENTS.md
 
 herdr plugin install beyondlex/herdr-recent-navigator --yes
 herdr plugin install sagmans/herdr-pickers --yes
-herdr plugin install piesuke/herdr-worktree-bootstrap --yes
+herdr plugin install serhez/herdr-worktree-sync --yes
 herdr plugin install paulbkim-dev/vim-herdr-navigation --yes
 herdr integration install claude
 herdr integration install codex

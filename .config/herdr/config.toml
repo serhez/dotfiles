@@ -52,6 +52,7 @@ pane_outer_borders = false         # tmux-style internal splitters, no outer fra
 pane_gaps = false                  # splits share a divider, like tmux
 pane_scrollbars = false            # tmux has none
 
+confirm_close = true               # always confirm the native workspace-close action
 prompt_new_tab_name = false        # tmux new-window does not prompt
 mouse_scroll_lines = 3
 
@@ -77,7 +78,7 @@ prefix = "ctrl+a"
 # Tabs (tmux windows)
 new_tab           = ["cmd+t", "alt+t", "prefix+c"]
 rename_tab        = ["cmd+r", "alt+r", "prefix+comma"]
-close_tab         = ["cmd+shift+x", "alt+shift+x", "prefix+shift+x"]
+close_tab         = ""  # handled by herdr-close-guard below
 switch_tab        = ["cmd+1..9", "alt+1..9", "prefix+1..9"]
 previous_tab      = ["cmd+[", "alt+[", "prefix+p"]
 next_tab          = ["cmd+]", "alt+]", "prefix+n"]
@@ -102,7 +103,7 @@ remove_worktree = "cmd+ctrl+w"  # Herdr always asks for confirmation
 # Panes
 split_vertical    = ['cmd+shift+\', 'alt+shift+\', "prefix+v"]   # tmux: split-window -h
 split_horizontal  = ["cmd+shift+minus", "alt+shift+minus", "prefix+minus"]  # tmux: split-window -v
-close_pane        = ["cmd+x", "alt+x", "prefix+x"]
+close_pane        = ""  # handled by herdr-close-guard below
 zoom              = ["cmd+z", "alt+z", "prefix+z"]
 focus_pane_left   = "prefix+h"   # cmd/alt+h/j/k/l go through the vim-aware plugin below
 focus_pane_down   = "prefix+j"
@@ -128,6 +129,64 @@ width = "95%"
 height = "95%"
 
 # ─────────────────────────── Plugin keybindings ───────────────────────────
+
+# Re-apply this repo's configured copy and symlink operations to the focused
+# linked worktree.
+[[keys.command]]
+key = "prefix+s"
+type = "plugin_action"
+command = "serhez.herdr.worktree.sync.sync"
+description = "sync worktree files"
+
+# Herdr natively confirms workspace closure. The close-guard plugin adds the
+# same protection to every pane and tab close, including non-final ones.
+[[keys.command]]
+key = "cmd+x"
+type = "popup"
+command = 'exec python3 "$HOME/dev/herdr-close-guard/src/close_guard.py" direct pane'
+description = "close pane (confirm)"
+width = 42
+height = 7
+
+[[keys.command]]
+key = "alt+x"
+type = "popup"
+command = 'exec python3 "$HOME/dev/herdr-close-guard/src/close_guard.py" direct pane'
+description = "close pane (confirm)"
+width = 42
+height = 7
+
+[[keys.command]]
+key = "prefix+x"
+type = "popup"
+command = 'exec python3 "$HOME/dev/herdr-close-guard/src/close_guard.py" direct pane'
+description = "close pane (confirm)"
+width = 42
+height = 7
+
+[[keys.command]]
+key = "cmd+shift+x"
+type = "popup"
+command = 'exec python3 "$HOME/dev/herdr-close-guard/src/close_guard.py" direct tab'
+description = "close tab (confirm)"
+width = 42
+height = 7
+
+[[keys.command]]
+key = "alt+shift+x"
+type = "popup"
+command = 'exec python3 "$HOME/dev/herdr-close-guard/src/close_guard.py" direct tab'
+description = "close tab (confirm)"
+width = 42
+height = 7
+
+[[keys.command]]
+key = "prefix+shift+x"
+type = "popup"
+command = 'exec python3 "$HOME/dev/herdr-close-guard/src/close_guard.py" direct tab'
+description = "close tab (confirm)"
+width = 42
+height = 7
 
 # tmux: bind -n 'M-s' run-shell "sesh connect ..." via fzf-tmux -p 50%,65%
 # Recent Navigator opens directly on the requested MRU view. Tab/Shift-Tab
